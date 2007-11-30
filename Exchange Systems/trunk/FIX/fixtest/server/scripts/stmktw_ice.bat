@@ -1,0 +1,1 @@
+java com.exsys.orderentry.ICEMktDataWindow -config c:\fixtest\server\config\mktwin-ice.cfg > test.log

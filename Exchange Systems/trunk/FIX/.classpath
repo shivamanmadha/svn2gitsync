@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry exported="true" kind="lib" path="C:/Program Files/Java/jre1.5.0_10/lib/rt.jar" sourcepath="C:/Program Files/Java/jdk1.5.0_10/src.zip"/>
+	<classpathentry exported="true" kind="lib" path="C:/Tibco/JMS/java/jms.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Tibco/JMS/java/jndi.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Tibco/JMS/java/tibjms.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Tibco/JMS/java/tibjmsadmin.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Tibco/JMS/java/tibjmsnaming.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/sw/log4j.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/sw/xerces.jar"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/java-1.5.0-gcj-1.5.0.0"/>
+	<classpathentry kind="output" path="build/classes"/>
+</classpath>
