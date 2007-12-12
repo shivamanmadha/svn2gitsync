@@ -1,0 +1,245 @@
+!SESSION 2007-12-11 10:09:26.718 -----------------------------------------------
+eclipse.buildId=M20070212-1330
+java.version=1.4.2_12
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -application org.eclipse.update.core.standaloneUpdate -command listFeatures
+Command-line arguments:  -application org.eclipse.update.core.standaloneUpdate -command listFeatures
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 10:09:41.729
+!MESSAGE Could not install bundle plugins/org.apache.axis_1.3.0.v200608161946/   Bundle "org.apache.axis" version "1.3.0.v200608161946" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.apache.axis_1.3.0.v200608161946/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 10:09:41.745
+!MESSAGE Could not install bundle plugins/org.apache.cactus_1.7.2.v200606181221/   Bundle "org.apache.cactus" version "1.7.2.v200606181221" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.apache.cactus_1.7.2.v200606181221/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 10:09:41.745
+!MESSAGE Could not install bundle plugins/org.apache.commons_logging_1.0.4.v200608011657/   Bundle "org.apache.commons_logging" version "1.0.4.v200608011657" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.apache.commons_logging_1.0.4.v200608011657/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 10:09:41.745
+!MESSAGE Could not install bundle plugins/org.apache.jakarta_log4j_1.2.8.v200607172048/   Bundle "org.apache.jakarta_log4j" version "1.2.8.v200607172048" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.apache.jakarta_log4j_1.2.8.v200607172048/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 10:09:41.760
+!MESSAGE Could not install bundle plugins/org.apache.wsil4j_1.0.0.v200608161946/   Bundle "org.apache.wsil4j" version "1.0.0.v200608161946" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.apache.wsil4j_1.0.0.v200608161946/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 10:09:41.776
+!MESSAGE Could not install bundle plugins/org.apache.xerces_2.8.0.v200606131651/   Bundle "org.apache.xerces" version "2.8.0.v200606131651" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.apache.xerces_2.8.0.v200606131651/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 10:09:41.791
+!MESSAGE Could not install bundle plugins/org.eclipse.wst.command.env_1.0.102.v200608222020/   Bundle "org.eclipse.wst.command.env" version "1.0.102.v200608222020" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.eclipse.wst.command.env_1.0.102.v200608222020/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 10:09:41.791
+!MESSAGE Could not install bundle plugins/org.eclipse.wst.rdb.core.ui_1.0.106.v200608212221/   Bundle "org.eclipse.wst.rdb.core.ui" version "1.0.106.v200608212221" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.eclipse.wst.rdb.core.ui_1.0.106.v200608212221/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 10:09:41.807
+!MESSAGE Could not install bundle plugins/org.eclipse.wst.rdb.outputview_1.0.106.v200608142103/   Bundle "org.eclipse.wst.rdb.outputview" version "1.0.106.v200608142103" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.eclipse.wst.rdb.outputview_1.0.106.v200608142103/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 10:09:41.807
+!MESSAGE Could not install bundle plugins/org.eclipse.wst.rdb.server.extensions_1.0.104.v200609181831/   Bundle "org.eclipse.wst.rdb.server.extensions" version "1.0.104.v200609181831" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.eclipse.wst.rdb.server.extensions_1.0.104.v200609181831/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 10:09:41.822
+!MESSAGE Could not install bundle plugins/org.eclipse.wst.rdb.sqleditor_1.0.105.v200609192136/   Bundle "org.eclipse.wst.rdb.sqleditor" version "1.0.105.v200609192136" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.eclipse.wst.rdb.sqleditor_1.0.105.v200609192136/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 10:09:41.822
+!MESSAGE Could not install bundle plugins/org.eclipse.wst.ws.explorer_1.0.103.v200610050252/   Bundle "org.eclipse.wst.ws.explorer" version "1.0.103.v200610050252" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.eclipse.wst.ws.explorer_1.0.103.v200610050252/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 10:09:41.838
+!MESSAGE Could not install bundle plugins/org.uddi4j_2.0.5.v200608231542/   Bundle "org.uddi4j" version "2.0.5.v200608231542" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.uddi4j_2.0.5.v200608231542/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 10:09:41.838
+!MESSAGE Could not install bundle plugins/org.wsdl4j_1.4.0.v200607181917/   Bundle "org.wsdl4j" version "1.4.0.v200607181917" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.wsdl4j_1.4.0.v200607181917/
+!SESSION 2007-12-11 12:16:55.343 -----------------------------------------------
+eclipse.buildId=M20070212-1330
+java.version=1.4.2_12
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -application org.eclipse.update.core.standaloneUpdate -command listFeatures
+Command-line arguments:  -application org.eclipse.update.core.standaloneUpdate -command listFeatures
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 12:17:05.281
+!MESSAGE Could not install bundle plugins/org.apache.axis_1.3.0.v200608161946/   Bundle "org.apache.axis" version "1.3.0.v200608161946" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.apache.axis_1.3.0.v200608161946/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 12:17:05.281
+!MESSAGE Could not install bundle plugins/org.apache.cactus_1.7.2.v200606181221/   Bundle "org.apache.cactus" version "1.7.2.v200606181221" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.apache.cactus_1.7.2.v200606181221/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 12:17:05.296
+!MESSAGE Could not install bundle plugins/org.apache.commons_logging_1.0.4.v200608011657/   Bundle "org.apache.commons_logging" version "1.0.4.v200608011657" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.apache.commons_logging_1.0.4.v200608011657/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 12:17:05.296
+!MESSAGE Could not install bundle plugins/org.apache.jakarta_log4j_1.2.8.v200607172048/   Bundle "org.apache.jakarta_log4j" version "1.2.8.v200607172048" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.apache.jakarta_log4j_1.2.8.v200607172048/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 12:17:05.312
+!MESSAGE Could not install bundle plugins/org.apache.wsil4j_1.0.0.v200608161946/   Bundle "org.apache.wsil4j" version "1.0.0.v200608161946" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.apache.wsil4j_1.0.0.v200608161946/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 12:17:05.328
+!MESSAGE Could not install bundle plugins/org.apache.xerces_2.8.0.v200606131651/   Bundle "org.apache.xerces" version "2.8.0.v200606131651" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.apache.xerces_2.8.0.v200606131651/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 12:17:05.343
+!MESSAGE Could not install bundle plugins/org.eclipse.wst.command.env_1.0.102.v200608222020/   Bundle "org.eclipse.wst.command.env" version "1.0.102.v200608222020" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.eclipse.wst.command.env_1.0.102.v200608222020/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 12:17:05.343
+!MESSAGE Could not install bundle plugins/org.eclipse.wst.rdb.core.ui_1.0.106.v200608212221/   Bundle "org.eclipse.wst.rdb.core.ui" version "1.0.106.v200608212221" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.eclipse.wst.rdb.core.ui_1.0.106.v200608212221/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 12:17:05.359
+!MESSAGE Could not install bundle plugins/org.eclipse.wst.rdb.outputview_1.0.106.v200608142103/   Bundle "org.eclipse.wst.rdb.outputview" version "1.0.106.v200608142103" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.eclipse.wst.rdb.outputview_1.0.106.v200608142103/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 12:17:05.359
+!MESSAGE Could not install bundle plugins/org.eclipse.wst.rdb.server.extensions_1.0.104.v200609181831/   Bundle "org.eclipse.wst.rdb.server.extensions" version "1.0.104.v200609181831" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.eclipse.wst.rdb.server.extensions_1.0.104.v200609181831/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 12:17:05.374
+!MESSAGE Could not install bundle plugins/org.eclipse.wst.rdb.sqleditor_1.0.105.v200609192136/   Bundle "org.eclipse.wst.rdb.sqleditor" version "1.0.105.v200609192136" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.eclipse.wst.rdb.sqleditor_1.0.105.v200609192136/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 12:17:05.374
+!MESSAGE Could not install bundle plugins/org.eclipse.wst.ws.explorer_1.0.103.v200610050252/   Bundle "org.eclipse.wst.ws.explorer" version "1.0.103.v200610050252" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.eclipse.wst.ws.explorer_1.0.103.v200610050252/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 12:17:05.390
+!MESSAGE Could not install bundle plugins/org.uddi4j_2.0.5.v200608231542/   Bundle "org.uddi4j" version "2.0.5.v200608231542" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.uddi4j_2.0.5.v200608231542/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 12:17:05.390
+!MESSAGE Could not install bundle plugins/org.wsdl4j_1.4.0.v200607181917/   Bundle "org.wsdl4j" version "1.4.0.v200607181917" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.wsdl4j_1.4.0.v200607181917/
+!SESSION 2007-12-11 12:23:25.907 -----------------------------------------------
+eclipse.buildId=M20070212-1330
+java.version=1.4.2_12
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -showlocation
+Command-line arguments:  -os win32 -ws win32 -arch x86 -showlocation
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 12:23:28.828
+!MESSAGE Could not install bundle plugins/org.apache.axis_1.3.0.v200608161946/   Bundle "org.apache.axis" version "1.3.0.v200608161946" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.apache.axis_1.3.0.v200608161946/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 12:23:28.844
+!MESSAGE Could not install bundle plugins/org.apache.cactus_1.7.2.v200606181221/   Bundle "org.apache.cactus" version "1.7.2.v200606181221" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.apache.cactus_1.7.2.v200606181221/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 12:23:28.844
+!MESSAGE Could not install bundle plugins/org.apache.commons_logging_1.0.4.v200608011657/   Bundle "org.apache.commons_logging" version "1.0.4.v200608011657" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.apache.commons_logging_1.0.4.v200608011657/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 12:23:28.860
+!MESSAGE Could not install bundle plugins/org.apache.jakarta_log4j_1.2.8.v200607172048/   Bundle "org.apache.jakarta_log4j" version "1.2.8.v200607172048" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.apache.jakarta_log4j_1.2.8.v200607172048/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 12:23:28.860
+!MESSAGE Could not install bundle plugins/org.apache.wsil4j_1.0.0.v200608161946/   Bundle "org.apache.wsil4j" version "1.0.0.v200608161946" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.apache.wsil4j_1.0.0.v200608161946/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 12:23:28.875
+!MESSAGE Could not install bundle plugins/org.apache.xerces_2.8.0.v200606131651/   Bundle "org.apache.xerces" version "2.8.0.v200606131651" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.apache.xerces_2.8.0.v200606131651/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 12:23:28.907
+!MESSAGE Could not install bundle plugins/org.eclipse.wst.command.env_1.0.102.v200608222020/   Bundle "org.eclipse.wst.command.env" version "1.0.102.v200608222020" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.eclipse.wst.command.env_1.0.102.v200608222020/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 12:23:28.907
+!MESSAGE Could not install bundle plugins/org.eclipse.wst.rdb.core.ui_1.0.106.v200608212221/   Bundle "org.eclipse.wst.rdb.core.ui" version "1.0.106.v200608212221" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.eclipse.wst.rdb.core.ui_1.0.106.v200608212221/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 12:23:28.907
+!MESSAGE Could not install bundle plugins/org.eclipse.wst.rdb.outputview_1.0.106.v200608142103/   Bundle "org.eclipse.wst.rdb.outputview" version "1.0.106.v200608142103" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.eclipse.wst.rdb.outputview_1.0.106.v200608142103/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 12:23:28.922
+!MESSAGE Could not install bundle plugins/org.eclipse.wst.rdb.server.extensions_1.0.104.v200609181831/   Bundle "org.eclipse.wst.rdb.server.extensions" version "1.0.104.v200609181831" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.eclipse.wst.rdb.server.extensions_1.0.104.v200609181831/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 12:23:28.922
+!MESSAGE Could not install bundle plugins/org.eclipse.wst.rdb.sqleditor_1.0.105.v200609192136/   Bundle "org.eclipse.wst.rdb.sqleditor" version "1.0.105.v200609192136" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.eclipse.wst.rdb.sqleditor_1.0.105.v200609192136/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 12:23:28.938
+!MESSAGE Could not install bundle plugins/org.eclipse.wst.ws.explorer_1.0.103.v200610050252/   Bundle "org.eclipse.wst.ws.explorer" version "1.0.103.v200610050252" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.eclipse.wst.ws.explorer_1.0.103.v200610050252/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 12:23:28.938
+!MESSAGE Could not install bundle plugins/org.uddi4j_2.0.5.v200608231542/   Bundle "org.uddi4j" version "2.0.5.v200608231542" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.uddi4j_2.0.5.v200608231542/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 12:23:28.953
+!MESSAGE Could not install bundle plugins/org.wsdl4j_1.4.0.v200607181917/   Bundle "org.wsdl4j" version "1.4.0.v200607181917" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.wsdl4j_1.4.0.v200607181917/
+!SESSION 2007-12-11 12:39:01.484 -----------------------------------------------
+eclipse.buildId=M20070212-1330
+java.version=1.4.2_12
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -application org.eclipse.update.core.standaloneUpdate -command listFeatures
+Command-line arguments:  -application org.eclipse.update.core.standaloneUpdate -command listFeatures
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 12:39:15.793
+!MESSAGE Could not install bundle plugins/org.apache.axis_1.3.0.v200608161946/   Bundle "org.apache.axis" version "1.3.0.v200608161946" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.apache.axis_1.3.0.v200608161946/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 12:39:15.793
+!MESSAGE Could not install bundle plugins/org.apache.cactus_1.7.2.v200606181221/   Bundle "org.apache.cactus" version "1.7.2.v200606181221" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.apache.cactus_1.7.2.v200606181221/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 12:39:15.808
+!MESSAGE Could not install bundle plugins/org.apache.commons_logging_1.0.4.v200608011657/   Bundle "org.apache.commons_logging" version "1.0.4.v200608011657" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.apache.commons_logging_1.0.4.v200608011657/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 12:39:15.808
+!MESSAGE Could not install bundle plugins/org.apache.jakarta_log4j_1.2.8.v200607172048/   Bundle "org.apache.jakarta_log4j" version "1.2.8.v200607172048" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.apache.jakarta_log4j_1.2.8.v200607172048/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 12:39:15.823
+!MESSAGE Could not install bundle plugins/org.apache.wsil4j_1.0.0.v200608161946/   Bundle "org.apache.wsil4j" version "1.0.0.v200608161946" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.apache.wsil4j_1.0.0.v200608161946/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 12:39:15.838
+!MESSAGE Could not install bundle plugins/org.apache.xerces_2.8.0.v200606131651/   Bundle "org.apache.xerces" version "2.8.0.v200606131651" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.apache.xerces_2.8.0.v200606131651/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 12:39:15.853
+!MESSAGE Could not install bundle plugins/org.eclipse.wst.command.env_1.0.102.v200608222020/   Bundle "org.eclipse.wst.command.env" version "1.0.102.v200608222020" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.eclipse.wst.command.env_1.0.102.v200608222020/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 12:39:15.853
+!MESSAGE Could not install bundle plugins/org.eclipse.wst.rdb.core.ui_1.0.106.v200608212221/   Bundle "org.eclipse.wst.rdb.core.ui" version "1.0.106.v200608212221" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.eclipse.wst.rdb.core.ui_1.0.106.v200608212221/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 12:39:15.869
+!MESSAGE Could not install bundle plugins/org.eclipse.wst.rdb.outputview_1.0.106.v200608142103/   Bundle "org.eclipse.wst.rdb.outputview" version "1.0.106.v200608142103" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.eclipse.wst.rdb.outputview_1.0.106.v200608142103/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 12:39:15.869
+!MESSAGE Could not install bundle plugins/org.eclipse.wst.rdb.server.extensions_1.0.104.v200609181831/   Bundle "org.eclipse.wst.rdb.server.extensions" version "1.0.104.v200609181831" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.eclipse.wst.rdb.server.extensions_1.0.104.v200609181831/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 12:39:15.884
+!MESSAGE Could not install bundle plugins/org.eclipse.wst.rdb.sqleditor_1.0.105.v200609192136/   Bundle "org.eclipse.wst.rdb.sqleditor" version "1.0.105.v200609192136" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.eclipse.wst.rdb.sqleditor_1.0.105.v200609192136/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 12:39:15.884
+!MESSAGE Could not install bundle plugins/org.eclipse.wst.ws.explorer_1.0.103.v200610050252/   Bundle "org.eclipse.wst.ws.explorer" version "1.0.103.v200610050252" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.eclipse.wst.ws.explorer_1.0.103.v200610050252/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 12:39:15.884
+!MESSAGE Could not install bundle plugins/org.uddi4j_2.0.5.v200608231542/   Bundle "org.uddi4j" version "2.0.5.v200608231542" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.uddi4j_2.0.5.v200608231542/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 12:39:15.899
+!MESSAGE Could not install bundle plugins/org.wsdl4j_1.4.0.v200607181917/   Bundle "org.wsdl4j" version "1.4.0.v200607181917" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.wsdl4j_1.4.0.v200607181917/
+!SESSION 2007-12-11 13:13:28.864 -----------------------------------------------
+eclipse.buildId=M20070212-1330
+java.version=1.4.2_12
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -application org.eclipse.update.core.standaloneUpdate -command listFeatures
+Command-line arguments:  -application org.eclipse.update.core.standaloneUpdate -command listFeatures
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 13:13:40.555
+!MESSAGE Could not install bundle plugins/org.apache.axis_1.3.0.v200608161946/   Bundle "org.apache.axis" version "1.3.0.v200608161946" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.apache.axis_1.3.0.v200608161946/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 13:13:40.555
+!MESSAGE Could not install bundle plugins/org.apache.cactus_1.7.2.v200606181221/   Bundle "org.apache.cactus" version "1.7.2.v200606181221" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.apache.cactus_1.7.2.v200606181221/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 13:13:40.571
+!MESSAGE Could not install bundle plugins/org.apache.commons_logging_1.0.4.v200608011657/   Bundle "org.apache.commons_logging" version "1.0.4.v200608011657" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.apache.commons_logging_1.0.4.v200608011657/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 13:13:40.571
+!MESSAGE Could not install bundle plugins/org.apache.jakarta_log4j_1.2.8.v200607172048/   Bundle "org.apache.jakarta_log4j" version "1.2.8.v200607172048" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.apache.jakarta_log4j_1.2.8.v200607172048/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 13:13:40.586
+!MESSAGE Could not install bundle plugins/org.apache.wsil4j_1.0.0.v200608161946/   Bundle "org.apache.wsil4j" version "1.0.0.v200608161946" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.apache.wsil4j_1.0.0.v200608161946/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 13:13:40.602
+!MESSAGE Could not install bundle plugins/org.apache.xerces_2.8.0.v200606131651/   Bundle "org.apache.xerces" version "2.8.0.v200606131651" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.apache.xerces_2.8.0.v200606131651/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 13:13:40.617
+!MESSAGE Could not install bundle plugins/org.eclipse.wst.command.env_1.0.102.v200608222020/   Bundle "org.eclipse.wst.command.env" version "1.0.102.v200608222020" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.eclipse.wst.command.env_1.0.102.v200608222020/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 13:13:40.617
+!MESSAGE Could not install bundle plugins/org.eclipse.wst.rdb.core.ui_1.0.106.v200608212221/   Bundle "org.eclipse.wst.rdb.core.ui" version "1.0.106.v200608212221" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.eclipse.wst.rdb.core.ui_1.0.106.v200608212221/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 13:13:40.617
+!MESSAGE Could not install bundle plugins/org.eclipse.wst.rdb.outputview_1.0.106.v200608142103/   Bundle "org.eclipse.wst.rdb.outputview" version "1.0.106.v200608142103" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.eclipse.wst.rdb.outputview_1.0.106.v200608142103/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 13:13:40.633
+!MESSAGE Could not install bundle plugins/org.eclipse.wst.rdb.server.extensions_1.0.104.v200609181831/   Bundle "org.eclipse.wst.rdb.server.extensions" version "1.0.104.v200609181831" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.eclipse.wst.rdb.server.extensions_1.0.104.v200609181831/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 13:13:40.633
+!MESSAGE Could not install bundle plugins/org.eclipse.wst.rdb.sqleditor_1.0.105.v200609192136/   Bundle "org.eclipse.wst.rdb.sqleditor" version "1.0.105.v200609192136" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.eclipse.wst.rdb.sqleditor_1.0.105.v200609192136/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 13:13:40.648
+!MESSAGE Could not install bundle plugins/org.eclipse.wst.ws.explorer_1.0.103.v200610050252/   Bundle "org.eclipse.wst.ws.explorer" version "1.0.103.v200610050252" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.eclipse.wst.ws.explorer_1.0.103.v200610050252/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 13:13:40.648
+!MESSAGE Could not install bundle plugins/org.uddi4j_2.0.5.v200608231542/   Bundle "org.uddi4j" version "2.0.5.v200608231542" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.uddi4j_2.0.5.v200608231542/
+
+!ENTRY org.eclipse.update.configurator 2007-12-11 13:13:40.663
+!MESSAGE Could not install bundle plugins/org.wsdl4j_1.4.0.v200607181917/   Bundle "org.wsdl4j" version "1.4.0.v200607181917" has already been installed from: update@../../ExadelStudio/eclipse/plugins/org.wsdl4j_1.4.0.v200607181917/
