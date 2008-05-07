@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<service id="remoting-service" 
+    class="flex.messaging.services.RemotingService">
+
+    <adapters>
+        <adapter-definition id="java-object" class="flex.messaging.services.remoting.adapters.JavaAdapter" default="true"/>
+    </adapters>
+
+    <default-channels>
+        <channel ref="my-amf"/>
+    </default-channels>
+	
+	<destination channels="my-amf" id="PDFService">
+        <properties>
+            <source>ExchangeDB.PDFService</source>
+        </properties>
+    </destination>
+
+    <!-- Note: XDP based PDF generation requires a valid license. This
+         sample destination will not work unless a valid key is registered for
+         the the fds property in the /WEB-INF/flex/license.properties file.
+     -->
+    <destination channels="my-amf" id="XDPXFAService">
+        <properties>
+            <source>ExchangeDB.XDPXFAService</source>
+        </properties>
+    </destination>
+
+</service>

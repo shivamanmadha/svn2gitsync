@@ -1,0 +1,1 @@
+start java com.exsys.orderentry.TraderWindow -config c:\fixtest\server\config\joe-ice.cfg

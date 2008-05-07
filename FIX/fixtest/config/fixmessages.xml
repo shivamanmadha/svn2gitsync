@@ -1,0 +1,1793 @@
+<FixMessages>
+
+<FixMessage type="HEADER" name="FixHeader">
+
+<FixMessageLine tagNumber="8" tagName="BeginString" required="Yes">
+<Comment>FIX4.2( Always unencripted, must be first field in message)</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+
+<FixMessageLine tagNumber="9" tagName="BodyLength" required="Yes">
+<Comment>Always unencripted, must be second field in message</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+
+<FixMessageLine tagNumber="35" tagName="MsgType" required="Yes">
+<Comment>Always unencrypted, must be third field in message</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+
+<FixMessageLine tagNumber="49" tagName="SenderCompID" required="Yes">
+<Comment>Always unencrypted</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+
+<FixMessageLine tagNumber="56" tagName="TargetCompID" required="Yes">
+<Comment>Always unencrypted</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+
+<FixMessageLine tagNumber="115" tagName="OnBehalfOfCompID" required="No">
+<Comment>Trading partner company ID used when sending messages via a third party 
+(Can be embedded within encrypted data section.)</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+
+<FixMessageLine tagNumber="128" tagName="DeliverToCompID" required="No">
+<Comment>Trading partner company ID used when sending messages via a third party 
+(Can be embedded within encrypted data section.)</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+
+<FixMessageLine tagNumber="90" tagName="SecureDataLen" required="No">
+<Comment>Required to identify length of encrypted section of message. (Always unencrypted)</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+
+<FixMessageLine tagNumber="91" tagName="SecureData" required="No">
+<Comment>Required when message body is encrypted.  Always immediately follows SecureDataLen field.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+
+<FixMessageLine tagNumber="34" tagName="MsgSeqNum" required="Yes">
+<Comment>Can be embedded within encrypted data section</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+
+<FixMessageLine tagNumber="50" tagName="SenderSubID" required="No">
+<Comment>Can be embedded within encrypted data section</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+
+<FixMessageLine tagNumber="142" tagName="SenderLocationID" required="No">
+<Comment>Sender's LocationID (i.e. geographic location and/or desk) (Can be embedded within 
+encrypted data section.)</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+
+<FixMessageLine tagNumber="57" tagName="TargetSubID" required="No">
+<Comment>ADMIN reserved for administrative messages not intended 
+for a specific user. (Can be embedded within encrypted data section.)</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+
+<FixMessageLine tagNumber="143" tagName="TargetLocationID" required="No">
+<Comment>Trading partner LocationID (i.e. geographic location and/or desk) 
+(Can be embedded within encrypted data section.)
+</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+
+<FixMessageLine tagNumber="116" tagName="OnBehalfOfSubID" required="No">
+<Comment>Trading partner SubID used when delivering messages via a third party. 
+(Can be embedded within encrypted data section.)</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+
+<FixMessageLine tagNumber="144" tagName="OnBehalfOfLocationID" required="No">
+<Comment>Trading partner LocationID (i.e. geographic location and/or desk) 
+used when delivering messages via a third party. 
+(Can be embedded within encrypted data section.)</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+
+<FixMessageLine tagNumber="129" tagName="DeliverToSubID" required="No">
+<Comment>Trading partner SubID used when delivering messages via a third party. 
+(Can be embedded within encrypted data section.)</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+
+<FixMessageLine tagNumber="145" tagName="DeliverToLocationID" required="No">
+<Comment>Trading partner LocationID (i.e. geographic location and/or desk) used when 
+delivering messages via a third party. (Can be embedded within encrypted data section.)</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+
+<FixMessageLine tagNumber="43" tagName="PossDupFlag" required="No">
+<Comment>Always required for retransmitted messages, whether prompted by the sending 
+system or as the result of a resend request. 
+(Can be embedded within encrypted data section.)</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+
+<FixMessageLine tagNumber="97" tagName="PossResend" required="No">
+<Comment>Required when message may be duplicate of another message sent under a 
+different sequence number. (Can be embedded within encrypted data section.)</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+
+<FixMessageLine tagNumber="52" tagName="SendingTime" required="Yes">
+<Comment>Can be embedded within encrypted data section</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+
+<FixMessageLine tagNumber="122" tagName="OrigSendingTime" required="No">
+<Comment>Required for message resends.  If data is not available set to same 
+value as SendingTime  (Can be embedded within encrypted data section.)</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+
+<FixMessageLine tagNumber="212" tagName="XmlDataLen" required="No">
+<Comment>Required when specifying XmlData to identify the length of a 
+XmlData message block.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+
+<FixMessageLine tagNumber="213" tagName="XmlData" required="No">
+<Comment>Can contain a XML formatted message block (e.g. FIXML).
+Always immediately follows XmlDataLen field.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+
+<FixMessageLine tagNumber="347" tagName="MessageEncoding" required="No">
+<Comment>Type of message encoding (non-ASCII characters) used in a message's 
+"Encoded" fields.  Required if any "Encoding" fields are used.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+
+<FixMessageLine tagNumber="369" tagName="LastMsgSeqNumProcessed" required="No">
+<Comment>The last MsgSeqNum value received and processed.  
+Can be specified on every message sent.  Useful for detecting a 
+backlog with a counterparty.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+
+<FixMessageLine tagNumber="370" tagName="OnBehalfOfSendingTime" required="No">
+<Comment>Used when a message is sent via a "hub" or "service bureau".  
+If A sends to Q (the hub) who then sends to B via a separate FIX session, then 
+]when Q sends to B the value of this field should represent the SendingTime on 
+the message A sent to Q.   (always expressed in UTC 
+(Universal Time Coordinated, also known as GMT)</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+
+</FixMessage>
+
+
+
+
+<FixMessage type="TRAILER" name="FixTrailer">
+
+<FixMessageLine tagNumber="93" tagName="SignatureLength" required="No">
+<Comment>Required when trailer contains signature. Note: Not to be included within SecureData field</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+
+<FixMessageLine tagNumber="89" tagName="Signature" required="No">
+<Comment>Note: Not to be included within SecureData field</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+
+<FixMessageLine tagNumber="10" tagName="CheckSum" required="Yes">
+<Comment>Always unencripted, always last field in message</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+</FixMessage>
+
+
+	
+<FixMessage type="0" name="Heartbeat">
+<FixMessageLine tagNumber="112" tagName="TestReqID" required="No">
+<Comment>Required when the heartbeat is the result of a Test Request message</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+</FixMessage>
+
+
+<FixMessage type="A" name="Logon">
+<FixMessageLine tagNumber="98" tagName="EncryptMethod" required="Yes">
+<Comment>Always unencrypted</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="108" tagName="HeartBtInt" required="Yes">
+<Comment> </Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="95" tagName="RawDataLength" required="No">
+<Comment>Required for some authentication methods</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="96" tagName="RawData" required="No">
+<Comment>Always unencrypted</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="141" tagName="ResetSeqNumFlag" required="No">
+<Comment>Indicates both sides of a FIX session should reset sequence numbers</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="383" tagName="MaxMessageSize" required="No">
+<Comment>	Can be used to specify the maximum number of bytes supported for messages received</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="384" tagName="NoMsgTypes" required="No">
+<Comment>Specifies the number of repeating MsgTypes specified</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="35" tagName="MsgType" required="No">
+<Comment>Specifies a specific, supported MsgType.  Required if NoMsgTypes is > 0.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="385" tagName="MsgDirection" required="No">
+<Comment>Indicates direction (send vs. receive) of a supported MsgType.  Required if NoMsgTypes is > 0.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+</FixMessage>
+
+<FixMessage type="1" name="Test Request">
+<FixMessageLine tagNumber="112" tagName="TestReqID" required="Yes">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+</FixMessage>
+
+<FixMessage type="2" name="Resend Request">
+<FixMessageLine tagNumber="7" tagName="BeginSeqNo" required="Yes">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="16" tagName="EndSeqNo" required="Yes">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+</FixMessage>
+
+<FixMessage type="3" name="Reject">
+<FixMessageLine tagNumber="45" tagName="RefSeqNum" required="Yes">
+<Comment>MsgSeqNum of rejected message</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="371" tagName="RefTagID" required="No">
+<Comment>The tag number of the FIX field being referenced</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="372" tagName="RefMsgType" required="No">
+<Comment>The MsgType of the FIX message being referenced.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="373" tagName="SessionRejectReason" required="No">
+<Comment>Code to identify reason for a session-level Reject message.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="58" tagName="Text" required="No">
+<Comment>Where possible, message to explain reason for rejection</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="354" tagName="EncodedTextLen" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="355" tagName="EncodedText" required="No">
+<Comment>Encoded (non-ASCII characters) representation of the Text field in the 
+encoded format specified via the MessageEncoding field.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+</FixMessage>
+
+<FixMessage type="4" name="Sequence Reset">
+<FixMessageLine tagNumber="123" tagName="GapFillFlag" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="36" tagName="NewSeqNo" required="Yes">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+</FixMessage>
+
+<FixMessage type="5" name="Logout">
+<FixMessageLine tagNumber="58" tagName="Text" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="354" tagName="EncodedTextLen" required="No">
+<Comment>Must be set if EncodedText field is specified and must immediately precede it.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="355" tagName="EncodedText" required="No">
+<Comment>Encoded (non-ASCII characters) representation of the Text field in the encoded 
+format specified via the MessageEncoding field.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+</FixMessage>
+
+<FixMessage type="D" name="New Order - Single">
+<FixMessageLine tagNumber="11" tagName="ClOrdID" required="Yes">
+<Comment>Unique identifier of the order as assigned by institution.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="109" tagName="ClientID" required="No">
+<Comment>Used for firm identification in third-party transactions.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="76" tagName="ExecBroker" required="No">
+<Comment>Used for firm identification in third-party transactions</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="1" tagName="Account" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="78" tagName="NoAllocs" required="No">
+<Comment>Number of repeating groups for pre-trade allocation</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="79" tagName="AllocAccount" required="No">
+<Comment>Required if NoAllocs > 0.  Must be first field in repeating group.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="80" tagName="AllocShares" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="63" tagName="SettlmntTyp" required="No">
+<Comment>Absence of this field is interpreted as Regular.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="64" tagName="FutSettDate" required="No">
+<Comment>Required when SettlmntTyp = 6 (Future) or SettlmntTyp = 8 (Sellers Option)</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="21" tagName="HandlInst" required="Yes">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="18" tagName="ExecInst" required="No">
+<Comment>Can contain multiple instructions, space delimited</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="110" tagName="MinQty" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="111" tagName="MaxFloor" required="No">
+<Comment>Unique identifier of the order as assigned by institution.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="100" tagName="ExDestination" required="No">
+<Comment>Used for firm identification in third-party transactions.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="386" tagName="NoTradingSessions" required="No">
+<Comment>Specifies the number of repeating TradingSessionIDs</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="336" tagName="TradingSessionID" required="No">
+<Comment>Required if NoTradingSessions is > 0.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="81" tagName="ProcessCode" required="No">
+<Comment>Used to identify soft trades at order entry.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="55" tagName="Symbol" required="Yes">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="65" tagName="SymbolSfx" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="48" tagName="SecurityID" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="22" tagName="IDSource" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="167" tagName="SecurityType" required="No">
+<Comment>	Must be specified if a Future or Option.  If a Future: Symbol, 
+SecurityType, and MaturityMonthYear are required.  If an Option: Symbol, SecurityType, 
+MaturityMonthYear, PutOrCall, and StrikePrice are required.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="200" tagName="MaturityMonthYear" required="No">
+<Comment>For Options or Futures to specify the month and year of maturity.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="205" tagName="MaturityDay" required="No">
+<Comment>	For Options or Futures and can be used in conjunction with 
+MaturityMonthYear to specify a particular maturity date.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="201" tagName="PutOrCall" required="No">
+<Comment>For Options.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="202" tagName="StrikePrice" required="No">
+<Comment>For Options.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="206" tagName="OptAttribute" required="No">
+<Comment>For Options.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="231" tagName="ContractMultiplier" required="No">
+<Comment>	For Fixed Income, Convertible Bonds, Derivatives, etc.  Note: 
+If used, quantities should be expressed in the "nominal" (e.g. contracts vs. shares) 
+amount.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="223" tagName="CouponRate" required="No">
+<Comment>For Fixed Income.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="207" tagName="SecurityExchange" required="No">
+<Comment>Specifies the number of repeating TradingSessionIDs</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="22" tagName="IDSource" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="167" tagName="SecurityType" required="No">
+<Comment>	Must be specified if a Future or Option.  If a Future: Symbol, 
+SecurityType, and MaturityMonthYear are required.  If an Option: Symbol, SecurityType, 
+MaturityMonthYear, PutOrCall, and StrikePrice are required.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="200" tagName="MaturityMonthYear" required="No">
+<Comment>For Options or Futures to specify the month and year of maturity.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="205" tagName="MaturityDay" required="No">
+<Comment>	For Options or Futures and can be used in conjunction with 
+MaturityMonthYear to specify a particular maturity date.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="201" tagName="PutOrCall" required="No">
+<Comment>For Options.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="202" tagName="StrikePrice" required="No">
+<Comment>For Options.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="206" tagName="OptAttribute" required="No">
+<Comment>For Options.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="231" tagName="ContractMultiplier" required="No">
+<Comment>	For Fixed Income, Convertible Bonds, Derivatives, etc.  Note: 
+If used, quantities should be expressed in the "nominal" (e.g. contracts vs. shares) 
+amount.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="223" tagName="CouponRate" required="No">
+<Comment>For Fixed Income.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="207" tagName="SecurityExchange" required="No">
+<Comment>Specifies the number of repeating TradingSessionIDs</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="106" tagName="Issuer" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="348" tagName="EncodedIssuerLen" required="No">
+<Comment>Must be set if EncodedIssuer field is specified and must immediately 
+precede it.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="349" tagName="EncodedIssuer" required="No">
+<Comment>Encoded (non-ASCII characters) representation of the Issuer field in the 
+encoded format specified via the MessageEncoding field.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="107" tagName="SecurityDesc" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="350" tagName="EncodedSecurityDescLen" required="No">
+<Comment>Must be set if EncodedSecurityDesc field is specified and must immediately precede it.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="351" tagName="EncodedSecurityDesc" required="No">
+<Comment>	Encoded (non-ASCII characters) representation of the 
+SecurityDesc field in the encoded format specified via the MessageEncoding field.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="140" tagName="PrevClosePx" required="No">
+<Comment>Useful for verifying security identification</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="54" tagName="Side" required="Yes">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="114" tagName="LocateReqd" required="No">
+<Comment>Required for short sell orders</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="60" tagName="TransactTime" required="Yes">
+<Comment>Time this order request was initiated/released by the trader or trading system.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="38" tagName="OrderQty" required="No">
+<Comment>Either CashOrderQty or OrderQty is required</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="152" tagName="CashOrderQty" required="No">
+<Comment>Either CashOrderQty or OrderQty is required.  Specifies the approximate 
+monetary quantity for the order.  Broker is responsible for converting and 
+calculating OrderQty in shares for subsequent messages.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="40" tagName="OrdType" required="Yes">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="44" tagName="Price" required="No">
+<Comment>Required for limit OrdTypes. For F/X orders, should be the "all-in" rate 
+(spot rate adjusted for forward points).  Can be used to specify a limit price for a pegged 
+order, previously indicated, etc.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="99" tagName="StopPx" required="No">
+<Comment>Required for OrdType = "Stop" or OrdType = "Stop limit".</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="15" tagName="Currency" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="376" tagName="ComplianceID" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="377" tagName="SolicitedFlag" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="23" tagName="IOIid" required="No">
+<Comment>Required for Previously Indicated Orders (OrdType=E)</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="117" tagName="QuoteID" required="No">
+<Comment>Required for Previously Quoted Orders (OrdType=D)</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="59" tagName="TimeInForce" required="No">
+<Comment>Absence of this field indicates Day order</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="168" tagName="EffectiveTime" required="No">
+<Comment>Can specify the time at which the order should be considered valid</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="432" tagName="ExpireDate" required="No">
+<Comment>Conditionally required if TimeInForce = GTD and ExpireTime is not specified.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="126" tagName="ExpireTime" required="No">
+<Comment>Conditionally required if TimeInForce = GTD and ExpireDate is not specified.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="12" tagName="Commission" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="13" tagName="CommType" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="47" tagName="Rule80A" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="121" tagName="ForexReq" required="No">
+<Comment>Indicates that broker is requested to execute a Forex 
+accommodation trade in conjunction with the security trade.  </Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="120" tagName="SettlCurrency" required="No">
+<Comment>Required if ForexReq = Y.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="58" tagName="Text" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="354" tagName="EncodedTextLen" required="No">
+<Comment>Must be set if EncodedText field is specified and must immediately precede it.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="355" tagName="EncodedText" required="No">
+<Comment>Encoded (non-ASCII characters) representation of the Text field in the 
+encoded format specified via the MessageEncoding field.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="193" tagName="FutSettDate2" required="No">
+<Comment>Can be used with OrdType = "Forex - Swap" to specify the "value date" for 
+the future portion of a F/X swap.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="192" tagName="OrderQty2" required="No">
+<Comment>Can be used with OrdType = "Forex - Swap" to specify the order 
+quantity  for the future portion of a F/X swap.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="77" tagName="OpenClose" required="No">
+<Comment>For options</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="203" tagName="CoveredOrUncovered" required="No">
+<Comment>For options</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="204" tagName="CustomerOrFirm" required="No">
+<Comment>For options when delivering the order to execution system/exchange.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="210" tagName="MaxShow" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="211" tagName="PegDifference" required="No">
+<Comment>Amount (signed) added to the price of the peg</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="388" tagName="DiscretionInst" required="No">
+<Comment>Code to identify the price a DiscretionOffset is related to and should be 
+mathematically added to.  Required if DiscretionOffset is specified.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="389" tagName="DiscretionOffset" required="No">
+<Comment>Amount (signed) added to the "related to" price specified via DiscretionInst.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="439" tagName="ClearingFirm" required="No">
+<Comment>Can be used with OrdType = "Forex - Swap" to specify the order 
+quantity  for the future portion of a F/X swap.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="440" tagName="ClearingAccount" required="No">
+<Comment>For options</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+</FixMessage>
+
+<FixMessage type="8" name="Execution Report">
+<FixMessageLine tagNumber="37" tagName="OrderID" required="Yes">
+<Comment>OrderID is required to be unique for each chain of orders.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="198" tagName="SecondaryOrderID" required="No">
+<Comment>Can be used to provide order id used by exchange or executing system.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="11" tagName="ClOrdID" required="No">
+<Comment>Required for executions against electronically submitted orders which were 
+assigned an ID by the institution.Not required for orders manually entered by the broker.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="41" tagName="OrigClOrdID" required="No">
+<Comment>Conditionally required for response to an electronic Cancel or Cancel/Replace request 
+(ExecType=PendingCancel, Replaced, or Canceled). ClOrdID of the previous order (NOT the initial order of the day)
+ when canceling or replacing an order.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="109" tagName="ClientID" required="No">
+<Comment>Used for firm identification in third-party transactions.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="76" tagName="ExecBroker" required="No">
+<Comment>Used for firm identification in third-party transactions.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="382" tagName="NoContraBrokers" required="No">
+<Comment>Number of ContraBrokers repeating group instances</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="375" tagName="ContraBroker" required="No">
+<Comment>First field in repeating group.  Required if NoContraBrokers > 0.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="337" tagName="ContraTrader" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="437" tagName="ContraTradeQty" required="No">
+<Comment>OrderID is required to be unique for each chain of orders.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="438" tagName="ContraTradeTime" required="No">
+<Comment>OrderID is required to be unique for each chain of orders.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="66" tagName="ListID" required="No">
+<Comment>Required for executions against orders which were submitted as part of a list.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="17" tagName="ExecID" required="Yes">
+<Comment>Must be unique for each Execution Report message</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="20" tagName="ExecTransType" required="Yes">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="19" tagName="ExecRefID" required="No">
+<Comment>Required for Cancel and Correct ExecTransType messages</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="150" tagName="ExecType" required="Yes">
+<Comment>Describes the type of execution report. Same possible values as OrdStatus.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="39" tagName="OrdStatus" required="Yes">
+<Comment>Describes the current state of a CHAIN of orders, same scope as OrderQty, 
+CumQty, LeavesQty, and AvgPx</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="103" tagName="OrdRejReason" required="No">
+<Comment>For optional use with ExecType = 8 (Rejected)</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="378" tagName="ExecRestatementReason" required="No">
+<Comment>Required for ExecType = D (Restated).</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="1" tagName="Account" required="No">
+<Comment>Required for executions against electronically submitted orders 
+which were assigned an account by the institution</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="63" tagName="SettlmntTyp" required="No">
+<Comment>Absence of this field is interpreted as Regular.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="64" tagName="FutSettDate" required="No">
+<Comment>Required when SettlmntTyp = 6 (Future)  or SettlmntTyp = 8 (Sellers Option)</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="55" tagName="Symbol" required="Yes">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="65" tagName="SymbolSfx" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="48" tagName="SecurityID" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="22" tagName="IDSource" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="167" tagName="SecurityType" required="No">
+<Comment>Must be specified if a Future or Option.  If a Future: Symbol, 
+SecurityType, and MaturityMonthYear are required.  If an Option: Symbol, SecurityType, 
+MaturityMonthYear, PutOrCall, and StrikePrice are required.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="200" tagName="MaturityMonthYear" required="No">
+<Comment>For Options or Futures to specify the month and year of maturity.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="205" tagName="MaturityDay" required="No">
+<Comment>For Options or Futures and can be used in conjunction with MaturityMonthYear 
+to specify a particular maturity date.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="201" tagName="PutOrCall" required="No">
+<Comment>For Options.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="202" tagName="StrikePrice" required="No">
+<Comment>For Options.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="206" tagName="OptAttribute" required="No">
+<Comment>For Options.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="231" tagName="ContractMultiplier" required="No">
+<Comment>For Fixed Income, Convertible Bonds, Derivatives, etc.  Note: If used, 
+quantities should be expressed in the nominal (e.g. contracts vs. shares) amount.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="223" tagName="CouponRate" required="No">
+<Comment>For Fixed Income.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="207" tagName="SecurityExchange" required="No">
+<Comment>Can be used to identify the security.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="106" tagName="Issuer" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="348" tagName="EncodedIssuerLen" required="No">
+<Comment>Must be set if EncodedIssuer field is specified and must immediately precede it.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="349" tagName="EncodedIssuer" required="No">
+<Comment>Encoded (non-ASCII characters) representation of the Issuer field in 
+the encoded format specified via the MessageEncoding field.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="107" tagName="SecurityDesc" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="350" tagName="EncodedSecurityDescLen" required="No">
+<Comment>Must be set if EncodedSecurityDesc field is specified and must immediately precede it.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="351" tagName="EncodedSecurityDesc" required="No">
+<Comment>Encoded (non-ASCII characters) representation of the SecurityDesc field in 
+the encoded format specified via the MessageEncoding field.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="54" tagName="Side" required="Yes">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="38" tagName="OrderQty" required="No">
+<Comment>Either CashOrderQty or OrderQty is required.  Not required for a rejected 
+cash order or an order ack for a cash order.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="348" tagName="EncodedIssuerLen" required="No">
+<Comment>Must be set if EncodedIssuer field is specified and must immediately precede it.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="152" tagName="CashOrderQty" required="No">
+<Comment>Either CashOrderQty or OrderQty is required.  Specifies the approximate monetary quantity
+ conveyed on the order.  Broker is responsible for converting and calculating OrderQty in shares 
+ for subsequent messages involving fills.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="40" tagName="OrdType" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="44" tagName="Price" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="99" tagName="StopPx" required="No">
+<Comment>Required if specified on the order</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="211" tagName="PegDifference" required="No">
+<Comment>Required  if specified on the order</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="388" tagName="DiscretionInst" required="No">
+<Comment>Code to identify the price a DiscretionOffset is related to and should be 
+mathematically added to.  Required if DiscretionOffset is specified</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="389" tagName="DiscretionOffset" required="No">
+<Comment>Amount (signed) added to the related to price specified via DiscretionInst.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="15" tagName="Currency" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="376" tagName="ComplianceID" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="377" tagName="SolicitedFlag" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="59" tagName="TimeInForce" required="No">
+<Comment>Absence of this field indicates Day order</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="168" tagName="EffectiveTime" required="No">
+<Comment>Time specified on the order at which the order should be considered valid</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="432" tagName="ExpireDate" required="No">
+<Comment>Conditionally required if TimeInForce = GTD and ExpireTime is not specified.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="126" tagName="ExpireTime" required="No">
+<Comment>Conditionally required if TimeInForce = GTD and ExpireDate is not specified.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="432" tagName="ExpireDate" required="No">
+<Comment>Conditionally required if TimeInForce = GTD and ExpireTime is not specified</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="126" tagName="ExpireTime" required="No">
+<Comment>Conditionally required if TimeInForce = GTD and ExpireDate is not specified.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="18" tagName="ExecInst" required="No">
+<Comment>Can contain multiple instructions, space delimited.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="47" tagName="Rule80A" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="32" tagName="LastShares" required="No">
+<Comment>Quantity of shares bought/sold on this (last) fill. Not required ExecTransType = 3 (Status).  
+When required, should be "0" for non-fills ("fill" defined as ExecTransType=New and ExecType=Partial
+ Fill or Fill) unless noted below.If ExecType=Stopped, represents the quantity stopped/guaranteed/protected 
+ for.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="31" tagName="LastPx" required="No">
+<Comment>Price of this (last) fill. Not required for ExecTransType = 3 (Status), Should 
+represent the all-in (LastSpotRate + LastForwardPoints) rate for F/X orders. ).  When 
+required, should be "0" for non-fills ("fill" defined as ExecTransType=New and ExecType=Partial Fill or Fill)
+ unless noted below.If ExecType=Stopped, represents the price stopped/guaranteed/protected at.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="194" tagName="LastSpotRate" required="No">
+<Comment>Applicable for F/X orders</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="195" tagName="LastForwardPoints" required="No">
+<Comment>Applicable for F/X orders</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="30" tagName="LastMkt" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="336" tagName="TradingSessionID" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="29" tagName="LastCapacity" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="151" tagName="LeavesQty" required="Yes">
+<Comment>Amount of shares open for further execution. If the OrdStatus is Canceled, 
+DoneForTheDay, Expired, Calculated, or Rejected (in which case the order is no longer active) 
+then LeavesQty could be 0, otherwise LeavesQty = OrderQty - CumQty.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="14" tagName="CumQty" required="Yes">
+<Comment>Currently executed shares for chain of orders.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="6" tagName="AvgPx" required="Yes">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="424" tagName="DayOrderQty" required="No">
+<Comment>For GT orders on days following the day of the first trade.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="425" tagName="DayCumQty" required="No">
+<Comment>For GT orders on days following the day of the first trade.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="426" tagName="DayAvgPx" required="No">
+<Comment>For GT orders on days following the day of the first trade.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="427" tagName="GTBookingInst" required="No">
+<Comment>For use in stating whether executions are booked out or accumulated on a part-filled GT order</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="75" tagName="TradeDate" required="No">
+<Comment>Used when reporting other than current day trades.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="60" tagName="TransactTime" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="113" tagName="ReportToExch" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="12" tagName="Commission" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="13" tagName="CommType" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="381" tagName="GrossTradeAmt" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="119" tagName="SettlCurrAmt" required="No">
+<Comment>Used to report results of forex accommodation trade</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="120" tagName="SettlCurrency" required="No">
+<Comment>Used to report results of forex accommodation trade</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="155" tagName="SettlCurrFxRate" required="No">
+<Comment>Foreign exchange rate used to compute SettlCurrAmount from Currency to SettlCurrency</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="156" tagName="SettlCurrFxRateCalc" required="No">
+<Comment>Specifies whether the SettlCurrFxRate should be multiplied or divided</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="21" tagName="HandlInst" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="110" tagName="MinQty" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="111" tagName="MaxFloor" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="77" tagName="OpenClose" required="No">
+<Comment>For Options</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="210" tagName="MaxShow" required="No">
+<Comment>Used to report results of forex accommodation trade</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="58" tagName="Text" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="354" tagName="EncodedTextLen" required="No">
+<Comment>Must be set if EncodedText field is specified and must immediately precede it.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="355" tagName="EncodedText" required="No">
+<Comment>Encoded (non-ASCII characters) representation of the Text field in the encoded format specified via the MessageEncoding field.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="193" tagName="FutSettDate2" required="No">
+<Comment>Can be used with OrdType = Forex - Swap to specify the value date for the future portion of a F/X swap.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="192" tagName="OrderQty2" required="No">
+<Comment>Can be used with OrdType = Forex - Swap to specify the order quantity  for the future portion of a F/X swap.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="439" tagName="ClearingFirm" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="440" tagName="ClearingAccount" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="442" tagName="MultiLegReportingType" required="No">
+<Comment>Default is a single security if not specified.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+</FixMessage>
+
+
+<FixMessage type="G" name="Order Cancel/Replace Request ">
+<FixMessageLine tagNumber="37" tagName="OrderID" required="No">
+<Comment>Unique identifier of most recent order as assigned by broker.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="109" tagName="ClientID" required="No">
+<Comment>Used for firm identification in third-party transactions.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="76" tagName="ExecBroker" required="No">
+<Comment>Used for firm identification in third-party transactions.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="41" tagName="OrigClOrdID" required="Yes">
+<Comment>ClOrdID of the previous order (NOT the initial order of the day) when canceling or replacing an order.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="11" tagName="ClOrdID" required="Yes">
+<Comment>Unique identifier of replacement order as assigned by institution.  Note that this identifier will be used in ClOrdID field of the Cancel Reject message if the replacement request is rejected.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="66" tagName="ListID" required="No">
+<Comment>Required for List Orders</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="1" tagName="Account" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="78" tagName="NoAllocs" required="No">
+<Comment>Number of repeating groups for pre-trade allocation</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="79" tagName="AllocAccount" required="No">
+<Comment>Required if NoAllocs > 0.  Must be first field in repeating group.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="80" tagName="AllocShares" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="63" tagName="SettlmntTyp" required="No">
+<Comment>Absence of this field is interpreted as Regular.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="64" tagName="FutSettDate" required="No">
+<Comment>Required when SettlmntTyp = 6 (Future) or SettlmntTyp = 8 (Sellers Option)</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="21" tagName="HandlInst" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="18" tagName="ExecInst" required="No">
+<Comment>Can contain multiple instructions, space delimited.  Replacement order must be created with new parameters  (i.e. original order values will not be brought forward to replacement order unless redefined within this message).</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="110" tagName="MinQty" required="No">
+<Comment>Default is a single security if not specified.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="111" tagName="MaxFloor" required="No">
+<Comment>Must be set if EncodedText field is specified and must immediately precede it.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="100" tagName="EncodedText" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="386" tagName="NoTradingSessions" required="No">
+<Comment>Specifies the number of repeating TradingSessionIDs</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="336" tagName="TradingSessionID" required="No">
+<Comment>Required if NoTradingSessions is > 0.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="55" tagName="Symbol" required="Yes">
+<Comment>Must match original order</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="65" tagName="SymbolSfx" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="48" tagName="SecurityID" required="No">
+<Comment>Must match original order</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="22" tagName="IDSource" required="No">
+<Comment>Must match original order</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="167" tagName="SecurityType" required="No">
+<Comment>Must be specified if a Future or Option.  If a Future: Symbol, SecurityType, and MaturityMonthYear are required.  If an Option: Symbol, SecurityType, MaturityMonthYear, PutOrCall, and StrikePrice are required.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="200" tagName="MaturityMonthYear" required="No">
+<Comment>For Options or Futures to specify the month and year of maturity.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="205" tagName="MaturityDay" required="No">
+<Comment>For Options or Futures and can be used in conjunction with MaturityMonthYear to specify a particular maturity date.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="201" tagName="PutOrCall" required="No">
+<Comment>For Options</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="202" tagName="StrikePrice" required="No">
+<Comment>For Options</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="206" tagName="OptAttribute" required="No">
+<Comment>For Options</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="231" tagName="ContractMultiplier" required="No">
+<Comment>For Fixed Income, Convertible Bonds, Derivatives, etc.  Note: If used, quantities should be expressed in the "nominal" (e.g. contracts vs. shares) amount.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="223" tagName="CouponRate" required="No">
+<Comment>For Fixed Income.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="207" tagName="SecurityExchange" required="No">
+<Comment>Can be used to identify the security.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="106" tagName="Issuer" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="348" tagName="EncodedIssuerLen" required="No">
+<Comment>Must be set if EncodedIssuer field is specified and must immediately precede it.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="349" tagName="EncodedIssuer" required="No">
+<Comment>Encoded (non-ASCII characters) representation of the Issuer field in the encoded format specified via the MessageEncoding field.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="107" tagName="SecurityDesc" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="350" tagName="EncodedSecurityDescLen" required="No">
+<Comment>Must be set if EncodedSecurityDesc field is specified and must immediately precede it.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="351" tagName="EncodedSecurityDesc" required="No">
+<Comment>Encoded (non-ASCII characters) representation of the SecurityDesc field in the encoded format specified via the MessageEncoding field.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="54" tagName="Side" required="Yes">
+<Comment>Must match original side, however, Buy and Buy Minus can be interchanged as well as Sell and Sell Plus</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="60" tagName="TransactTime" required="Yes">
+<Comment>Time this order request was initiated/released by the trader or trading system.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="38" tagName="OrderQty" required="No">
+<Comment>Either CashOrderQty or OrderQty is required.  Should be the Total Intended Order Quantity (including the amount already executed for this chain of orders)</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="152" tagName="CashOrderQty" required="No">
+<Comment>Either CashOrderQty or OrderQty is required.  Specifies the approximate monetary quantity for the order.  Broker is responsible for converting and calculating OrderQty in shares for subsequent messages.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="40" tagName="OrdType" required="Yes">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="44" tagName="Price" required="No">
+<Comment>Required for limit OrdTypes. For F/X orders, should be the all-in rate (spot rate adjusted for forward points). Can be used to specify a limit price for a pegged order, previously indicated, etc.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="99" tagName="StopPx" required="No">
+<Comment>Required for OrdType = Stop or OrdType = Stop limit.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="211" tagName="PegDifference" required="No">
+<Comment>Amount (signed) added to the price of the peg</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="388" tagName="DiscretionInst" required="No">
+<Comment>Code to identify the price a DiscretionOffset is related to and should be mathematically added to. Required if DiscretionOffset is specified.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="389" tagName="DiscretionOffset" required="No">
+<Comment>Amount (signed) added to the related to price specified via DiscretionInst.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="376" tagName="ComplianceID" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="377" tagName="SolicitedFlag" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="15" tagName="Currency" required="No">
+<Comment>Must match original order.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="59" tagName="TimeInForce" required="No">
+<Comment>Absence of this field indicates Day order</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="168" tagName="EffectiveTime" required="No">
+<Comment>Can specify the time at which the order should be considered valid</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="432" tagName="ExpireDate" required="No">
+<Comment>Conditionally required if TimeInForce = GTD and ExpireTime is not specified.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="126" tagName="ExpireTime" required="No">
+<Comment>Conditionally required if TimeInForce = GTD and ExpireDate is not specified.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="12" tagName="Commission" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="13" tagName="CommType" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="47" tagName="Rule80A" required="No">
+<Comment>Must match original order</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="121" tagName="ForexReq" required="No">
+<Comment>Indicates that broker is requested to execute a Forex accommodation trade in conjunction with the security trade.  </Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="120" tagName="SettlCurrency" required="No">
+<Comment>Required if ForexReq = Y.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="58" tagName="Text" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="354" tagName="EncodedTextLen" required="No">
+<Comment>Must be set if EncodedText field is specified and must immediately precede it.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="355" tagName="EncodedText" required="No">
+<Comment>Encoded (non-ASCII characters) representation of the Text field in the encoded format specified via the MessageEncoding field.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="193" tagName="FutSettDate2" required="No">
+<Comment>Can be used with OrdType = Forex - Swap to specify the value date for the future portion of a F/X swap.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="192" tagName="OrderQty2" required="No">
+<Comment>Can be used with OrdType = Forex - Swap to specify the order quantity  for the future portion of a F/X swap.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="77" tagName="OpenClose" required="No">
+<Comment>For options</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="203" tagName="CoveredOrUncovered" required="No">
+<Comment>For options</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="204" tagName="CustomerOrFirm" required="No">
+<Comment>For options when delivering the order to execution system/exchange.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="210" tagName="MaxShow" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="114" tagName="LocateReqd" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="439" tagName="ClearingFirm" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="440" tagName="ClearingAccount" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+</FixMessage>
+
+<FixMessage type="F" name="Order Cancel Request">
+<FixMessageLine tagNumber="41" tagName="OrigClOrdID" required="Yes">
+<Comment>ClOrdID of the previous order (NOT the initial order of the day) when canceling or replacing an order.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="37" tagName="OrderID" required="No">
+<Comment>Unique identifier of most recent order as assigned by broker.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="11" tagName="ClOrdID" required="No">
+<Comment>Unique ID of cancel request as assigned by the institution.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="66" tagName="ListID" required="No">
+<Comment>Required for List Orders</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="1" tagName="Account" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="109" tagName="ClientID" required="No">
+<Comment>Used for firm identification in third-party transactions.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="76" tagName="ExecBroker" required="No">
+<Comment>Used for firm identification in third-party transactions.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="55" tagName="Symbol" required="Yes">
+<Comment>Encoded (non-ASCII characters) representation of the Text field in the encoded format specified via the MessageEncoding field.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="65" tagName="SymbolSfx" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="48" tagName="SecurityID" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="22" tagName="IDSource" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="167" tagName="SecurityType" required="No">
+<Comment>Must be specified if a Future or Option.  If a Future: Symbol, SecurityType, and MaturityMonthYear are required.  If an Option: Symbol, SecurityType, MaturityMonthYear, PutOrCall, and StrikePrice are required.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="200" tagName="MaturityMonthYear" required="No">
+<Comment>For Options or Futures to specify the month and year of maturity.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="205" tagName="MaturityDay" required="No">
+<Comment>For Options or Futures and can be used in conjunction with MaturityMonthYear to specify a particular maturity date.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="201" tagName="PutOrCall" required="No">
+<Comment>For Options</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="202" tagName="StrikePrice" required="No">
+<Comment>For Options</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="206" tagName="OptAttribute" required="No">
+<Comment>For Options</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="231" tagName="ContractMultiplier" required="No">
+<Comment>For Fixed Income, Convertible Bonds, Derivatives, etc.  Note: If used, quantities should be expressed in the "nominal" (e.g. contracts vs. shares) amount.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="223" tagName="CouponRate" required="No">
+<Comment>For Fixed Income</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="207" tagName="SecurityExchange" required="No">
+<Comment>Can be used to identify the security.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="106" tagName="Issuer" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="348" tagName="EncodedIssuerLen" required="No">
+<Comment>Must be set if EncodedIssuer field is specified and must immediately precede it.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="349" tagName="EncodedIssuer" required="No">
+<Comment>Encoded (non-ASCII characters) representation of the Issuer field in the encoded format specified via the MessageEncoding field.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="107" tagName="SecurityDesc" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="350" tagName="EncodedSecurityDescLen" required="No">
+<Comment>Must be set if EncodedSecurityDesc field is specified and must immediately precede it.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="351" tagName="EncodedSecurityDesc" required="No">
+<Comment>Encoded (non-ASCII characters) representation of the SecurityDesc field in the encoded format specified via the MessageEncoding field</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="54" tagName="Side" required="Yes">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="60" tagName="TransactTime" required="Yes">
+<Comment>Time this order request was initiated/released by the trader or trading system.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="38" tagName="OrderQty" required="No">
+<Comment>Either CashOrderQty or OrderQty is required.    OrderQty = CumQty + LeavesQty (see exceptions above)</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="152" tagName="CashOrderQty" required="No">
+<Comment>Either CashOrderQty or OrderQty is required.  Specifies the approximate monetary quantity for the order.  Broker is responsible for converting and calculating OrderQty in shares for subsequent messages.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="376" tagName="ComplianceID" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="377" tagName="SolicitedFlag" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="58" tagName="Text" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="354" tagName="EncodedTextLen" required="No">
+<Comment>Must be set if EncodedText field is specified and must immediately precede it.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="355" tagName="EncodedText" required="No">
+<Comment>Encoded (non-ASCII characters) representation of the Text field in the encoded format specified via the MessageEncoding field.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+</FixMessage>
+
+<FixMessage type="9" name="Order Cancel Reject">
+<FixMessageLine tagNumber="37" tagName="OrderID" required="Yes">
+<Comment>Required when the heartbeat is the result of a Test Request message</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="198" tagName="SecondaryOrderID" required="Yes">
+<Comment>Can be used to provide order id used by exchange or executing system.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="11" tagName="ClOrdID" required="Yes">
+<Comment>Unique order id assigned by institution to the cancel request or to the replacement order.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="41" tagName="OrigClOrdID" required="Yes">
+<Comment>ClOrdID which could not be canceled/replaced. ClOrdID of the previous order (NOT the initial order of the day) when canceling or replacing an order.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="39" tagName="OrdStatus" required="Yes">
+<Comment>OrdStatus value after this cancel reject is applied.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="109" tagName="ClientID" required="No">
+<Comment>Used for firm identification in third-party transactions.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="76" tagName="ExecBroker" required="No">
+<Comment>Used for firm identification in third-party transactions.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="66" tagName="ListID" required="No">
+<Comment>Required for rejects against orders which were submitted as part of a list.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="1" tagName="Account" required="No">
+<Comment>Time this order request was initiated/released by the trader or trading system.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="60" tagName="TransactTime" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="434" tagName="CxlRejResponseTo" required="Yes">
+<Comment>Either CashOrderQty or OrderQty is required.  Specifies the approximate monetary quantity for the order.  Broker is responsible for converting and calculating OrderQty in shares for subsequent messages.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="102" tagName="CxlRejReason" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="58" tagName="Text" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="354" tagName="EncodedTextLen" required="No">
+<Comment>Must be set if EncodedText field is specified and must immediately precede it.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="355" tagName="EncodedText" required="No">
+<Comment>Encoded (non-ASCII characters) representation of the Text field in the encoded format specified via the MessageEncoding field.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+</FixMessage>
+
+<FixMessage type="H" name="Order Status Request">
+<FixMessageLine tagNumber="37" tagName="OrderID" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="11" tagName="ClOrdID" required="Yes">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="109" tagName="ClientID" required="No">
+<Comment>Used for firm identification in third-party transactions.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="1" tagName="Account" required="Yes">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="76" tagName="ExecBroker" required="No">
+<Comment>Used for firm identification in third-party transactions.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="55" tagName="Symbol" required="Yes">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="65" tagName="SymbolSfx" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="48" tagName="SecurityID" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="22" tagName="IDSource" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="167" tagName="SecurityType" required="Yes">
+<Comment>Must be specified if a Future or Option.  If a Future: Symbol, SecurityType, and MaturityMonthYear are required.  If an Option: Symbol, SecurityType, MaturityMonthYear, PutOrCall, and StrikePrice are required.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="205" tagName="MaturityDay" required="No">
+<Comment>For Options or Futures and can be used in conjunction with MaturityMonthYear to specify a particular maturity date.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="201" tagName="PutOrCall" required="No">
+<Comment>For Options</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="202" tagName="StrikePrice" required="No">
+<Comment>For Options.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="206" tagName="OptAttribute" required="No">
+<Comment>For Options.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="231" tagName="ContractMultiplier" required="No">
+<Comment>For Fixed Income, Convertible Bonds, Derivatives, etc.  Note: If used, quantities should be expressed in the "nominal" (e.g. contracts vs. shares) amount.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="223" tagName="CouponRate" required="No">
+<Comment>For Fixed Income.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="207" tagName="SecurityExchange" required="No">
+<Comment>Can be used to identify the security.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="106" tagName="Issuer" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="348" tagName="EncodedIssuerLen" required="No">
+<Comment>Must be set if EncodedIssuer field is specified and must immediately precede it.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="349" tagName="EncodedIssuer" required="No">
+<Comment>Encoded (non-ASCII characters) representation of the Issuer field in the encoded format specified via the MessageEncoding field.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="107" tagName="SecurityDesc" required="No">
+<Comment></Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="350" tagName="EncodedSecurityDescLen" required="No">
+<Comment>Must be set if EncodedSecurityDesc field is specified and must immediately precede it.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="351" tagName="EncodedSecurityDesc" required="No">
+<Comment>Encoded (non-ASCII characters) representation of the SecurityDesc field in the encoded format specified via the MessageEncoding field.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="54" tagName="Side" required="Yes">
+<Comment>For Options.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+</FixMessage>
+
+<FixMessage type="j" name="Business Message Reject">
+<FixMessageLine tagNumber="45" tagName="RefSeqNum" required="No">
+<Comment>MsgSeqNum of rejected message</Comment><CustomComment></CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="372" tagName="RefMsgType" required="Yes">
+<Comment>The MsgType of the FIX message being referenced.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="379" tagName="BusinessRejectRefID" required="No">
+<Comment>The value of the business-level ID field on the message being referenced.  Required unless the corresponding ID field (see list above) was not specified.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="380" tagName="BusinessRejectReason" required="Yes">
+<Comment>Code to identify reason for a Business Message Reject message.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="58" tagName="Text" required="No">
+<Comment>Where possible, message to explain reason for rejection</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="354" tagName="EncodedTextLen" required="No">
+<Comment>Must be set if EncodedText field is specified and must immediately precede it.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="355" tagName="EncodedText" required="No">
+<Comment>Encoded (non-ASCII characters) representation of the Text field in the encoded format specified via the MessageEncoding field.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+</FixMessage>
+
+<FixMessage type="h" name="Trading Session Status">
+<FixMessageLine tagNumber="354" tagName="EncodedTextLen" required="No">
+<Comment>Must be set if EncodedText field is specified and must immediately precede it.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="355" tagName="EncodedText" required="No">
+<Comment>Encoded (non-ASCII characters) representation of the Text field in the encoded format specified via the MessageEncoding field.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="58" tagName="Text" required="No">
+<Comment>Free format text</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="387" tagName="TotalVolumeTraded" required="No">
+<Comment>Total volume (quantity) traded</Comment><CustomComment></CustomComment>
+</FixMessageLine>
+TradSesCloseTime
+<FixMessageLine tagNumber="344" tagName="TradSesCloseTime" required="No">
+<Comment>Closing Time of the trading session.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="345" tagName="TradeSesEndTime" required="No">
+<Comment>End Time of trading session.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+
+
+</FixMessage>
+
+<FixMessage type="d" name="Security Definition Response">
+<FixMessageLine tagNumber="322" tagName="SecurityResponseID" required="Yes">
+<Comment>Must be set if EncodedText field is specified and must immediately precede it.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="323" tagName="SecurityResponseType" required="Yes">
+<Comment>Encoded (non-ASCII characters) representation of the Text field in the encoded format specified via the MessageEncoding field.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="320" tagName="SecurityReqID" required="Yes">
+<Comment>Free format text</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="311" tagName="UnderlyingSymbol" required="No">
+<Comment>Total volume (quantity) traded</Comment><CustomComment></CustomComment>
+</FixMessageLine>
+TradSesCloseTime
+<FixMessageLine tagNumber="307" tagName="UnderlyingSecurityDesc" required="No">
+<Comment>Closing Time of the trading session.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+<FixMessageLine tagNumber="9095" tagName="ProductType" required="No">
+<Comment>End Time of trading session.</Comment>
+<CustomComment>Any custom info goes here</CustomComment>
+</FixMessageLine>
+</FixMessage>
+
+
+
+<FixMessage type="V" name="Market Data Request">
+</FixMessage>
+
+<FixMessage type="W" name="Market Data-Snapshot/Full Refresh">
+</FixMessage>
+
+<FixMessage type="X" name="Market Data-Incremental Refresh">
+</FixMessage>
+
+<FixMessage type="Y" name="Market Data Request Reject">
+</FixMessage>
+
+<FixMessage type="B" name="News">
+</FixMessage>
+
+</FixMessages>

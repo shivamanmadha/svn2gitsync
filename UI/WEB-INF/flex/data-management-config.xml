@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<service id="data-service" 
+    class="flex.data.DataService" 
+    messageTypes="flex.data.messages.DataMessage">
+
+    <adapters>
+        <adapter-definition id="actionscript" class="flex.data.adapters.ASObjectAdapter" default="true"/>
+        <adapter-definition id="java-dao" class="flex.data.adapters.JavaAdapter"/>
+    </adapters>
+
+	<default-channels>
+                     <channel ref="my-rtmp"/>
+       </default-channels>
+
+   <destination id="employee.hibernate">
+        <adapter ref="java-dao" />
+        <properties>
+            <use-transactions>true</use-transactions>
+            <source>flex.data.assemblers.HibernateAssembler</source>
+            <scope>application</scope>
+            <metadata>
+       <!--This is the unique identifier from the hibernate-entity bean -->
+                <identity property="id"/>
+            </metadata>
+            <network>
+                <session-timeout>20</session-timeout>
+                <paging enabled="false" pageSize="10" />
+                <throttle-inbound policy="ERROR" max-frequency="500"/>
+                <throttle-outbound policy="REPLACE" max-frequency="500"/>
+            </network>
+            <server>
+                <hibernate-entity>EmployeeManagement.Employee</hibernate-entity>
+                <fill-method>
+                    <name>fill</name>
+                    <params>java.util.List</params>
+                </fill-method>
+                <fill-configuration>
+                    <use-query-cache>false</use-query-cache>
+                    <allow-hql-queries>true</allow-hql-queries>
+                </fill-configuration>
+            </server>
+        </properties>
+    </destination>
+	
+	<destination id="fixcodeCategory.hibernate">
+        <adapter ref="java-dao" />
+        <properties>
+            <use-transactions>true</use-transactions>
+            <source>flex.data.assemblers.HibernateAssembler</source>
+            <scope>application</scope>
+            <metadata>
+       <!--This is the unique identifier from the hibernate-entity bean -->
+                <identity property="id"/>
+            </metadata>
+            <network>
+                <session-timeout>20</session-timeout>
+                <paging enabled="false" pageSize="10" />
+                <throttle-inbound policy="ERROR" max-frequency="500"/>
+                <throttle-outbound policy="REPLACE" max-frequency="500"/>
+            </network>
+            <server>
+                <hibernate-entity>ExchangeDB.FixCodeCategory</hibernate-entity>
+                <fill-method>
+                    <name>fill</name>
+                    <params>java.util.List</params>
+                </fill-method>
+                <fill-configuration>
+                    <use-query-cache>false</use-query-cache>
+                    <allow-hql-queries>true</allow-hql-queries>
+                </fill-configuration>
+            </server>
+        </properties>
+    </destination>
+	
+	
+</service>

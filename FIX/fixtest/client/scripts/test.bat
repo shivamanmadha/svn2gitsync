@@ -1,0 +1,1 @@
+start java com.exsys.fix.tools.FixToolsWindow -config c:\fixtest\client\config\fixtools.cfg

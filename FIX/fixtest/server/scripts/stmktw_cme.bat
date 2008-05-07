@@ -1,0 +1,1 @@
+java com.exsys.mktdata.ui.RLCMktDataWindow -config c:\fixtest\server\config\mktwin-cme.cfg
