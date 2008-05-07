@@ -1,0 +1,39 @@
+@font-face
+{
+    src: url("MyriadWebPro.ttf");
+    font-family: companyEmbeddedFont;
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face
+{
+    src: url("MyriadWebPro-Bold.ttf");
+    font-family: companyEmbeddedFont;
+    font-style: normal;
+    font-weight: bold;
+}
+
+Application
+{
+    font-family: companyEmbeddedFont; 
+    font-size: 12pt;
+}
+
+.h1
+{
+    font-size: 20pt;
+    font-weight:bold;
+}
+
+.h2
+{
+    font-size: 16pt;
+    font-weight:bold;
+}
+
+.plain
+{
+    font-size: 12pt;
+    font-weight:normal;
+}

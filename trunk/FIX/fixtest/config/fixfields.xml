@@ -1,0 +1,2906 @@
+<FixFields>
+	
+<Field tagNumber="1" tagName="Account" dataType="String">
+<Comment>Account mnemonic as agreed between broker and institution</Comment>
+<CustomComment>This is not necessary at CME</CustomComment>
+</Field>
+
+<Field tagNumber="2" tagName="AdvId" dataType="String">
+<Comment>Unique Identifier of Advertisement message.
+(Prior to Fix4.1 this field was of type int)</Comment>
+</Field>
+
+<Field tagNumber="3" tagName="AdvRefId" dataType="String">
+<Comment>Reference identifier used with CANCEL and REPLACE transactions.
+(Prior to Fix4.1 this field was of type int)</Comment>
+</Field>
+
+<Field tagNumber="4" tagName="AdvSide" dataType="Char">
+<Comment>Broker's side of advertised trade</Comment>
+<ValidValue value="B" description="Buy"/>
+<ValidValue value="S" description="Sell"/>
+<ValidValue value="X" description="Cross" supported="No"/>
+<ValidValue value="T" description="Trade" supported="No"/>
+</Field>
+
+<Field tagNumber="5" tagName="AdvTransType" dataType="String">
+<Comment>Identifies advertisement message transaction type</Comment>
+<ValidValue value="N" description="New"/>
+<ValidValue value="C" description="Cancel"/>
+<ValidValue value="R" description="Replace"/>
+</Field>
+
+<Field tagNumber="6" tagName="AvgPx" dataType="Price">
+<Comment>Calculated average price of all fills on this order</Comment>
+</Field>
+
+<Field tagNumber="7" tagName="BeginSeqNo" dataType="int">
+<Comment>Message Sequence Number of first message in range to be resent</Comment>
+</Field>
+
+<Field tagNumber="8" tagName="BeginString" dataType="String">
+<Comment>Identifies beginning of new message and protocol version.
+ALWAYS FIRST FIELD IN MESSAGE ( Always unencripted)</Comment>
+<ValidValue value="FIX4.2" description="version"/>
+</Field>
+
+<Field tagNumber="9" tagName="BodyLength" dataType="int">
+<Comment>Message length, in bytes, forward to the CheckSum field.
+ ALWAYS SECOND FIELD IN MESSAGE. (Always unencrypted)
+ </Comment>
+</Field>
+
+<Field tagNumber="10" tagName="CheckSum" dataType="String">
+<Comment>Three byte, simple checksum (see Appendix B: CheckSum
+Calculation for description). ALWAYS LAST FIELD IN MESSAGE;
+i.e. serves, with the trailing SOH, as the end-of-message 
+delimiter. Always defined as three characters. (Always unencrypted)
+</Comment>
+</Field>
+
+<Field tagNumber="11" tagName="ClOrdID" dataType="String">
+<Comment>Unique identifier for Order as assigned by institution
+(identified by SenderCompID or OnBehalfOfCompID as appropriate).
+Uniqueness must be guaranteed within a single trading day. Firms,
+particularly those which electronically submit multi-day orders,
+trade globally or throughout market close periods,should ensure
+uniqueness across days, for example by embedding a date within
+the ClOrdID field.
+</Comment>
+</Field>
+
+<Field tagNumber="12" tagName="Commission" dataType="Amt">
+<Comment>Commission. Note if CommType is percentage, Commission of 5% 
+should be represented as .05.
+</Comment>
+</Field>
+
+<Field tagNumber="13" tagName="CommType" dataType="char">
+<Comment>Commission type</Comment>
+<ValidValue value="1" description="per share"/>
+<ValidValue value="2" description="percentage"/>
+<ValidValue value="3" description="absolute"/>
+</Field>
+
+<Field tagNumber="14" tagName="CumQty" dataType="Qty">
+<Comment>Total number of shares filled.(Prior to FIX 4.2 this field was of type int)
+</Comment>
+</Field>
+
+<Field tagNumber="15" tagName="Currency" dataType="Currency">
+<Comment>Identifies currency used for price. Absence of this field is
+interpreted as the default for the security. It is recommended that 
+systems provide the currency value whenever possible</Comment>
+</Field>
+
+<Field tagNumber="16" tagName="EndSeqNo" dataType="int">
+<Comment>Message sequence number of last message in range to be resent.
+if request is for a single message BeginSeqNo = EndSeqNo. If request is
+for all messages subsequent to a particular message, EndSeqNo = "0"
+ (representing infinity). 
+</Comment>
+</Field>
+
+<Field tagNumber="17" tagName="ExecID" dataType="String">
+<Comment>Unique identifier of execution message as assigned by broker (will be 0 (zero)
+for ExecTransType=3 (Status)). Uniqueness must be guaranteed within a single trading day 
+or the life of a multi-day order. Firms which accept multi-day orders should consider 
+embedding a date within the ExecID field to assure uniqueness across days.
+(Prior to FIX 4.1 this field was of type int)
+</Comment>
+</Field>
+
+<Field tagNumber="18" tagName="ExecInst" dataType="MultipleValueString">
+<Comment>Instructions for order handling on exchange trading floor. If more 
+than one instruction is applicable to an order, this field can contain multiple
+instructions separated by space.</Comment>
+<ValidValue value="1" description="Not held"/>
+<ValidValue value="2" description="Work"/>
+<ValidValue value="3" description="Go along"/>
+<ValidValue value="4" description="Over the day"/>
+<ValidValue value="5" description="Held"/>
+<ValidValue value="6" description="Participate don't initiate"/>
+<ValidValue value="7" description="Strict scale"/>
+<ValidValue value="8" description="Try to scale"/>
+<ValidValue value="9" description="Stay on bidside"/>
+<ValidValue value="0" description="Stay on offerside"/>
+<ValidValue value="A" description="No cross (cross is forbidden)"/>
+<ValidValue value="B" description="OK to cross"/>
+<ValidValue value="C" description="Call first"/>
+<ValidValue value="D" description="Percent of volume (indicates that the sender does not 
+want to be all of the volume on the floor vs. a specific percentage)"/>
+<ValidValue value="E" description="Do not increase - DNI"/>
+<ValidValue value="F" description="Do not reduce - DNR"/>
+<ValidValue value="G" description="All or none - AON"/>
+<ValidValue value="I" description="Institutions only"/>
+<ValidValue value="L" description="Last peg (last sale)"/>
+<ValidValue value="M" description="Mid-price peg (midprice of inside quote)"/>
+<ValidValue value="N" description="Non-negotiable"/>
+<ValidValue value="O" description="Opening peg"/>
+<ValidValue value="P" description="Market peg"/>
+<ValidValue value="R" description="Primary peg (primary market - buy at bid/sell at offer)"/>
+<ValidValue value="S" description="Suspend"/>
+<ValidValue value="T" description="Fixed Peg to Local best bid or offer at time of order"/>
+<ValidValue value="U" description="Customer Display Instruction (Rule11Ac1-1/4)"/>
+<ValidValue value="V" description="Netting (for Forex)"/>
+<ValidValue value="W" description="Peg to VWAP"/>
+</Field>
+
+<Field tagNumber="19" tagName="ExecRefID" dataType="String">
+<Comment>Reference identifier used with Cancel and Correct transaction types.
+(Prior to FIX 4.1 this field was of type int)
+</Comment>
+</Field>
+
+<Field tagNumber="20" tagName="ExecTransType" dataType="char">
+<Comment>Identifies transaction type
+</Comment>
+<ValidValue value="0" description="New"/>
+<ValidValue value="1" description="Cancel"/>
+<ValidValue value="2" description="Correct"/>
+<ValidValue value="3" description="Status"/>
+</Field>
+
+<Field tagNumber="21" tagName="HandlInst" dataType="char">
+<Comment>Instructions for order handling on Broker trading floor
+</Comment>
+<ValidValue value="1" description="Automated execution order, private, no Broker intervention"/>
+<ValidValue value="2" description="Automated execution order, public, Broker intervention OK"/>
+<ValidValue value="3" description="Manual order, best execution"/>
+</Field>
+
+<Field tagNumber="22" tagName="IDSource" dataType="String">
+<Comment>Identifies class of alternative SecurityID.
+</Comment>
+<ValidValue value="1" description="CUSIP"/>
+<ValidValue value="2" description="SEDOL"/>
+<ValidValue value="3" description="QUIK"/>
+<ValidValue value="4" description="ISIN number"/>
+<ValidValue value="5" description="RIC code"/>
+<ValidValue value="6" description="ISO Currency Code"/>
+<ValidValue value="7" description="ISO Country Code"/>
+<ValidValue value="8" description=" Exchange Symbol"/>
+<ValidValue value="9" description="Consolidated Tape Association (CTA) Symbol (SIAC CTS/CQS line format)"/>
+</Field>
+
+<Field tagNumber="23" tagName="IOIid" dataType="String">
+<Comment>Unique identifier of IOI message.(Prior to FIX 4.1 this field was of type int)
+</Comment>
+</Field>
+
+<Field tagNumber="24" tagName="IOIOthSvc" dataType="char">
+<Comment>No longer used as of FIX 4.2. Included here for reference to prior versions.
+</Comment>
+</Field>
+
+<Field tagNumber="25" tagName="IOIQltyInd" dataType="char">
+<Comment>Relative quality of indication.
+</Comment>
+<ValidValue value="L" description="Low"/>
+<ValidValue value="M" description="Medium"/>
+<ValidValue value="H" description="High"/>
+</Field>
+
+<Field tagNumber="26" tagName="IOIRefID" dataType="String">
+<Comment>Reference identifier used with CANCEL and REPLACE, transaction types.
+(Prior to FIX 4.1 this field was of type int)
+</Comment>
+</Field>
+
+<Field tagNumber="27" tagName="IOIShares" dataType="String">
+<Comment>Number of shares in numeric or relative size.
+</Comment>
+<ValidValue value="S" description="Small"/>
+<ValidValue value="M" description="Medium"/>
+<ValidValue value="L" description="Large"/>
+</Field>
+
+<Field tagNumber="28" tagName="IOITransType" dataType="char">
+<Comment>Identifies IOI message transaction type.
+</Comment>
+<ValidValue value="N" description="New"/>
+<ValidValue value="C" description="Cancel"/>
+<ValidValue value="R" description="Replace"/>
+</Field>
+
+<Field tagNumber="29" tagName="LastCapacity" dataType="char">
+<Comment>Broker capacity in order execution.
+</Comment>
+<ValidValue value="1" description="Agent"/>
+<ValidValue value="2" description="Cross as agent"/>
+<ValidValue value="3" description="Cross as principal"/>
+<ValidValue value="4" description="Principal"/>
+</Field>
+
+<Field tagNumber="30" tagName="LastMkt" dataType="Exchange">
+<Comment>Market of execution for last fill .
+</Comment>
+</Field>
+
+<Field tagNumber="31" tagName="LastPx" dataType="Price">
+<Comment>Price of this (last) fill. Field not required for ExecTransType = 3 (Status).
+</Comment>
+</Field>
+
+<Field tagNumber="32" tagName="LastShares" dataType="Qty">
+<Comment>Quantity of shares bought/sold on this (last) fill. 
+Field not required for ExecTransType = 3 (Status) 
+(Prior to FIX 4.2 this field was of type int)
+</Comment>
+</Field>
+
+<Field tagNumber="33" tagName="LinesOfText" dataType="int">
+<Comment>Identifies number of lines of text body
+</Comment>
+</Field>
+
+<Field tagNumber="34" tagName="MsgSeqNum" dataType="int">
+<Comment>Integer message sequence number. 
+</Comment>
+</Field>
+
+<Field tagNumber="35" tagName="MsgType" dataType="String">
+<Comment>Defines message type. ALWAYS THIRD FIELD IN MESSAGE. (Always unencrypted)
+Note: A "U" as the first character in the MsgType field (i.e. U1, U2, etc) indicates 
+that the message format is privately defined between the sender and receiver.
+</Comment>
+<ValidValue value="0" description="Heartbeat"/>
+<ValidValue value="1" description="Test Request"/>
+<ValidValue value="2" description="Resend Request"/>
+<ValidValue value="3" description="Reject"/>
+<ValidValue value="4" description="Sequence Reset"/>
+<ValidValue value="5" description=" Logout"/>
+<ValidValue value="6" description="Indication of Interest"/>
+<ValidValue value="7" description="Advertisement"/>
+<ValidValue value="8" description="Execution Report"/>
+<ValidValue value="9" description="Order Cancel Reject"/>
+<ValidValue value="A" description="Logon"/>
+<ValidValue value="B" description="News"/>
+<ValidValue value="C" description="Email"/>
+<ValidValue value="D" description="Order � Single"/>
+<ValidValue value="E" description="Order � List"/>
+<ValidValue value="F" description="Order Cancel Request"/>
+<ValidValue value="G" description="Order Cancel/Replace Request"/>
+<ValidValue value="H" description="Order Status Request"/>
+<ValidValue value="J" description="Allocation"/>
+<ValidValue value="K" description="List Cancel Request"/>
+<ValidValue value="L" description="List Execute"/>
+<ValidValue value="M" description="List Status Request"/>
+<ValidValue value="N" description="List Status"/>
+<ValidValue value="P" description="Allocation ACK"/>
+<ValidValue value="Q" description="Don�t Know Trade (DK)"/>
+<ValidValue value="R" description="Quote Request"/>
+<ValidValue value="S" description="Quote"/>
+<ValidValue value="T" description="Settlement Instructions"/>
+<ValidValue value="V" description="Market Data Request"/>
+<ValidValue value="W" description="Market Data-Snapshot/Full Refresh"/>
+<ValidValue value="X" description="Market Data-Incremental Refresh"/>
+<ValidValue value="Y" description="Market Data Request Reject"/>
+<ValidValue value="Z" description="Quote Cancel"/>
+<ValidValue value="a" description="Quote Status Request"/>
+<ValidValue value="b" description="Quote Acknowledgement"/>
+<ValidValue value="c" description="Security Definition Request"/>
+<ValidValue value="d" description="Security Definition"/>
+<ValidValue value="e" description="Security Status Request"/>
+<ValidValue value="f" description="Security Status"/>
+<ValidValue value="g" description="Trading Session Status Request"/>
+<ValidValue value="h" description="Trading Session Status"/>
+<ValidValue value="i" description="Mass Quote"/>
+<ValidValue value="j" description="Business Message Reject"/>
+<ValidValue value="k" description="Bid Request "/>
+<ValidValue value="l" description="Bid Response (lowercase L)"/>
+<ValidValue value="m" description="List Strike Price"/>
+</Field>
+
+<Field tagNumber="36" tagName="NewSeqNo" dataType="int">
+<Comment>New sequence number
+</Comment>
+</Field>
+
+<Field tagNumber="37" tagName="OrderID" dataType="String">
+<Comment>Unique identifier for Order as assigned by broker. Uniqueness must be 
+guaranteed within a single trading day. Firms which accept multi-day orders should 
+consider embedding a date within the OrderID field to assure uniqueness across days.
+</Comment>
+</Field>
+
+<Field tagNumber="38" tagName="OrderQty" dataType="Qty">
+<Comment>Number of shares ordered. This represents the number of shares for equities
+or based on normal convention the number of contracts for options, futures, convertible
+ bonds, etc.
+(Prior to FIX 4.2 this field was of type int)
+</Comment>
+</Field>
+
+<Field tagNumber="39" tagName="OrdStatus" dataType="char">
+<Comment>Identifies current status of order. 
+</Comment>
+<ValidValue value="0" description="New"/>
+<ValidValue value="1" description="Partially filled"/>
+<ValidValue value="2" description="Filled"/>
+<ValidValue value="3" description="Done for day"/>
+<ValidValue value="4" description="Canceled"/>
+<ValidValue value="5" description="Replaced"/>
+<ValidValue value="6" description="Pending Cancel (e.g. result of Order Cancel Request)"/>
+<ValidValue value="7" description="Stopped"/>
+<ValidValue value="8" description="Rejected"/>
+<ValidValue value="9" description="Suspended"/>
+<ValidValue value="A" description="Pending New"/>
+<ValidValue value="B" description="Calculated"/>
+<ValidValue value="C" description="Expired"/>
+<ValidValue value="D" description="Accepted for bidding"/>
+<ValidValue value="E" description="Pending Replace (e.g. result of Order Cancel/Replace Request)"/>
+</Field>
+
+<Field tagNumber="40" tagName="OrdType" dataType="char">
+<Comment>Order type.
+</Comment>
+<ValidValue value="1" description="Market"/>
+<ValidValue value="2" description="Limit"/>
+<ValidValue value="3" description="Stop"/>
+<ValidValue value="4" description="Stop limit"/>
+<ValidValue value="5" description="Market on close"/>
+<ValidValue value="6" description="With or without"/>
+<ValidValue value="7" description="Limit or better"/>
+<ValidValue value="8" description="Limit with or without"/>
+<ValidValue value="9" description="On basis"/>
+<ValidValue value="A" description="On close"/>
+<ValidValue value="B" description="Limit on close"/>
+<ValidValue value="C" description="Forex - Market"/>
+<ValidValue value="D" description="Previously quoted"/>
+<ValidValue value="E" description="Previously indicated"/>
+<ValidValue value="F" description=" Forex - Limit"/>
+<ValidValue value="G" description="Forex - Swap"/>
+<ValidValue value="H" description="Forex - Previously Quoted"/>
+<ValidValue value="I" description="Funari(Limit Day Order with unexecuted portion handled as Market On Close. e.g. Japan)"/>
+<ValidValue value="P" description="Pegged"/>
+</Field>
+
+<Field tagNumber="41" tagName="OrigClOrdID" dataType="String">
+<Comment>ClOrdID of the previous order (NOT the initial order of the day) as assigned by the 
+institution, used to identify the previous order in cancel and cancel/replace requests.
+</Comment>
+</Field>
+
+<Field tagNumber="42" tagName="OrigTime" dataType="UTCTimestamp">
+<Comment>Time of message origination (always expressed in UTC (Universal Time Coordinated, also
+known as "GMT"))
+</Comment>
+</Field>
+
+<Field tagNumber="43" tagName="PossDupFlag" dataType="Boolean">
+<Comment>Indicates possible retransmission of message with this sequence number
+</Comment>
+<ValidValue value="Y" description="Possible duplicate"/>
+<ValidValue value="N" description="Original transmission"/>
+</Field>
+
+<Field tagNumber="44" tagName="Price" dataType="Price">
+<Comment>Price per share. 
+</Comment>
+</Field>
+
+<Field tagNumber="45" tagName="RefSeqNum" dataType="int">
+<Comment>Reference message sequence number.
+</Comment>
+</Field>
+
+<Field tagNumber="46" tagName="RelatdSym" dataType="String">
+<Comment>Symbol of issue related to story. Can be repeated within message to 
+identify multiple companies.
+</Comment>
+</Field>
+
+<Field tagNumber="47" tagName="Rule80A" dataType="char">
+<Comment>Note that the name of this field is changing to "OrderCapacity" as Rule80A
+is a very US market-specific term. Other world markets need to convey similar information,
+however, often a subset of the US values. . See the "Rule80A (aka OrderCapacity) Usage by 
+Market" appendix for market-specific usage of this field.
+</Comment>
+<ValidValue value="A" description="Short exempt transaction (refer to A type)"/>
+<ValidValue value="B" description="Short exempt transaction (refer to A type)"/>
+<ValidValue value="C" description="Program Order, non-index arb, for Member firm/org"/>
+<ValidValue value="D" description="Program Order, index arb, for Member firm/org"/>
+<ValidValue value="E" description="Registered Equity Market Maker trades"/>
+<ValidValue value="F" description="Short exempt transaction (refer to W type)"/>
+<ValidValue value="H" description="Short exempt transaction (refer to I type)"/>
+<ValidValue value="I" description="Individual Investor, single order"/>
+<ValidValue value="J" description="Program Order, index arb, for individual customer"/>
+<ValidValue value="K" description="Program Order, non-index arb, for individual customer"/>
+<ValidValue value="L" description="Short exempt transaction for member competing 
+market-maker affiliated with the firm clearing the trade (refer to P and O types)"/>
+<ValidValue value="M" description="Program Order, index arb, for other member"/>
+<ValidValue value="N" description=" Program Order, index arb, for other member"/>
+<ValidValue value="O" description="Program Order, non-index arb, for other member"/>
+<ValidValue value="P" description="Competing dealer trades"/>
+<ValidValue value="Q" description="Principal"/>
+<ValidValue value="R" description="Competing dealer trades"/>
+<ValidValue value="S" description="Specialist trades"/>
+<ValidValue value="T" description="Competing dealer trades"/>
+<ValidValue value="U" description=" Program Order, index arb, for other agency"/>
+<ValidValue value="W" description="All other orders as agent for other member"/>
+<ValidValue value="X" description="Short exempt transaction for member competing market-maker 
+not affiliated with the firm clearing the trade (refer to W and T types)"/>
+<ValidValue value="Y" description="Program Order, non-index arb, for other agency"/>
+<ValidValue value="Z" description="Short exempt transaction for non-member competing 
+market-maker (refer to A and R types)"/>
+</Field>
+
+<Field tagNumber="48" tagName="SecurityID" dataType="String">
+<Comment>CUSIP or other alternate security identifier.
+</Comment>
+</Field>
+
+<Field tagNumber="49" tagName="SenderCompID" dataType="String">
+<Comment>Assigned value used to identify firm sending message. 
+</Comment>
+</Field>
+
+<Field tagNumber="50" tagName="SenderSubID" dataType="String">
+<Comment>Assigned value used to identify specific message originator (desk, trader, etc.)
+</Comment>
+</Field>
+
+<Field tagNumber="51" tagName="SendingDate" dataType="LocalMktDate">
+<Comment>No longer used. Included here for reference to prior versions.
+</Comment>
+</Field>
+
+<Field tagNumber="52" tagName="SendingTime" dataType="UTCTimestamp">
+<Comment>Time of message transmission (always expressed in UTC (Universal Time Coordinated, also known as "GMT")
+</Comment>
+</Field>
+
+<Field tagNumber="53" tagName="Shares" dataType="Qty">
+<Comment>Number of shares 
+(Prior to FIX 4.2 this field was of type int)
+</Comment>
+</Field>
+
+<Field tagNumber="54" tagName="Side" dataType="char">
+<Comment>Side of order. 
+</Comment>
+<ValidValue value="1" description="Buy"/>
+<ValidValue value="2" description="Sell"/>
+<ValidValue value="3" description="Buy minus"/>
+<ValidValue value="4" description="Sell plus"/>
+<ValidValue value="5" description="Sell short"/>
+<ValidValue value="6" description="Sell short exempt"/>
+<ValidValue value="7" description="Undisclosed (valid for IOI and List Order messages only)"/>
+<ValidValue value="8" description="Cross (orders where counterparty is an exchange, valid for
+all messages except IOIs)"/>
+<ValidValue value="9" description="Cross short"/>
+</Field>
+
+<Field tagNumber="55" tagName="Symbol" dataType="String">
+<Comment>Ticker symbol .
+</Comment>
+</Field>
+
+<Field tagNumber="56" tagName="TargetCompID" dataType="String">
+<Comment>Assigned value used to identify receiving firm.
+</Comment>
+</Field>
+
+<Field tagNumber="57" tagName="TargetSubID" dataType="String">
+<Comment>Assigned value used to identify specific individual or unit intended to receive
+ message. "ADMIN" reserved for administrative messages not intended for a specific user.
+</Comment>
+</Field>
+
+<Field tagNumber="58" tagName="Text" dataType="String">
+<Comment>Free format text string
+(Note: this field does not have a specified maximum length)
+</Comment>
+</Field>
+
+<Field tagNumber="59" tagName="TimeInForce" dataType="char">
+<Comment>Specifies how long the order remains in effect. Absence of this field is 
+interpreted as DAY. 
+</Comment>
+<ValidValue value="0" description="Day"/>
+<ValidValue value="1" description="Good Till Cancel (GTC)"/>
+<ValidValue value="2" description="At the Opening (OPG)"/>
+<ValidValue value="3" description="Immediate or Cancel (IOC)"/>
+<ValidValue value="4" description="Fill or Kill (FOK)"/>
+<ValidValue value="5" description="Good Till Crossing (GTX)"/>
+<ValidValue value="6" description="Good Till Date "/>
+</Field>
+
+<Field tagNumber="60" tagName="TransactTime" dataType="UTCTimestamp">
+<Comment>Time of execution/order creation (expressed in UTC (Universal Time 
+Coordinated, also known as "GMT")
+</Comment>
+</Field>
+
+<Field tagNumber="61" tagName="Urgency" dataType="char">
+<Comment>Urgency flag.
+</Comment>
+<ValidValue value="0" description="Normal"/>
+<ValidValue value="1" description="Flash"/>
+<ValidValue value="2" description="Background"/>
+</Field>
+
+<Field tagNumber="62" tagName="ValidUntilTime" dataType="UTCTimestamp">
+<Comment>Indicates expiration time of indication message (always expressed 
+in UTC (Universal Time Coordinated, also known as "GMT")
+</Comment>
+</Field>
+
+<Field tagNumber="63" tagName="SettlmntTyp" dataType="char">
+<Comment>Indicates order settlement period. Absence of this field is interpreted as 
+Regular. Regular is defined as the default settlement period for the particular security 
+on the exchange of execution.
+</Comment>
+<ValidValue value="0" description="Regular"/>
+<ValidValue value="1" description="Cash"/>
+<ValidValue value="2" description="Next Day"/>
+<ValidValue value="3" description="T+2"/>
+<ValidValue value="4" description="T+3"/>
+<ValidValue value="5" description="T+4"/>
+<ValidValue value="6" description="Future"/>
+<ValidValue value="7" description="When Issued"/>
+<ValidValue value="8" description="Sellers Option"/>
+<ValidValue value="9" description="T+5"/>
+</Field>
+
+<Field tagNumber="64" tagName="FutSettDate" dataType="LocalMktDate">
+<Comment>Specific date of trade settlement (SettlementDate) in YYYYMMDD format. 
+Required when SettlmntTyp = 6 (Future) or SettlmntTyp = 8 (Sellers Option). 
+(expressed in local time at place of settlement). 
+</Comment>
+</Field>
+
+<Field tagNumber="65" tagName="SymbolSfx" dataType="String">
+<Comment>Additional information about the security (e.g. preferred, warrants, etc.). 
+Note also see SecurityType. 
+</Comment>
+</Field>
+
+<Field tagNumber="66" tagName="ListID" dataType="String">
+<Comment>Unique identifier for list as assigned by institution, used to associate 
+multiple individual orders. Uniqueness must be guaranteed within a single trading day. 
+Firms which generate multi-day orders should consider embedding a date within the ListID 
+field to assure uniqueness across days.
+</Comment>
+</Field>
+
+<Field tagNumber="67" tagName="ListSeqNo" dataType="int">
+<Comment>Sequence of individual order within list (i.e. ListSeqNo of ListNoOrds, 2 of 25, 
+3 of 25, . . . )
+</Comment>
+</Field>
+
+<Field tagNumber="68" tagName="TotNoOrders" dataType="int">
+<Comment>Total number of list order entries across all messages. Should be the sum of all 
+NoOrders in each message that has repeating list order entries related to the same ListID. 
+Used to support fragmentation.
+(Prior to FIX 4.2 this field was named "ListNoOrds")
+</Comment>
+</Field>
+
+<Field tagNumber="69" tagName="ListExecInst" dataType="String">
+<Comment>Free format text message containing list handling and execution instructions. 
+</Comment>
+</Field>
+
+<Field tagNumber="70" tagName="AllocID" dataType="String">
+<Comment>Unique identifier for allocation message.
+(Prior to FIX 4.1 this field was of type int)
+</Comment>
+</Field>
+
+<Field tagNumber="71" tagName="AllocTransType" dataType="char">
+<Comment>Identifies allocation transaction type.
+</Comment>
+<ValidValue value="0" description="New"/>
+<ValidValue value="1" description="Replace"/>
+<ValidValue value="2" description="Cancel"/>
+<ValidValue value="3" description="Preliminary (without MiscFees and NetMoney)"/>
+<ValidValue value="4" description="Calculated (includes MiscFees and NetMoney)"/>
+<ValidValue value="5" description="Calculated without Preliminary (sent unsolicited by 
+broker, includes MiscFees and NetMoney)"/>
+</Field>
+
+<Field tagNumber="72" tagName="RefAllocID" dataType="String">
+<Comment>Reference identifier to be used with Replace, Cancel, and Calculated 
+AllocTransType messages.
+(Prior to FIX 4.1 this field was of type int)
+</Comment>
+</Field>
+
+<Field tagNumber="73" tagName="NoOrders" dataType="int">
+<Comment>Indicates number of orders to be combined for average pricing and allocation.
+</Comment>
+</Field>
+
+<Field tagNumber="74" tagName="AvgPrxPrecision" dataType="int">
+<Comment>Indicates number of decimal places to be used for average pricing. Absence of 
+this field indicates that default precision arranged by the broker/institution is to be used. 
+</Comment>
+</Field>
+
+<Field tagNumber="75" tagName="TradeDate" dataType="LocalMktDate">
+<Comment>Indicates date of trade referenced in this message in YYYYMMDD format. Absence 
+of this field indicates current day (expressed in local time at place of trade).
+</Comment>
+</Field>
+
+<Field tagNumber="76" tagName="ExecBroker" dataType="String">
+<Comment>Identifies executing / give-up broker. Standard NASD market-maker mnemonic is preferred.
+</Comment>
+</Field>
+
+<Field tagNumber="77" tagName="OpenClose" dataType="char">
+<Comment>Indicates whether the resulting position after a trade should be an opening position or 
+closing position. Used for omnibus accounting - where accounts are held on a gross basis instead 
+of being netted together.
+</Comment>
+<ValidValue value="O" description="Open"/>
+<ValidValue value="C" description="Close"/>
+</Field>
+
+<Field tagNumber="78" tagName="NoAllocs" dataType="int">
+<Comment>Number of repeating AllocAccount/AllocPrice entries.
+</Comment>
+</Field>
+
+<Field tagNumber="79" tagName="AllocAccount" dataType="String">
+<Comment>Sub-account mnemonic. 
+</Comment>
+</Field>
+
+<Field tagNumber="80" tagName="AllocShares" dataType="Qty">
+<Comment>Number of shares to be allocated to specific sub-account 
+(Prior to FIX 4.2 this field was of type int)
+</Comment>
+</Field>
+
+<Field tagNumber="81" tagName="ProcessCode" dataType="char">
+<Comment>Processing code for sub-account. Absence of this field in AllocAccount / AllocPrice/AllocShares / 
+ProcessCode instance indicates regular trade..
+</Comment>
+<ValidValue value="0" description="regular"/>
+<ValidValue value="1" description="soft dollar"/>
+<ValidValue value="2" description="step-in"/>
+<ValidValue value="3" description="step-out"/>
+<ValidValue value="4" description="soft-dollar step-in"/>
+<ValidValue value="5" description="soft-dollar step-out"/>
+<ValidValue value="6" description="plan sponsor "/>
+</Field>
+
+<Field tagNumber="82" tagName="NoRpts" dataType="int">
+<Comment>Total number of reports within series.
+</Comment>
+</Field>
+
+<Field tagNumber="83" tagName="RptSeq" dataType="int">
+<Comment>Sequence number of message within report series.
+</Comment>
+</Field>
+
+<Field tagNumber="84" tagName="CxlQty" dataType="Qty">
+<Comment>Total number of shares canceled for this order. 
+(Prior to FIX 4.2 this field was of type int) 
+</Comment>
+</Field>
+
+<Field tagNumber="85" tagName="NoDlvyInst" dataType="int">
+<Comment>Number of delivery instruction fields to follow
+No longer used. Included here for reference to prior versions.
+</Comment>
+</Field>
+
+<Field tagNumber="86" tagName="DlvyInst" dataType="String">
+<Comment>Free format text field to indicate delivery instructions
+No longer used. Included here for reference to prior versions.
+</Comment>
+</Field>
+
+<Field tagNumber="87" tagName="AllocStatus" dataType="int">
+<Comment>Identifies status of allocation.
+</Comment>
+<ValidValue value="0" description="accepted (successfully processed)"/>
+<ValidValue value="1" description="rejected"/>
+<ValidValue value="2" description="partial accept"/>
+<ValidValue value="3" description="received (received, not yet processed)"/>
+</Field>
+
+<Field tagNumber="88" tagName="AllocRejCode" dataType="int">
+<Comment>Identifies reason for rejection.
+</Comment>
+<ValidValue value="0" description="unknown account(s)"/>
+<ValidValue value="1" description="incorrect quantity"/>
+<ValidValue value="2" description="incorrect average price"/>
+<ValidValue value="3" description="unknown executing broker mnemonic"/>
+<ValidValue value="4" description="commission difference"/>
+<ValidValue value="5" description="unknown OrderID"/>
+<ValidValue value="6" description="unknown ListID"/>
+<ValidValue value="7" description="other"/>
+</Field>
+
+<Field tagNumber="89" tagName="Signature" dataType="data">
+<Comment>Electronic signature. 
+</Comment>
+</Field>
+
+<Field tagNumber="90" tagName="SecureDataLen" dataType="int">
+<Comment>Length of encrypted message
+</Comment>
+</Field>
+
+<Field tagNumber="91" tagName="SecureData" dataType="data">
+<Comment>Actual encrypted data stream.
+</Comment>
+</Field>
+
+<Field tagNumber="92" tagName="BrokerOfCredit" dataType="String">
+<Comment>Broker to receive trade credit.
+</Comment>
+</Field>
+
+<Field tagNumber="93" tagName="SignatureLength" dataType="int">
+<Comment>Number of bytes in signature field.
+</Comment>
+</Field>
+
+<Field tagNumber="94" tagName="EmailType" dataType="char">
+<Comment>Email message type. 
+</Comment>
+<ValidValue value="0" description="New"/>
+<ValidValue value="1" description="Reply"/>
+<ValidValue value="2" description="Admin Reply"/>
+</Field>
+
+<Field tagNumber="95" tagName="RawDataLength" dataType="int">
+<Comment>Number of bytes in raw data field.
+</Comment>
+</Field>
+
+<Field tagNumber="96" tagName="RawData" dataType="data">
+<Comment>Unformatted raw data, can include bitmaps, word processor documents, etc.
+</Comment>
+</Field>
+
+<Field tagNumber="97" tagName="PossResend" dataType="Boolean">
+<Comment>Indicates that message may contain information that has been sent 
+under another sequence number.
+</Comment>
+<ValidValue value="Y" description="Possible resend"/>
+<ValidValue value="N" description="Original transmission"/>
+</Field>
+
+<Field tagNumber="98" tagName="EncryptMethod" dataType="int">
+<Comment>Method of encryption .
+</Comment>
+<ValidValue value="0" description="None / other"/>
+<ValidValue value="1" description="PKCS (proprietary)"/>
+<ValidValue value="2" description="DES (ECB mode)"/>
+<ValidValue value="3" description="PKCS/DES (proprietary)"/>
+<ValidValue value="4" description="PGP/DES (defunct)"/>
+<ValidValue value="5" description="PGP/DES-MD5 (see app note on FIX web site)"/>
+<ValidValue value="6" description="PEM/DES-MD5 (see app note on FIX web site)"/>
+</Field>
+
+<Field tagNumber="99" tagName="StopPx" dataType="Price">
+<Comment>Price per share. 
+</Comment>
+</Field>
+
+<Field tagNumber="100" tagName="ExDestination" dataType="Exchange">
+<Comment>Execution destination as defined by institution when order is entered.
+</Comment>
+</Field>
+
+<Field tagNumber="101" tagName="" dataType="">
+<Comment>
+</Comment>
+</Field>
+
+<Field tagNumber="102" tagName="CxlRejReason" dataType="int">
+<Comment>Code to identify reason for cancel rejection.
+</Comment>
+<ValidValue value="0" description="Too late to cancel"/>
+<ValidValue value="1" description="Unknown order"/>
+<ValidValue value="2" description="Broker Option"/>
+<ValidValue value="3" description="Order already in Pending Cancel or Pending Replace status"/>
+</Field>
+
+<Field tagNumber="103" tagName="OrdRejReason" dataType="int">
+<Comment>Code to identify reason for order rejection.
+</Comment>
+<ValidValue value="0" description="Broker option"/>
+<ValidValue value="1" description="Unknown symbol"/>
+<ValidValue value="2" description="Exchange closed"/>
+<ValidValue value="3" description="Order exceeds limit"/>
+<ValidValue value="4" description="Too late to enter"/>
+<ValidValue value="5" description="Unknown Order"/>
+<ValidValue value="6" description="Duplicate Order (e.g. dupe ClOrdID)"/>
+<ValidValue value="7" description="Duplicate of a verbally communicated order"/>
+<ValidValue value="8" description="Stale Order"/>
+</Field>
+
+<Field tagNumber="104" tagName="IOIQualifier" dataType="char">
+<Comment>Code to qualify IOI use. 
+</Comment>
+<ValidValue value="A" description="All or none"/>
+<ValidValue value="C" description="At the close"/>
+<ValidValue value="I" description="In touch with"/>
+<ValidValue value="L" description="Limit"/>
+<ValidValue value="M" description="More behind"/>
+<ValidValue value="O" description="At the open"/>
+<ValidValue value="P" description="Taking a position"/>
+<ValidValue value="Q" description="At the Market (previously called Current Quote)"/>
+<ValidValue value="R" description="Ready to trade"/>
+<ValidValue value="S" description="Portfolio show-n"/>
+<ValidValue value="T" description="Through the day"/>
+<ValidValue value="V" description="Versus"/>
+<ValidValue value="W" description="Indication - Working away"/>
+<ValidValue value="X" description="Crossing opportunity"/>
+<ValidValue value="Y" description="At the Midpoint"/>
+<ValidValue value="Z" description="Pre-open"/>
+</Field>
+
+<Field tagNumber="105" tagName="WaveNo" dataType="String">
+<Comment>Identifier to aid in the management of multiple lists derived from a single, master list.
+</Comment>
+</Field>
+
+<Field tagNumber="106" tagName="Issuer" dataType="String">
+<Comment>Company name of security issuer (e.g. International Business Machines) 
+</Comment>
+</Field>
+
+<Field tagNumber="107" tagName="SecurityDesc" dataType="String">
+<Comment>Security description
+</Comment>
+</Field>
+
+<Field tagNumber="108" tagName="HeartBtInt" dataType="int">
+<Comment>Heartbeat interval (seconds) .
+</Comment>
+</Field>
+
+<Field tagNumber="109" tagName="ClientID" dataType="String">
+<Comment>Firm identifier used in third party-transactions (should not be a substitute for 
+OnBehalfOfCompID/DeliverToCompID).  
+</Comment>
+</Field>
+
+<Field tagNumber="110" tagName="MinQty" dataType="Qty">
+<Comment>Minimum quantity of an order to be executed. 
+(Prior to FIX 4.2 this field was of type int)
+</Comment>
+</Field>
+
+<Field tagNumber="111" tagName="MaxFloor" dataType="Qty">
+<Comment>Maximum number of shares within an order to be shown on the exchange floor at any given time. 
+(Prior to FIX 4.2 this field was of type int)
+</Comment>
+</Field>
+
+<Field tagNumber="112" tagName="TestReqID" dataType="String">
+<Comment>Identifier included in Test Request message to be returned in resulting Heartbeat
+</Comment>
+</Field>
+
+<Field tagNumber="113" tagName="ReportToExch" dataType="Boolean">
+<Comment>Identifies party of trade responsible for exchange reporting.
+</Comment>
+<ValidValue value="Y" description="Indicates that party receiving message must report trade"/>
+<ValidValue value="N" description="Indicates that party sending message will report trade"/>
+</Field>
+
+<Field tagNumber="114" tagName="LocateReqd" dataType="Boolean">
+<Comment>Indicates whether the broker is to locate the stock in conjunction with a short sell order.. 
+</Comment>
+<ValidValue value="Y" description="Indicates the broker is responsible for locating the stock"/>
+<ValidValue value="N" description=" Indicates the broker is not required to locate"/>
+</Field>
+
+<Field tagNumber="115" tagName="OnBehalfOfCompID" dataType="String">
+<Comment>Assigned value used to identify firm originating message if the message was delivered 
+by a third party i.e. the third party firm identifier would be delivered in the SenderCompID 
+field and the firm originating the message in this field.
+</Comment>
+</Field>
+
+<Field tagNumber="116" tagName="OnBehalfOfSubID" dataType="String">
+<Comment>Assigned value used to identify specific message originator (i.e. trader) if the message 
+was delivered by a third party
+</Comment>
+</Field>
+
+<Field tagNumber="117" tagName="QuoteID" dataType="String">
+<Comment>Unique identifier for quote.
+</Comment>
+</Field>
+
+<Field tagNumber="118" tagName="NetMoney" dataType="Amt">
+<Comment>Total amount due as the result of the transaction 
+(e.g. for Buy order - principal + commission + fees) reported in currency of execution .
+</Comment>
+</Field>
+
+<Field tagNumber="119" tagName="SettlCurrAmt" dataType="Amt">
+<Comment>Total amount due expressed in settlement currency 
+(includes the effect of the forex transaction). 
+</Comment>
+</Field>
+
+<Field tagNumber="120" tagName="SettlCurrency" dataType="Currency">
+<Comment>Currency code of settlement denomination.
+</Comment>
+</Field>
+
+<Field tagNumber="121" tagName="ForexReq" dataType="Boolean">
+<Comment>Indicates request for forex accommodation trade to be 
+executed along with security transaction.
+</Comment>
+<ValidValue value="Y" description="Execute Forex after security trade"/>
+<ValidValue value="N" description="Do not execute Forex after security trade"/>
+</Field>
+
+<Field tagNumber="122" tagName="OrigSendingTime" dataType="UTCTimestamp">
+<Comment>Original time of message transmission (always expressed in UTC 
+(Universal Time Coordinated, also known as "GMT") when transmitting orders 
+as the result of a resend request.
+</Comment>
+</Field>
+
+<Field tagNumber="123" tagName="GapFillFlag" dataType="Boolean">
+<Comment>Indicates that the Sequence Reset message is replacing 
+administrative or application messages which will not be resent.
+</Comment>
+<ValidValue value="Y" description="Gap Fill message, MsgSeqNum field valid"/>
+<ValidValue value="N" description="Sequence Reset, ignore MsgSeqNum"/>
+</Field>
+
+<Field tagNumber="124" tagName="NoExecs" dataType="int">
+<Comment>No of execution repeating group entries to follow.
+</Comment>
+</Field>
+
+<Field tagNumber="125" tagName="CxlType" dataType="char">
+<Comment>No longer used. Included here for reference to prior versions.
+</Comment>
+</Field>
+
+<Field tagNumber="126" tagName="ExpireTime" dataType="UTCTimestamp">
+<Comment>Time/Date of order expiration (always expressed in UTC 
+(Universal Time Coordinated, also known as "GMT"). 
+
+</Comment>
+</Field>
+
+<Field tagNumber="127" tagName="DKReason" dataType="char">
+<Comment>Reason for execution rejection.
+</Comment>
+<ValidValue value="A" description="Unknown symbol"/>
+<ValidValue value="B" description="Wrong side"/>
+<ValidValue value="C" description="Quantity exceeds order"/>
+<ValidValue value="D" description="No matching order"/>
+<ValidValue value="E" description="Price exceeds limit"/>
+<ValidValue value="Z" description="Other"/>
+</Field>
+
+<Field tagNumber="128" tagName="DeliverToCompID" dataType="String">
+<Comment>Assigned value used to identify the firm targeted to receive 
+the message if the message is delivered by a third party i.e. the third 
+party firm identifier would be delivered in the TargetCompID field and 
+the ultimate receiver firm ID in this field
+</Comment>
+</Field>
+
+<Field tagNumber="129" tagName="DeliverToSubID" dataType="String">
+<Comment>Assigned value used to identify specific message recipient 
+(i.e. trader) if the message is delivered by a third party.
+</Comment>
+</Field>
+
+<Field tagNumber="130" tagName="IOINaturalFlag" dataType="Boolean">
+<Comment>Indicates that IOI is the result of an existing agency order 
+or a facilitation position resulting from an agency order, not from 
+principal trading or order solicitation activity.
+</Comment>
+<ValidValue value="Y" description="Natural"/>
+<ValidValue value="N" description="Not natural"/>
+
+</Field>
+
+<Field tagNumber="131" tagName="QuoteReqID" dataType="String">
+<Comment>Unique identifier for quote request.
+</Comment>
+</Field>
+
+<Field tagNumber="132" tagName="BidPx" dataType="Price">
+<Comment>Bid price/rate.
+</Comment>
+</Field>
+
+<Field tagNumber="133" tagName="OfferPx" dataType="Price">
+<Comment>Offer price/rate.
+</Comment>
+</Field>
+
+<Field tagNumber="134" tagName="BidSize" dataType="Qty">
+<Comment>Quantity of bid
+(Prior to FIX 4.2 this field was of type int)
+</Comment>
+</Field>
+
+<Field tagNumber="135" tagName="OfferSize" dataType="Qty">
+<Comment>Quantity of offer.
+(Prior to FIX 4.2 this field was of type int)
+</Comment>
+</Field>
+
+<Field tagNumber="136" tagName="NoMiscFees" dataType="int">
+<Comment>Number of repeating groups of miscellaneous fees.
+</Comment>
+</Field>
+
+<Field tagNumber="137" tagName="MiscFeeAmt" dataType="Amt">
+<Comment>Miscellaneous fee value.
+</Comment>
+</Field>
+
+<Field tagNumber="138" tagName="MiscFeeCurr" dataType="Currency">
+<Comment>Currency of miscellaneous fee.
+</Comment>
+</Field>
+
+<Field tagNumber="139" tagName="MiscFeeType" dataType="char">
+<Comment>Indicates type of miscellaneous fee.
+</Comment>
+<ValidValue value="1" description="Regulatory (e.g. SEC)"/>
+<ValidValue value="2" description="Tax"/>
+<ValidValue value="3" description="Local Commission"/>
+<ValidValue value="4" description="Exchange Fees"/>
+<ValidValue value="5" description="Stamp"/>
+<ValidValue value="6" description="Levy"/>
+<ValidValue value="7" description="Other"/>
+<ValidValue value="8" description="Markup"/>
+<ValidValue value="9" description="Consumption Tax"/>
+</Field>
+
+<Field tagNumber="140" tagName="PrevClosePx" dataType="Price">
+<Comment>Previous closing price of security.
+</Comment>
+</Field>
+
+<Field tagNumber="141" tagName="ResetSeqNumFlag" dataType="Boolean">
+<Comment>Indicates that the both sides of the FIX session should reset sequence numbers.
+</Comment>
+<ValidValue value="Y" description="Yes, reset sequence numbers"/>
+<ValidValue value="N" description="No"/>
+</Field>
+
+<Field tagNumber="142" tagName="SenderLocationID" dataType="String">
+<Comment>Assigned value used to identify specific message originator�s location 
+(i.e. geographic location and/or desk, trader)
+</Comment>
+</Field>
+
+<Field tagNumber="143" tagName="TargetLocationID" dataType="String">
+<Comment>Assigned value used to identify specific message destination�s 
+location (i.e. geographic location and/or desk, trader)
+</Comment>
+</Field>
+
+<Field tagNumber="144" tagName="OnBehalfOfLocationID" dataType="String">
+<Comment>Assigned value used to identify specific message originator�s location 
+(i.e. geographic location and/or desk, trader) if the message was delivered by a third party
+</Comment>
+</Field>
+
+<Field tagNumber="145" tagName="DeliverToLocationID" dataType="String">
+<Comment>Assigned value used to identify specific message recipient�s location 
+(i.e. geographic location and/or desk, trader) if the message was delivered by a third party
+</Comment>
+</Field>
+
+<Field tagNumber="146" tagName="NoRelatedSym" dataType="int">
+<Comment>Specifies the number of repeating symbols specified.
+</Comment>
+</Field>
+
+<Field tagNumber="147" tagName="Subject" dataType="String">
+<Comment>The subject of an Email message
+</Comment>
+</Field>
+
+<Field tagNumber="148" tagName="Headline" dataType="String">
+<Comment>The headline of a News message.
+</Comment>
+</Field>
+
+<Field tagNumber="149" tagName="URLLink" dataType="String">
+<Comment>A URL (Uniform Resource Locator) link to additional information 
+(i.e. http://www.XYZ.com/research.html)
+</Comment>
+</Field>
+
+<Field tagNumber="150" tagName="ExecType" dataType="char">
+<Comment>Describes the specific ExecutionRpt (i.e. Pending Cancel) 
+while OrdStatus will always identify the current order status (i.e. Partially Filled) 
+</Comment>
+<ValidValue value="0" description="New"/>
+<ValidValue value="1" description="Partial fill"/>
+<ValidValue value="2" description="Fill"/>
+<ValidValue value="3" description="Done for day"/>
+<ValidValue value="4" description="Canceled"/>
+<ValidValue value="5" description="Replace"/>
+<ValidValue value="6" description="Pending Cancel (e.g. result of Order Cancel Request)"/>
+<ValidValue value="7" description="Stopped"/>
+<ValidValue value="8" description="Rejected"/>
+<ValidValue value="9" description="Suspended"/>
+<ValidValue value="A" description="Pending New"/>
+<ValidValue value="B" description="Calculated"/>
+<ValidValue value="C" description="Expired"/>
+<ValidValue value="D" description="Restated (ExecutionRpt sent unsolicited by sellside, 
+with ExecRestatementReason set)"/>
+<ValidValue value="E" description="Pending Replace (e.g. result of Order Cancel/Replace Request)"/>
+</Field>
+
+<Field tagNumber="151" tagName="LeavesQty" dataType="Qty">
+<Comment>Amount of shares open for further execution. If the OrdStatus is Canceled, 
+DoneForTheDay, Expired, Calculated, or Rejected (in which case the order is no longer active)
+ then LeavesQty could be 0, otherwise LeavesQty = OrderQty - CumQty.
+(Prior to FIX 4.2 this field was of type int)
+</Comment>
+</Field>
+
+<Field tagNumber="152" tagName="CashOrderQty" dataType="Qty">
+<Comment>Specifies the approximate order quantity desired in total monetary units vs. 
+as a number of shares. The broker would be responsible for converting and calculating a 
+share quantity (OrderQty) based upon this amount to be used for the actual order and 
+subsequent messages.
+</Comment>
+</Field>
+
+<Field tagNumber="153" tagName="AllocAvgPx" dataType="Price">
+<Comment>AvgPx for a specific AllocAccount
+</Comment>
+</Field>
+
+<Field tagNumber="154" tagName="AllocNetMoney" dataType="Amt">
+<Comment>NetMoney for a specific AllocAccount.
+</Comment>
+</Field>
+
+<Field tagNumber="155" tagName="SettlCurrFxRate" dataType="float">
+<Comment>Foreign exchange rate used to compute SettlCurrAmt from Currency to SettlCurrency
+</Comment>
+</Field>
+
+<Field tagNumber="156" tagName="SettlCurrFxRateCalc" dataType="char">
+<Comment>Specifies whether or not SettlCurrFxRate should be multiplied or divided.
+</Comment>
+<ValidValue value="M" description="Multiply"/>
+<ValidValue value="D" description="Divide"/>
+</Field>
+
+<Field tagNumber="157" tagName="NumDaysInterest" dataType="int">
+<Comment>Number of Days of Interest for convertible bonds and fixed income.
+</Comment>
+</Field>
+
+<Field tagNumber="158" tagName="AccruedInterestRate" dataType="float">
+<Comment>Accrued Interest Rate for convertible bonds and fixed income
+</Comment>
+</Field>
+
+<Field tagNumber="159" tagName="AccruedInterestAmt" dataType="Amt">
+<Comment>Amount of Accrued Interest for convertible bonds and fixed income.
+</Comment>
+</Field>
+
+<Field tagNumber="160" tagName="SettlInstMode" dataType="char">
+<Comment>Indicates mode used for Settlement Instructions.
+</Comment>
+<ValidValue value="0" description="Default"/>
+<ValidValue value="1" description="Standing Instructions Provided"/>
+<ValidValue value="2" description="Specific Allocation Account Overriding"/>
+<ValidValue value="3" description="Specific Allocation Account Standing"/>
+</Field>
+
+<Field tagNumber="161" tagName="AllocText" dataType="String">
+<Comment>Free format text related to a specific AllocAccount.
+</Comment>
+<ValidValue value="Y" description="Execute Forex after security trade"/>
+<ValidValue value="N" description="Do not execute Forex after security trade"/>
+</Field>
+
+<Field tagNumber="162" tagName="SettlInstID" dataType="String">
+<Comment>Unique identifier for Settlement Instructions message.
+</Comment>
+</Field>
+
+<Field tagNumber="163" tagName="SettlInstTransType" dataType="char">
+<Comment>Settlement Instructions message transaction type.
+</Comment>
+<ValidValue value="N" description="New"/>
+<ValidValue value="C" description="Cancel"/>
+<ValidValue value="R" description="Replace"/>
+</Field>
+
+<Field tagNumber="164" tagName="EmailThreadID" dataType="String">
+<Comment>Unique identifier for an email thread (new and chain of replies)
+</Comment>
+</Field>
+
+<Field tagNumber="165" tagName="SettlInstSource" dataType="char">
+<Comment>Indicates source of Settlement Instructions.
+</Comment>
+<ValidValue value="1" description="Broker�s Instructions"/>
+<ValidValue value="2" description="Institution�s Instructions"/>
+</Field>
+
+<Field tagNumber="166" tagName="SettlLocation" dataType="String">
+<Comment>Identifies Settlement Depository or Country Code (ISITC spec)
+</Comment>
+<ValidValue value="CED" description="Multiply"/>
+<ValidValue value="DTC" description="Divide"/>
+<ValidValue value="EUR" description="Multiply"/>
+<ValidValue value="FED" description="Divide"/>
+<ValidValue value="PNY" description="Multiply"/>
+<ValidValue value="PTC" description="Divide"/>
+<ValidValue value="ISOCountryCode" description="Local Market Settle Location"/>
+</Field>
+
+<Field tagNumber="167" tagName="SecurityType" dataType="String">
+<Comment>Indicates type of security (ISITC spec)</Comment>
+<ValidValue value="BA" description="Bankers Acceptance"/>
+<ValidValue value="CB" description="Convertible Bond (Note not part of ISITC spec)"/>
+<ValidValue value="CD" description="Certificate Of Deposit"/>
+<ValidValue value="CMO" description="Corporate Bond"/>
+<ValidValue value="CORP" description="Corporate Bond"/>
+<ValidValue value="CP" description="Commercial Paper"/>
+<ValidValue value="CPP" description="Corporate Private Placement"/>
+<ValidValue value="CS" description="Common Stock"/>
+<ValidValue value="FHA" description="Federal Housing Authority"/>
+<ValidValue value="FHL" description="Federal Home Loan"/>
+<ValidValue value="FN" description="Federal National Mortgage Association"/>
+<ValidValue value="for" description="Foreign Exchange Contract"/>
+<ValidValue value="FUT" description="Future"/>
+<ValidValue value="GN" description="Government National Mortgage Association"/>
+<ValidValue value="GOVT" description="Treasuries + Agency Debenture IET Mortgage IOETTE"/>
+<ValidValue value="MF" description="Mortgage Interest Only"/>
+<ValidValue value="MIO" description="Mortgage Interest Only"/>
+<ValidValue value="MPO" description="Mortgage Principal Only"/>
+<ValidValue value="MPP" description="Mortgage Private Placement"/>
+<ValidValue value="MPT" description=" Miscellaneous Pass-Thru"/>
+<ValidValue value="MUNI" description="Municipal Bond"/>
+<ValidValue value="NONE" description="No ISITC Security Type"/>
+<ValidValue value="OPT" description="Preferred Stock"/>
+<ValidValue value="PS" description="Preferred Stock"/>
+<ValidValue value="RP" description="Repurchase Agreement"/>
+<ValidValue value="RVRP" description="Reverse Repurchase Agreement"/>
+<ValidValue value="SL" description="Student Loan Marketing Association"/>
+<ValidValue value="TD" description="Time Deposit"/>
+<ValidValue value="USTB" description="US Treasury Bill"/>
+<ValidValue value="WAR" description="Warrant"/>
+<ValidValue value="ZOO" description="Cats, Tigers and Lions (a real code: US Treasury Receipts) "/>
+<ValidValue value="?" description="Wildcard entry (used on Security Definition Request message)"/>-->
+</Field>
+
+<Field tagNumber="168" tagName="EffectiveTime" dataType="UTCTimestamp">
+<Comment>Time the details within the message should take effect 
+(always expressed in UTC (Universal Time Coordinated, also known as "GMT")
+</Comment>
+</Field>
+
+<Field tagNumber="169" tagName="StandInstDbType" dataType="int">
+<Comment>Identifies the Standing Instruction database used.
+</Comment>
+<ValidValue value="0" description="Other"/>
+<ValidValue value="1" description="DTC SID"/>
+<ValidValue value="2" description="Thomson ALERT"/>
+<ValidValue value="3" description="A Global Custodian (StandInstDbName must be provided)"/>
+</Field>
+
+<Field tagNumber="170" tagName="StandInstDbName" dataType="String">
+<Comment>Name of the Standing Instruction database represented with StandInstDbType 
+(i.e. the Global Custodian�s name).
+</Comment>
+</Field>
+
+<Field tagNumber="171" tagName="StandInstDbID" dataType="String">
+<Comment>Unique identifier used on the Standing Instructions database for the 
+Standing Instructions to be referenced.
+</Comment>
+</Field>
+
+<Field tagNumber="172" tagName="SettlDeliveryType" dataType="int">
+<Comment>Identifies type of settlement.
+</Comment>
+<ValidValue value="0" description="Versus. Payment: Deliver (if Sell) or Receive 
+(if Buy) vs. (Against) Payment "/>
+<ValidValue value="1" description="Free: Deliver (if Sell) or Receive (if Buy) Free"/>
+</Field>
+
+<Field tagNumber="173" tagName="SettlDepositoryCode" dataType="String">
+<Comment>Broker�s account code at the depository (i.e. CEDEL ID for CEDEL, FINS for DTC, 
+or Euroclear ID for Euroclear) if SettlLocation is a depository
+</Comment>
+</Field>
+
+<Field tagNumber="174" tagName="SettlBrkrCode" dataType="String">
+<Comment>BIC (Bank Identification Code�Swift managed) code of the broker involved 
+(i.e. for multi-company brokerage firms)
+</Comment>
+</Field>
+
+<Field tagNumber="175" tagName="SettlInstCode" dataType="String">
+<Comment>BIC (Bank Identification Code�Swift managed) code of the institution involved 
+(i.e. for multi-company institution firms)
+</Comment>
+</Field>
+
+<Field tagNumber="176" tagName="SecuritySettlAgentName" dataType="String">
+<Comment>Name of SettlInstSource's local agent bank if SettlLocation is not a depository.
+</Comment>
+</Field>
+
+<Field tagNumber="177" tagName="SecuritySettlAgentCode" dataType="String">
+<Comment>BIC (Bank Identification Code--Swift managed) code of the SettlInstSource's 
+local agent bank if SettlLocation is not a depository.
+</Comment>
+</Field>
+
+<Field tagNumber="178" tagName="SecuritySettlAgentAcctNum" dataType="String">
+<Comment>SettlInstSource's account number at local agent bank if SettlLocation is not a 
+depository.
+</Comment>
+</Field>
+
+<Field tagNumber="179" tagName="SecuritySettlAgentAcctName" dataType="String">
+<Comment>Name of SettlInstSource's account at local agent bank if SettlLocation 
+is not a depository
+</Comment>
+</Field>
+
+<Field tagNumber="180" tagName="SecuritySettlAgentContactName" dataType="String">
+<Comment>Name of contact at local agent bank for SettlInstSource's account if 
+SettlLocation is not a depository
+</Comment>
+</Field>
+
+<Field tagNumber="181" tagName="SecuritySettlAgentContactPhone" dataType="String">
+<Comment>Phone number for contact at local agent bank if SettlLocation is not a depository.
+</Comment>
+</Field>
+
+<Field tagNumber="182" tagName="CashSettlAgentName" dataType="String">
+<Comment>Name of SettlInstSource's local agent bank if SettlDeliveryType=Free
+</Comment>
+</Field>
+
+<Field tagNumber="183" tagName="CashSettlAgentCode" dataType="String">
+<Comment>BIC (Bank Identification Code--Swift managed) code of the SettlInstSource's 
+local agent bank if SettlDeliveryType=Free
+</Comment>
+</Field>
+
+<Field tagNumber="184" tagName="CashSettlAgentAcctNum" dataType="String">
+<Comment>SettlInstSource's account number at local agent bank if SettlDeliveryType=Free.
+</Comment>
+</Field>
+
+<Field tagNumber="185" tagName="CashSettlAgentAcctName" dataType="String">
+<Comment>Name of SettlInstSource's account at local agent bank if SettlDeliveryType=Free
+</Comment>
+</Field>
+
+<Field tagNumber="186" tagName="CashSettlAgentContactName" dataType="String">
+<Comment>Name of contact at local agent bank for SettlInstSource's account if SettlDeliveryType=Free
+</Comment>
+</Field>
+
+<Field tagNumber="187" tagName="CashSettlAgentContactPhone" dataType="String">
+<Comment>Phone number for contact at local agent bank for SettlInstSource's account if SettlDeliveryType=Free
+</Comment>
+</Field>
+
+<Field tagNumber="188" tagName="BidSpotRate" dataType="Price">
+<Comment>Bid F/X spot rate.y vary and not limited to four)
+</Comment>
+</Field>
+
+<Field tagNumber="189" tagName="BidForwardPoints" dataType="PriceOffset">
+<Comment>Bid F/X forward points added to spot rate. May be a negative value.
+</Comment>
+</Field>
+
+<Field tagNumber="190" tagName="OfferSpotRate" dataType="Price">
+<Comment>Offer F/X spot rate.
+</Comment>
+</Field>
+
+<Field tagNumber="191" tagName="OfferForwardPoints" dataType="PriceOffset">
+<Comment>Offer F/X forward points added to spot rate. May be a negative value.
+</Comment>
+</Field>
+
+<Field tagNumber="192" tagName="OrderQty2" dataType="Qty">
+<Comment>OrderQty of the future part of a F/X swap order.
+</Comment>
+</Field>
+
+<Field tagNumber="193" tagName="FutSettDate2" dataType="LocalMktDate">
+<Comment>FutSettDate of the future part of a F/X swap order
+</Comment>
+</Field>
+
+<Field tagNumber="194" tagName="LastSpotRate" dataType="Price">
+<Comment>F/X spot rate.
+</Comment>
+</Field>
+
+<Field tagNumber="195" tagName="LastForwardPoints" dataType="PriceOffset">
+<Comment>F/X forward points added to LastSpotRate. May be a negative value.
+</Comment>
+</Field>
+
+<Field tagNumber="196" tagName="AllocLinkID" dataType="String">
+<Comment>Can be used to link two different Allocation messages 
+(each with unique AllocID) together, i.e. for F/X "Netting" or "Swaps". Should be unique.
+</Comment>
+</Field>
+
+<Field tagNumber="197" tagName="AllocLinkType" dataType="int">
+<Comment>Identifies the type of Allocation linkage when AllocLinkID is used.
+</Comment>
+<ValidValue value="0" description="F/X Netting"/>
+<ValidValue value="1" description=" F/X Swap"/>
+</Field>
+
+<Field tagNumber="198" tagName="SecondaryOrderID" dataType="String">
+<Comment>Assigned by the party which accepts the order. Can be used to provide the OrderID 
+used by an exchange or executing system.
+</Comment>
+</Field>
+
+<Field tagNumber="199" tagName="NoIOIQualifiers" dataType="int">
+<Comment>Number of repeating groups of IOIQualifiers.
+</Comment>
+</Field>
+
+<Field tagNumber="200" tagName="MaturityMonthYear" dataType="month-year">
+<Comment>Month and Year of the maturity for SecurityType=FUT or SecurityType=OPT. 
+Required if MaturityDay is specified.
+</Comment>
+</Field>
+
+<Field tagNumber="201" tagName="PutOrCall" dataType="int">
+<Comment>Indicates whether an Option is for a put or call.
+</Comment>
+<ValidValue value="0" description="Put"/>
+<ValidValue value="1" description="Call"/>
+</Field>
+
+<Field tagNumber="202" tagName="StrikePrice" dataType="Price">
+<Comment>Strike Price for an Option.
+</Comment>
+</Field>
+
+<Field tagNumber="203" tagName="CoveredOrUncovered" dataType="int">
+<Comment>Used for options
+</Comment>
+<ValidValue value="0" description="Covered"/>
+<ValidValue value="1" description="Uncovered"/>
+</Field>
+
+<Field tagNumber="204" tagName="CustomerOrFirm" dataType="int">
+<Comment>Used for options when delivering the order to an execution system/exchange
+ to specify if the order is for a customer or the firm placing the order itself.
+</Comment>
+<ValidValue value="0" description="Customer"/>
+<ValidValue value="1" description="Firm"/>
+</Field>
+
+<Field tagNumber="205" tagName="MaturityDay" dataType="day-of-month">
+<Comment>Day of month used in conjunction with MaturityMonthYear to specify the maturity 
+date for SecurityType=FUT or SecurityType=OPT.Valid values: 1-31
+</Comment>
+</Field>
+
+<Field tagNumber="206" tagName="OptAttribute" dataType="char">
+<Comment>Can be used for SecurityType=OPT to identify a particular security.
+</Comment>
+<ValidValue value="0" description="Put"/>
+<ValidValue value="1" description="Call"/>
+</Field>
+
+<Field tagNumber="207" tagName="SecurityExchange" dataType="Exchange">
+<Comment>Market used to help identify a security.
+</Comment>
+<ValidValue value="0" description="Put"/>
+<ValidValue value="1" description="Call"/>
+</Field>
+
+<Field tagNumber="208" tagName="NotifyBrokerOfCredit" dataType="Boolean">
+<Comment>Indicates whether or not details should be communicated to BrokerOfCredit 
+(i.e. step-in broker).
+</Comment>
+<ValidValue value="Y" description="Details should be communicated"/>
+<ValidValue value="N" description="Details should not be communicated"/>
+</Field>
+
+<Field tagNumber="209" tagName="AllocHandlInst" dataType="int">
+<Comment>Indicates how the receiver (i.e. third party) of Allocation message 
+should handle/process the account details.
+</Comment>
+<ValidValue value="1" description="Match"/>
+<ValidValue value="2" description="Forward"/>
+<ValidValue value="3" description="Forward and Match"/>
+</Field>
+
+<Field tagNumber="210" tagName="MaxShow" dataType="Qty">
+<Comment>Maximum number of shares within an order to be shown to other customers (i.e. sent via an IOI).
+(Prior to FIX 4.2 this field was of type int)
+</Comment>
+</Field>
+
+<Field tagNumber="211" tagName="PegDifference" dataType="PriceOffset">
+<Comment>Amount (signed) added to the price of the peg for a pegged order.
+</Comment>
+</Field>
+
+<Field tagNumber="212" tagName="XmlDataLen" dataType="int">
+<Comment>Length of the XmlData data block.
+</Comment>
+</Field>
+
+<Field tagNumber="213" tagName="XmlData" dataType="data">
+<Comment>Actual XML data stream (e.g. FIXML). See approriate XML reference 
+(e.g. FIXML). Note: may contain embedded SOH characters.
+</Comment>
+</Field>
+
+<Field tagNumber="214" tagName="SettlInstRefID" dataType="String">
+<Comment>Reference identifier for the SettlInstID with Cancel and Replace 
+SettlInstTransType transaction types.
+</Comment>
+</Field>
+
+<Field tagNumber="215" tagName="NoRoutingIDs" dataType="int">
+<Comment>Number of repeating groups of RoutingID and RoutingType values.
+</Comment>
+</Field>
+
+<Field tagNumber="216" tagName="RoutingType" dataType="int">
+<Comment>Indicates the type of RoutingID specified.
+</Comment>
+<ValidValue value="1" description="Target Firm"/>
+<ValidValue value="2" description="Target List"/>
+<ValidValue value="3" description="Block Firm"/>
+<ValidValue value="4" description="Block List"/>
+</Field>
+
+<Field tagNumber="217" tagName="RoutingID" dataType="String">
+<Comment>Assigned value used to identify a specific routing destination.
+</Comment>
+</Field>
+
+<Field tagNumber="218" tagName="SpreadToBenchmark" dataType="String">
+<Comment>For Fixed Income. Basis points relative to a benchmark. To be expressed 
+as "count of basis points" (vs. an absolute value). E.g. High Grade Corporate Bonds 
+may express price as basis points relative to benchmark (the Benchmark field). 
+Note: Basis points can be negative.
+</Comment>
+</Field>
+
+<Field tagNumber="219" tagName="Benchmark" dataType="char">
+<Comment>For Fixed Income. Identifies the benchmark (e.g. used in conjunction 
+with the SpreadToBenchmark field).
+</Comment>
+<ValidValue value="1" description="CURVE"/>
+<ValidValue value="2" description="5-YR"/>
+<ValidValue value="3" description="OLD-5"/>
+<ValidValue value="4" description="10-YR"/>
+<ValidValue value="5" description="OLD-10"/>
+<ValidValue value="6" description="30-YR"/>
+<ValidValue value="7" description="OLD-30"/>
+<ValidValue value="8" description="3-MO-LIBOR"/>
+<ValidValue value="9" description="6-MO-LIBOR"/>
+</Field>
+
+<Field tagNumber="223" tagName="CouponRate" dataType="float">
+<Comment>For Fixed Income. Coupon rate of the bond. Will be zero for step-up bonds
+</Comment>
+</Field>
+
+<Field tagNumber="231" tagName="ContractMultiplier" dataType="float">
+<Comment>Specifies the ratio or multiply factor to convert from contracts to shares 
+(e.g. 1.0, 100, 1000, etc). Applicable For Fixed Income, Convertible Bonds, Derivatives, etc. 
+Note: If used, quantities should be expressed in the "nominal" (e.g. contracts vs. shares) amount. 
+</Comment>
+</Field>
+
+<Field tagNumber="262" tagName="MDReqID" dataType="String">
+<Comment>Unique identifier for Market Data Request
+</Comment>
+</Field>
+
+<Field tagNumber="263" tagName="SubscriptionRequestType" dataType="char">
+<Comment>Subscription Request Type
+</Comment>
+<ValidValue value="0" description="Snapshot"/>
+<ValidValue value="1" description="Snapshot + Updates (Subscribe)"/>
+<ValidValue value="2" description="Disable previous Snapshot + Update Request (Unsubscribe)"/>
+</Field>
+
+<Field tagNumber="264" tagName="MarketDepth" dataType="int">
+<Comment>Depth of market for Book Snapshot
+</Comment>
+<ValidValue value="0" description="Full Book"/>
+<ValidValue value="1" description="Top of Book"/>
+<ValidValue value="N>1" description="Report best N price tiers of data"/>
+</Field>
+
+<Field tagNumber="265" tagName="MDUpdateType" dataType="int">
+<Comment>Specifies the type of Market Data update.
+</Comment>
+<ValidValue value="0" description="Full Refresh"/>
+<ValidValue value="1" description="Incremental Refresh"/>
+</Field>
+
+<Field tagNumber="266" tagName="AggregatedBook" dataType="Boolean">
+<Comment>Specifies whether or not book entries should be aggregated.
+</Comment>
+<ValidValue value="Y" description="one book entry per side per price"/>
+<ValidValue value="N" description="Multiple entries per side per price allowed"/>
+<ValidValue value="" description="broker option"/>
+</Field>
+
+<Field tagNumber="267" tagName="NoMDEntryTypes" dataType="int">
+<Comment>Number of MDEntryType fields requested.
+</Comment>
+</Field>
+
+<Field tagNumber="268" tagName="NoMDEntries" dataType="int">
+<Comment>Number of entries in Market Data message.
+</Comment>
+</Field>
+
+<Field tagNumber="269" tagName="MDEntryType" dataType="char">
+<Comment>Type Market Data entry.
+</Comment>
+<ValidValue value="0" description="Bid"/>
+<ValidValue value="1" description="Offer"/>
+<ValidValue value="2" description="Trade"/>
+<ValidValue value="3" description="Index Value"/>
+<ValidValue value="4" description="Opening Price"/>
+<ValidValue value="5" description="Closing Price"/>
+<ValidValue value="6" description="Settlement Price"/>
+<ValidValue value="7" description="Trading Session High Price"/>
+<ValidValue value="8" description="Trading Session Low Price"/>
+<ValidValue value="9" description="Trading Session VWAP Price"/>
+</Field>
+
+<Field tagNumber="270" tagName="MDEntryPx" dataType="Price">
+<Comment>Price of the Market Data Entry.
+</Comment>
+</Field>
+
+<Field tagNumber="271" tagName="MDEntrySize" dataType="Qty">
+<Comment>Number of shares represented by the Market Data Entry.
+</Comment>
+</Field>
+
+<Field tagNumber="272" tagName="MDEntryDate" dataType="UTCDate">
+<Comment>Date of Market Data Entry.
+</Comment>
+</Field>
+
+<Field tagNumber="273" tagName="MDEntryTime" dataType="UTCTimeOnly">
+<Comment>Time of Market Data Entry.
+</Comment>
+</Field>
+
+<Field tagNumber="274" tagName="TickDirection" dataType="char">
+<Comment>Direction of the "tick".
+</Comment>
+<ValidValue value="0" description="Plus Tick"/>
+<ValidValue value="1" description="Zero-Plus Tick"/>
+<ValidValue value="2" description="Minus Tick"/>
+<ValidValue value="3" description="Zero-Minus Tick"/>
+</Field>
+
+<Field tagNumber="275" tagName="MDMkt" dataType="Exchange">
+<Comment>Market posting quote / trade. 
+</Comment>
+</Field>
+
+<Field tagNumber="276" tagName="QuoteCondition" dataType="MultipleValueString">
+<Comment>Space-delimited list of conditions describing a quote.
+</Comment>
+<ValidValue value="A" description="Open / Active"/>
+<ValidValue value="B" description="Closed / Inactive"/>
+<ValidValue value="C" description="Exchange Best"/>
+<ValidValue value="D" description="Consolidated Best"/>
+<ValidValue value="E" description="Locked"/>
+<ValidValue value="F" description="Crossed"/>
+<ValidValue value="G" description="Depth"/>
+<ValidValue value="H" description="Fast Trading"/>
+<ValidValue value="I" description="Non-Firm"/>
+</Field>
+
+<Field tagNumber="277" tagName="TradeCondition" dataType="MultipleValueString">
+<Comment>Space-delimited list of conditions describing a trade
+</Comment>
+<ValidValue value="A" description="Cash (only) Market"/>
+<ValidValue value="B" description="Average Price Trade"/>
+<ValidValue value="C" description="Cash Trade (same day clearing)"/>
+<ValidValue value="D" description="Next Day (only) Market"/>
+<ValidValue value="E" description="Opening / Reopening Trade Detail"/>
+<ValidValue value="F" description="Intraday Trade Detail"/>
+<ValidValue value="G" description="Rule 127 Trade (NYSE)"/>
+<ValidValue value="H" description="Rule 155 Trade (Amex)"/>
+<ValidValue value="I" description="Sold Last (late reporting)"/>
+<ValidValue value="J" description="Next Day Trade (next day clearing)"/>
+<ValidValue value="K" description="Opened (late report of opened trade)"/>
+<ValidValue value="L" description="Seller"/>
+<ValidValue value="M" description="Sold (out of sequence)"/>
+<ValidValue value="N" description="Stopped Stock (guarantee of price but does not execute the order)"/>
+</Field>
+
+<Field tagNumber="278" tagName="MDEntryID" dataType="String">
+<Comment>Unique Market Data Entry identifier.
+</Comment>
+</Field>
+
+<Field tagNumber="279" tagName="MDUpdateAction" dataType="char">
+<Comment>Type of Market Data update action.
+</Comment>
+<ValidValue value="0" description="New"/>
+<ValidValue value="1" description="Change"/>
+<ValidValue value="2" description="Delete"/>
+</Field>
+
+<Field tagNumber="280" tagName="MDEntryRefID" dataType="String">
+<Comment>Refers to a previous MDEntryID.
+</Comment>
+</Field>
+
+<Field tagNumber="281" tagName="MDReqRejReason" dataType="char">
+<Comment>Reason for the rejection of a Market Data request.
+</Comment>
+<ValidValue value="0" description="Unknown symbol"/>
+<ValidValue value="1" description="Duplicate MDReqID"/>
+<ValidValue value="2" description="Insufficient Bandwidth"/>
+<ValidValue value="3" description="Insufficient Permissions"/>
+<ValidValue value="4" description="Unsupported SubscriptionRequestType"/>
+<ValidValue value="5" description="Unsupported MarketDepth"/>
+<ValidValue value="6" description="Unsupported MDUpdateType"/>
+<ValidValue value="7" description="Unsupported AggregatedBook"/>
+<ValidValue value="8" description="Unsupported MDEntryType"/>
+</Field>
+
+<Field tagNumber="282" tagName="MDEntryOriginator" dataType="String">
+<Comment>Originator of a Market Data Entry
+</Comment>
+</Field>
+
+<Field tagNumber="283" tagName="LocationID" dataType="String">
+<Comment>Identification of a Market Maker�s location
+</Comment>
+</Field>
+
+<Field tagNumber="284" tagName="DeskID" dataType="String">
+<Comment>Identification of a Market Maker�s desk
+</Comment>
+</Field>
+
+<Field tagNumber="285" tagName="DeleteReason" dataType="char">
+<Comment>Reason for deletion.
+</Comment>
+<ValidValue value="0" description="Cancelation / Trade Bust"/>
+<ValidValue value="1" description="Error"/>
+</Field>
+
+<Field tagNumber="286" tagName="OpenCloseSettleFlag" dataType="char">
+<Comment>Flag that identifies a price
+</Comment>
+<ValidValue value="0" description="Daily Open / Close / Settlement price"/>
+<ValidValue value="1" description="Session Open / Close / Settlement price"/>
+<ValidValue value="2" description="Delivery Settlement price"/>
+</Field>
+
+<Field tagNumber="287" tagName="SellerDays" dataType="int">
+<Comment>Specifies the number of days that may elapse before delivery of the security
+</Comment>
+</Field>
+
+<Field tagNumber="288" tagName="MDEntryBuyer" dataType="String">
+<Comment>Buying party in a trade.
+</Comment>
+</Field>
+
+<Field tagNumber="289" tagName="MDEntrySeller" dataType="String">
+<Comment>Selling party in a trade.
+</Comment>
+</Field>
+
+<Field tagNumber="290" tagName="MDEntryPositionNo" dataType="int">
+<Comment>Display position of a bid or offer, numbered from most competitive to least 
+competitive, per market side, beginning with 1.
+</Comment>
+</Field>
+
+<Field tagNumber="291" tagName="FinancialStatus" dataType="char">
+<Comment>Identifies a firm�s financial status.
+</Comment>
+<ValidValue value="0" description="Bankrupt"/>
+</Field>
+
+<Field tagNumber="292" tagName="CorporateAction" dataType="char">
+<Comment>Identifies the type of Corporate Action.
+</Comment>
+<ValidValue value="A" description="Ex-Dividend"/>
+<ValidValue value="B" description="Ex-Distribution"/>
+<ValidValue value="C" description="Ex-Rights"/>
+<ValidValue value="D" description="New"/>
+<ValidValue value="E" description="Ex-Interest"/>
+</Field>
+
+<Field tagNumber="293" tagName="DefBidSize" dataType="Qty">
+<Comment>Default Bid Size.
+</Comment>
+</Field>
+
+<Field tagNumber="294" tagName="DefOfferSize" dataType="Qty">
+<Comment>Default Offer Size.
+</Comment>
+</Field>
+
+<Field tagNumber="295" tagName="NoQuoteEntries" dataType="int">
+<Comment>The number of quote entries for a QuoteSet.
+</Comment>
+</Field>
+
+<Field tagNumber="296" tagName="NoQuoteSets" dataType="char">
+<Comment>The number of sets of quotes in the message.
+</Comment>
+</Field>
+
+<Field tagNumber="297" tagName="QuoteAckStatus" dataType="int">
+<Comment>Identifies the status of the quote acknowledgement.
+</Comment>
+<ValidValue value="0" description="Accepted"/>
+<ValidValue value="1" description="Canceled for Symbol(s)"/>
+<ValidValue value="2" description="Canceled for Security Type(s)"/>
+<ValidValue value="3" description="Canceled for Underlying"/>
+<ValidValue value="4" description="Canceled All"/>
+<ValidValue value="5" description="Rejected"/>
+</Field>
+
+<Field tagNumber="298" tagName="QuoteCancelType" dataType="int">
+<Comment>Identifies the type of quote cancel.
+</Comment>
+<ValidValue value="1" description="Cancel for Symbol(s)"/>
+<ValidValue value="2" description="Cancel for Security Type(s)"/>
+<ValidValue value="3" description="Cancel for Underlying Symbol"/>
+<ValidValue value="4" description="Cancel All Quotes"/>
+</Field>
+
+<Field tagNumber="299" tagName="QuoteEntryID" dataType="String">
+<Comment>Uniquely identifies the quote as part of a QuoteSet.
+</Comment>
+</Field>
+
+<Field tagNumber="300" tagName="QuoteRejectReason" dataType="int">
+<Comment>Reason Quote was rejected:
+</Comment>
+<ValidValue value="1" description="Unknown symbol (Security)"/>
+<ValidValue value="2" description="Exchange(Security) closed"/>
+<ValidValue value="3" description="Quote Request exceeds limit"/>
+<ValidValue value="4" description="Too late to enter"/>
+<ValidValue value="5" description="Unknown Quote"/>
+<ValidValue value="6" description="Duplicate Quote"/>
+<ValidValue value="7" description="Invalid bid/ask spread"/>
+<ValidValue value="8" description="Invalid price"/>
+<ValidValue value="9" description="Not authorized to quote security"/>
+</Field>
+
+<Field tagNumber="301" tagName="QuoteResponseLevel" dataType="int">
+<Comment>Level of Response requested from receiver of quote messages.
+</Comment>
+<ValidValue value="0" description="No Acknowledgement (Default)"/>
+<ValidValue value="1" description="Acknowledge only negative or erroneous quotes"/>
+<ValidValue value="2" description="Acknowledge each quote messages"/>
+</Field>
+
+<Field tagNumber="302" tagName="QuoteSetID" dataType="String">
+<Comment>Unique id for the Quote Set. 
+</Comment>
+</Field>
+
+<Field tagNumber="303" tagName="QuoteRequestType" dataType="int">
+<Comment>Indicates the type of Quote Request being generated.
+</Comment>
+<ValidValue value="1" description="Manual"/>
+<ValidValue value="2" description="Automatic"/>
+</Field>
+
+<Field tagNumber="304" tagName="TotQuoteEntries" dataType="int">
+<Comment>Total number of quotes for the quote set across all messages. 
+Should be the sum of all NoQuoteEntries in each message that has repeating 
+quotes that are part of the same quote set.
+</Comment>
+</Field>
+
+<Field tagNumber="305" tagName="UnderlyingIDSource" dataType="String">
+<Comment>Underlying security�s IDSource.
+</Comment>
+</Field>
+
+<Field tagNumber="306" tagName="UnderlyingIssuer" dataType="String">
+<Comment>Underlying security�s Issuer.
+See Issuer field for description
+</Comment>
+</Field>
+
+<Field tagNumber="307" tagName="UnderlyingSecurityDesc" dataType="String">
+<Comment>Specifies the number of days that may elapse before delivery of the security
+</Comment>
+</Field>
+
+<Field tagNumber="308" tagName="UnderlyingSecurityExchange" dataType="Exchange">
+<Comment>Underlying security�s SecurityExchange. Can be used to identify the underlying security.
+Valid values: see SecurityExcha
+</Comment>
+</Field>
+
+<Field tagNumber="309" tagName="UnderlyingSecurityID" dataType="String">
+<Comment>Underlying security�s SecurityID.
+See SecurityID field for description
+</Comment>
+</Field>
+
+<Field tagNumber="310" tagName="UnderlyingSecurityType" dataType="String">
+<Comment>Underlying security�s SecurityType.
+Valid values: see SecurityType field
+</Comment>
+</Field>
+
+<Field tagNumber="311" tagName="UnderlyingSymbol" dataType="String">
+<Comment>Underlying security�s Symbol.
+See Symbol field for description
+</Comment>
+</Field>
+
+<Field tagNumber="312" tagName="UnderlyingSymbolSfx" dataType="String">
+<Comment>Underlying security�s SymbolSfx.
+See SymbolSfx field for description
+</Comment>
+</Field>
+
+<Field tagNumber="313" tagName="UnderlyingMaturityMonthYear" dataType="month-year">
+<Comment>Underlying security�s MaturityMonthYear. Required if UnderlyingMaturityDay is specified.
+</Comment>
+</Field>
+
+<Field tagNumber="314" tagName="UnderlyingMaturityDay" dataType="day-of-month">
+<Comment>Underlying security�s MaturityDay.
+</Comment>
+</Field>
+
+<Field tagNumber="315" tagName="UnderlyingPutOrCall" dataType="int">
+<Comment>Underlying security�s PutOrCall.
+</Comment>
+</Field>
+
+<Field tagNumber="316" tagName="UnderlyingStrikePrice" dataType="Price">
+<Comment>Underlying security�s StrikePrice.
+</Comment>
+</Field>
+
+<Field tagNumber="317" tagName="UnderlyingOptAttribute" dataType="char">
+<Comment>Underlying security�s OptAttribute.
+</Comment>
+</Field>
+
+<Field tagNumber="318" tagName="Underlying Currency" dataType="Currency">
+<Comment>Underlying security�s Currency
+</Comment>
+</Field>
+
+<Field tagNumber="319" tagName="RatioQty" dataType="Quantity">
+<Comment>Quantity of a particular leg in the security.
+</Comment>
+</Field>
+
+<Field tagNumber="320" tagName="SecurityReqID" dataType="String">
+<Comment>Unique ID of a Security Definition Request.
+</Comment>
+</Field>
+
+<Field tagNumber="321" tagName="SecurityRequestType" dataType="int">
+<Comment>Type of Security Definition Request.
+</Comment>
+<ValidValue value="0" description="Request Security identity and specifications"/>
+<ValidValue value="1" description="Request Security identity for the specifications 
+provided (Name of the security is not supplied)"/>
+<ValidValue value="2" description="Request List Security Types"/>
+<ValidValue value="3" description="Request List Securities (Can be qualified with Symbol, 
+SecurityType, TradingSessionID, SecurityExchange is provided then only list Securities for 
+the specific type)"/>
+</Field>
+
+<Field tagNumber="322" tagName="SecurityResponseID" dataType="String">
+<Comment>Unique ID of a Security Definition message.
+</Comment>
+</Field>
+
+<Field tagNumber="323" tagName="SecurityResponseType" dataType="int">
+<Comment>Type of Security Definition message response.
+</Comment>
+<ValidValue value="1" description="Accept security proposal as is"/>
+<ValidValue value="2" description="Accept security proposal with revisions as 
+indicated in the message"/>
+<ValidValue value="3" description="List of security types returned per request "/>
+<ValidValue value="4" description="List of securities returned per request"/>
+<ValidValue value="5" description="Reject security proposal"/>
+<ValidValue value="6" description="Can not match selection criteria"/>
+</Field>
+
+<Field tagNumber="324" tagName="SecurityStatusReqID" dataType="String">
+<Comment>Unique ID of a Security Status Request message.
+</Comment>
+</Field>
+
+<Field tagNumber="325" tagName="UnsolicitedIndicator" dataType="Boolean">
+<Comment>UnsolicitedIndicator
+</Comment>
+<ValidValue value="Y" description="Message is being sent unsolicited"/>
+<ValidValue value="N" description="Message is being sent as a result of a prior request"/>
+</Field>
+
+<Field tagNumber="326" tagName="SecurityTradingStatus" dataType="int">
+<Comment>Identifies the trading status applicable to the transaction.
+</Comment>
+<ValidValue value="1" description="Opening Delay"/>
+<ValidValue value="2" description="Trading Halt"/>
+<ValidValue value="3" description="Resume"/>
+<ValidValue value="4" description="No Open/No Resume"/>
+<ValidValue value="5" description="Price Indication"/>
+<ValidValue value="6" description="Trading Range Indication"/>
+<ValidValue value="7" description="Market Imbalance Buy"/>
+<ValidValue value="8" description="Market Imbalance Sell"/>
+<ValidValue value="9" description="Market On Close Imbalance Buy"/>
+<ValidValue value="10" description="Market On Close Imbalance Sell"/>
+<ValidValue value="11" description="(not assigned)"/>
+<ValidValue value="12" description="No Market Imbalance"/>
+<ValidValue value="13" description="No Market On Close Imbalance"/>
+<ValidValue value="14" description="ITS Pre-Opening"/>
+<ValidValue value="15" description="New Price Indication"/>
+<ValidValue value="16" description="Trade Dissemination Time"/>
+<ValidValue value="17" description="Ready to trade (start of session)"/>
+<ValidValue value="18" description="Not Available for trading (end of session)"/>
+<ValidValue value="19" description="Not Traded on this Market"/>
+<ValidValue value="20" description="Unknown or Invalid"/>
+</Field>
+
+<Field tagNumber="327" tagName="HaltReason" dataType="char">
+<Comment>Denotes the reason for the Opening Delay or Trading Halt.
+</Comment>
+<ValidValue value="1" description="Order Imbalance"/>
+<ValidValue value="X" description="Equipment Changeover"/>
+<ValidValue value="P" description="News Pending"/>
+<ValidValue value="D" description="News Dissemination"/>
+<ValidValue value="E" description="Order Influx"/>
+<ValidValue value="M" description="Additional Information"/>
+</Field>
+
+<Field tagNumber="328" tagName="InViewOfCommon" dataType="Boolean">
+<Comment>Indicates whether or not the halt was due to Common Stock trading being halted.
+</Comment>
+<ValidValue value="Y" description="Halt was due to common stock being halted"/>
+<ValidValue value="N" description="Halt was not related to a halt of the common stock"/>
+</Field>
+
+<Field tagNumber="329" tagName="DueToRelated" dataType="Boolean">
+<Comment>Indicates whether or not the halt was due to the Related Security being halted.
+</Comment>
+<ValidValue value="Y" description="Halt was due to related security being halted"/>
+<ValidValue value="N" description="Halt was not related to a halt of the related security"/>
+</Field>
+
+<Field tagNumber="330" tagName="BuyVolume" dataType="Qty">
+<Comment>Number of shares bought.
+</Comment>
+</Field>
+
+<Field tagNumber="331" tagName="SellVolume" dataType="Qty">
+<Comment>Number of shares sold.
+</Comment>
+</Field>
+
+<Field tagNumber="332" tagName="HighPx" dataType="Price">
+<Comment>Represents an indication of the high end of the price range for a security 
+prior to the open or reopen
+</Comment>
+</Field>
+
+<Field tagNumber="333" tagName="LowPx" dataType="month-year">
+<Comment>Represents an indication of the low end of the price range for a security prior to the open or reopen
+</Comment>
+</Field>
+
+<Field tagNumber="334" tagName="Adjustment" dataType="int">
+<Comment>Identifies the type of adjustment.
+</Comment>
+<ValidValue value="1" description="Cancel"/>
+<ValidValue value="2" description="Error"/>
+<ValidValue value="3" description="Correction"/>
+</Field>
+
+<Field tagNumber="335" tagName="TradSesReqID" dataType="String">
+<Comment>Unique ID of a Trading Session Status message
+</Comment>
+</Field>
+
+<Field tagNumber="336" tagName="TradingSessionID" dataType="String">
+<Comment>Identifier for Trading Session.Can be used to represent a specific market trading 
+session (e.g. "PRE-OPEN", "CROSS_2", "AFTER-HOURS", "TOSTNET1", "TOSTNET2", etc). 
+Values should be bi-laterally agreed to between counterparties.
+</Comment>
+</Field>
+
+<Field tagNumber="337" tagName="ContraTrader" dataType="String">
+<Comment>Identifies the trader (e.g. "badge number") of the ContraBroker
+</Comment>
+</Field>
+
+<Field tagNumber="338" tagName="TradSesMethod" dataType="int">
+<Comment>Method of trading
+</Comment>
+<ValidValue value="1" description="Electronic"/>
+<ValidValue value="2" description="Open Outcry"/>
+<ValidValue value="3" description="Two Party"/>
+</Field>
+
+<Field tagNumber="339" tagName="TradSesMode" dataType="int">
+<Comment>Trading Session Mode
+</Comment>
+<ValidValue value="1" description="Testing"/>
+<ValidValue value="2" description="Simulated"/>
+<ValidValue value="3" description="Production"/>
+</Field>
+
+<Field tagNumber="340" tagName="TradSesStatus" dataType="int">
+<Comment>State of the trading session.
+</Comment>
+<ValidValue value="1" description="Halted"/>
+<ValidValue value="2" description="Open"/>
+<ValidValue value="3" description="Closed"/>
+<ValidValue value="4" description="Pre-Open"/>
+<ValidValue value="5" description="Pre-Close"/>
+
+</Field>
+
+<Field tagNumber="341" tagName="TradSesStartTime" dataType="UTCTimestamp">
+<Comment>Starting time of the trading session
+</Comment>
+</Field>
+
+<Field tagNumber="342" tagName="TradSesOpenTime" dataType="UTCTimestamp">
+<Comment>Time of the opening of the trading session
+</Comment>
+</Field>
+
+<Field tagNumber="343" tagName="TradSesPreCloseTime" dataType="UTCTimestamp">
+<Comment>Time of the pre-closed of the trading session
+</Comment>
+</Field>
+
+<Field tagNumber="344" tagName="TradSesCloseTime" dataType="UTCTimestamp">
+<Comment>Closing time of the trading session
+</Comment>
+</Field>
+
+<Field tagNumber="345" tagName="TradSesEndTime" dataType="UTCTimestamp">
+<Comment>End time of the trading session
+</Comment>
+</Field>
+
+<Field tagNumber="346" tagName="NumberOfOrders" dataType="int">
+<Comment>Identifies the trading status applicable to the transaction.
+</Comment>
+</Field>
+
+<Field tagNumber="347" tagName="MessageEncoding" dataType="String">
+<Comment>Type of message encoding (non-ASCII (non-English) characters)
+ used in a message�s "Encoded" fields.Valid values:
+ISO-2022-JP (for using JIS),
+EUC-JP (for using EUC),
+Shift_JIS (for using SJIS),
+UTF-8 (for using Unicode
+
+</Comment>
+</Field>
+
+<Field tagNumber="348" tagName="EncodedIssuerLen" dataType="int">
+<Comment>Byte length of encoded (non-ASCII characters) EncodedIssuer field.
+</Comment>
+</Field>
+
+<Field tagNumber="349" tagName="EncodedIssuer" dataType="data">
+<Comment>Encoded (non-ASCII characters) representation of the Issuer field in the 
+encoded format specified via the MessageEncoding field. If used, the ASCII (English) 
+representation should also be specified in the Issuer field.
+</Comment>
+</Field>
+
+<Field tagNumber="350" tagName="EncodedSecurityDescLen" dataType="int">
+<Comment>Byte length of encoded (non-ASCII characters) EncodedSecurityDesc field.
+</Comment>
+</Field>
+
+<Field tagNumber="351" tagName="EncodedSecurityDesc" dataType="data">
+<Comment>Encoded (non-ASCII characters) representation of the SecurityDesc field in the 
+encoded format specified via the MessageEncoding field. If used, the ASCII (English) 
+representation should also be specified in the SecurityDesc field.
+</Comment>
+</Field>
+
+<Field tagNumber="352" tagName="EncodedListExecInstLen" dataType="int">
+<Comment>Byte length of encoded (non-ASCII characters) EncodedListExecInst field.
+</Comment>
+</Field>
+
+<Field tagNumber="353" tagName="EncodedListExecInst" dataType="data">
+<Comment>Encoded (non-ASCII characters) representation of the ListExecInst field in the 
+encoded format specified via the MessageEncoding field. If used, the ASCII (English) 
+representation should also be specified in the ListExecInst field.
+</Comment>
+</Field>
+
+<Field tagNumber="354" tagName="EncodedTextLen" dataType="int">
+<Comment>Byte length of encoded (non-ASCII characters) EncodedText field.
+</Comment>
+</Field>
+
+<Field tagNumber="355" tagName="EncodedText" dataType="data">
+<Comment>Encoded (non-ASCII characters) representation of the Text field in the encoded 
+format specified via the MessageEncoding field. If used, the ASCII (English) representation 
+should also be specified in the Text field.
+</Comment>
+</Field>
+
+<Field tagNumber="356" tagName="EncodedSubjectLen" dataType="int">
+<Comment>Byte length of encoded (non-ASCII characters) EncodedSubject field.
+</Comment>
+</Field>
+
+<Field tagNumber="357" tagName="EncodedSubject" dataType="data">
+<Comment>Encoded (non-ASCII characters) representation of the Subject field in the encoded 
+format specified via the MessageEncoding field. If used, the ASCII (English) 
+representation should also be specified in the Subject field.
+</Comment>
+</Field>
+
+<Field tagNumber="358" tagName="EncodedHeadlineLen" dataType="int">
+<Comment>Byte length of encoded (non-ASCII characters) EncodedHeadline field.
+</Comment>
+</Field>
+
+<Field tagNumber="359" tagName="EncodedHeadline" dataType="data">
+<Comment>Encoded (non-ASCII characters) representation of the Headline field in the 
+encoded format specified via the MessageEncoding field. If used, the ASCII (English) 
+representation should also be specified in the Headline field.
+</Comment>
+</Field>
+
+<Field tagNumber="360" tagName="EncodedAllocTextLen" dataType="int">
+<Comment>Byte length of encoded (non-ASCII characters) EncodedAllocText field.
+</Comment>
+</Field>
+
+<Field tagNumber="361" tagName="EncodedAllocText" dataType="data">
+<Comment>Encoded (non-ASCII characters) representation of the AllocText field in the encoded 
+format specified via the MessageEncoding field. If used, the ASCII (English) representation 
+should also be specified in the AllocText field.
+</Comment>
+</Field>
+
+<Field tagNumber="362" tagName="EncodedUnderlyingIssuerLen" dataType="int">
+<Comment>Byte length of encoded (non-ASCII characters) EncodedUnderlyingIssuer field.
+</Comment>
+</Field>
+
+<Field tagNumber="363" tagName="EncodedUnderlyingIssuer" dataType="data">
+<Comment>Encoded (non-ASCII characters) representation of the UnderlyingIssuer field in the 
+encoded format specified via the MessageEncoding field. If used, the ASCII (English)
+representation should also be specified in the UnderlyingIssuer field.
+</Comment>
+</Field>
+
+<Field tagNumber="364" tagName="EncodedUnderlyingSecurityDescLen" dataType="int">
+<Comment>Byte length of encoded (non-ASCII characters) EncodedUnderlyingSecurityDesc field.
+</Comment>
+</Field>
+
+<Field tagNumber="365" tagName="EncodedUnderlyingSecurityDesc" dataType="data">
+<Comment>Encoded (non-ASCII characters) representation of the UnderlyingSecurityDesc field in the 
+encoded format specified via the MessageEncoding field. If used, the ASCII (English) 
+representation should also be specified in the UnderlyingSecurityeDesc field.
+</Comment>
+</Field>
+
+<Field tagNumber="366" tagName="AllocPrice" dataType="Price">
+<Comment>Executed price for an AllocAccount entry used when using "executed price" vs. "average 
+price" allocations (e.g. Japan).
+</Comment>
+</Field>
+
+<Field tagNumber="367" tagName="QuoteSetValidUntilTime" dataType="UTCTimestamp">
+<Comment>Indicates expiration time of this particular QuoteSet (always expressed in UTC (Universal Time Coordinated, also known as "GMT")
+</Comment>
+</Field>
+
+<Field tagNumber="368" tagName="QuoteEntryRejectReason" dataType="int">
+<Comment>Reason Quote Entry was rejected:
+</Comment>
+<ValidValue value="1" description="Unknown symbol (Security)"/>
+<ValidValue value="2" description="Exchange(Security) closed"/>
+<ValidValue value="3" description="Quote exceeds limit"/>
+<ValidValue value="4" description="Too late to enter"/>
+<ValidValue value="5" description="Unknown Quote"/>
+<ValidValue value="6" description="Duplicate Quote"/>
+<ValidValue value="7" description="Invalid bid/ask spread"/>
+<ValidValue value="8" description="Invalid price"/>
+<ValidValue value="9" description="Not authorized to quote security"/>
+</Field>
+
+<Field tagNumber="369" tagName="LastMsgSeqNumProcessed" dataType="int">
+<Comment>The last MsgSeqNum value received and processed. Can be 
+specified on every message sent. Useful for detecting a backlog with a counterparty.
+</Comment>
+</Field>
+
+<Field tagNumber="370" tagName="OnBehalfOfSendingTime" dataType="UTCTimestamp">
+<Comment>Used when a message is sent via a "hub" or "service bureau". If A sends 
+to Q (the hub) who then sends to B via a separate FIX session, then when Q sends 
+to B the value of this field should represent the SendingTime on the message A sent 
+to Q. (always expressed in UTC (Universal Time Coordinated, also known as "GMT")
+</Comment>
+</Field>
+
+<Field tagNumber="371" tagName="RefTagID" dataType="int">
+<Comment>The tag number of the FIX field being referenced.
+</Comment>
+</Field>
+
+<Field tagNumber="372" tagName="RefMsgType" dataType="String">
+<Comment>The MsgType of the FIX message being referenced.
+</Comment>
+</Field>
+
+<Field tagNumber="373" tagName="SessionRejectReason" dataType="int">
+<Comment>Code to identify reason for a session-level Reject message.
+</Comment>
+<ValidValue value="0" description="Invalid tag number"/>
+<ValidValue value="1" description="Required tag missing"/>
+<ValidValue value="2" description="Tag not defined for this message type"/>
+<ValidValue value="3" description="Undefined Tag"/>
+<ValidValue value="4" description="Tag specified without a value"/>
+<ValidValue value="5" description="Value is incorrect (out of range) for this tag"/>
+<ValidValue value="6" description="Incorrect data format for value"/>
+<ValidValue value="7" description="Decryption problem"/>
+<ValidValue value="8" description="Signature problem"/>
+<ValidValue value="9" description="CompID problem"/>
+<ValidValue value="10" description="SendingTime accuracy problem"/>
+<ValidValue value="11" description="Invalid MsgType"/>
+</Field>
+
+<Field tagNumber="374" tagName="BidRequestTransType" dataType="char">
+<Comment>Identifies the Bid Request message type.
+</Comment>
+<ValidValue value="N" description="New"/>
+<ValidValue value="C" description="Cancel"/>
+</Field>
+
+<Field tagNumber="375" tagName="ContraBroker" dataType="String">
+<Comment>Identifies contra broker. Standard NASD market-maker mnemonic is preferred.
+</Comment>
+</Field>
+
+<Field tagNumber="376" tagName="ComplianceID" dataType="String">
+<Comment>ID used to represent this transaction for compliance purposes (e.g. OATS reporting).
+</Comment>
+</Field>
+
+<Field tagNumber="377" tagName="SolicitedFlag" dataType="Boolean">
+<Comment>Indicates whether or not the order was solicited.
+</Comment>
+<ValidValue value="Y" description="Was solcitied"/>
+<ValidValue value="N" description="Was not solcitied"/>
+</Field>
+
+<Field tagNumber="378" tagName="ExecRestatementReason" dataType="int">
+<Comment>Code to identify reason for an ExecutionRpt message sent with ExecType=Restated 
+or used when communicating an unsolicited cancel.
+</Comment>
+<ValidValue value="0" description="GT Corporate action"/>
+<ValidValue value="1" description="GT renewal / restatement (no corporate action)"/>
+<ValidValue value="2" description="Verbal change"/>
+<ValidValue value="3" description="Repricing of order"/>
+<ValidValue value="4" description="Broker option"/>
+<ValidValue value="5" description="Partial decline of OrderQty (e.g. exchange-initiated partial cancel)"/>
+</Field>
+
+<Field tagNumber="379" tagName="BusinessRejectRefID" dataType="String">
+<Comment>The value of the business-level "ID" field on the message being referenced.
+</Comment>
+</Field>
+
+<Field tagNumber="380" tagName="BusinessRejectReason" dataType="int">
+<Comment>Code to identify reason for a Business Message Reject message.
+</Comment>
+<ValidValue value="0" description="Other"/>
+<ValidValue value="1" description="Unkown ID"/>
+<ValidValue value="2" description="Unknown Security"/>
+<ValidValue value="3" description="Unsupported Message Type"/>
+<ValidValue value="4" description="Application not available"/>
+<ValidValue value="5" description="Conditionally Required Field Missing"/>
+</Field>
+
+<Field tagNumber="381" tagName="GrossTradeAmt" dataType="Amt">
+<Comment>Total amount traded (e.g. CumQty * AvgPx) expressed in units of currency.
+</Comment>
+</Field>
+
+<Field tagNumber="382" tagName="NoContraBrokers" dataType="int">
+<Comment>The number of ContraBroker entries.
+</Comment>
+</Field>
+
+<Field tagNumber="383" tagName="MaxMessageSize" dataType="int">
+<Comment>Maximum number of bytes supported for a single message.
+</Comment>
+</Field>
+
+<Field tagNumber="384" tagName="NoMsgTypes" dataType="int">
+<Comment>Number of MsgTypes in repeating group.
+</Comment>
+</Field>
+
+<Field tagNumber="385" tagName="MsgDirection" dataType="char">
+<Comment>Specifies the direction of the messsage.
+</Comment>
+<ValidValue value="S" description="Send"/>
+<ValidValue value="R" description="Recieve"/>
+</Field>
+
+<Field tagNumber="386" tagName="NoTradingSessions" dataType="int">
+<Comment>Number of TradingSessionIDs in repeating group.
+</Comment>
+</Field>
+
+<Field tagNumber="387" tagName="TotalVolumeTraded" dataType="Qty">
+<Comment>Total volume (quantity) traded.
+</Comment>
+</Field>
+
+<Field tagNumber="388" tagName="DiscretionInst" dataType="char">
+<Comment>Code to identify the price a DiscretionOffset is related to and should be 
+mathematically added to.
+</Comment>
+<ValidValue value="0" description="Related to displayed price"/>
+<ValidValue value="1" description=" Related to market price"/>
+<ValidValue value="2" description="Related to primary price"/>
+<ValidValue value="3" description="Related to local primary price"/>
+<ValidValue value="4" description="Related to midpoint price"/>
+<ValidValue value="5" description="Related to last trade price"/>
+</Field>
+
+<Field tagNumber="389" tagName="DiscretionOffset" dataType="PriceOffset">
+<Comment>Amount (signed) added to the "related to" price specified via DiscretionInst.
+</Comment>
+</Field>
+
+<Field tagNumber="390" tagName="BidID" dataType="String">
+<Comment>Unique identifier for Bid Response as assigned by broker. Uniqueness must be 
+guaranteed within a single trading day.
+</Comment>
+</Field>
+
+<Field tagNumber="391" tagName="ClientBidID" dataType="String">
+<Comment>Unique identifier for a Bid Request as assigned by institution. 
+Uniqueness must be guaranteed within a single trading day.
+</Comment>
+</Field>
+
+<Field tagNumber="392" tagName="ListName" dataType="String">
+<Comment>Descriptive name for list order.
+</Comment>
+</Field>
+
+<Field tagNumber="393" tagName="TotalNumSecurities" dataType="int">
+<Comment>Total number of securities.
+</Comment>
+</Field>
+
+<Field tagNumber="394" tagName="BidType" dataType="int">
+<Comment>Code to identify the type of Bid Request.
+</Comment>
+<ValidValue value="1" description=" Non Disclosed Style (e.g. US/European)"/>
+<ValidValue value="2" description="Disclosed Style (e.g. Japanese)"/>
+<ValidValue value="3" description="No Bidding Process"/>
+</Field>
+
+<Field tagNumber="395" tagName="NumTickets" dataType="int">
+<Comment>Total number of tickets.
+</Comment>
+</Field>
+
+<Field tagNumber="396" tagName="SideValue1" dataType="Amt">
+<Comment>Amounts in currency
+</Comment>
+</Field>
+
+<Field tagNumber="397" tagName="SideValue2" dataType="Amt">
+<Comment>Amounts in currency
+</Comment>
+</Field>
+
+<Field tagNumber="398" tagName="NoBidDescriptors" dataType="int">
+<Comment>Number of BidDescriptor entries.
+</Comment>
+</Field>
+
+<Field tagNumber="399" tagName="BidDescriptorType" dataType="int">
+<Comment>Code to identify the type of BidDescriptor.
+</Comment>
+<ValidValue value="1" description="Sector"/>
+<ValidValue value="2" description="Country"/>
+<ValidValue value="3" description="Index"/>
+</Field>
+
+<Field tagNumber="400" tagName="BidDescriptor" dataType="String">
+<Comment>BidDescriptor value. Usage depends upon BidDescriptorType.
+If BidDescriptorType =1 
+Industrials etc � Free text
+if BidDescriptorType =2
+"FR" etc � ISO Country Codes
+if BidDescriptorType =3
+FT100, FT250, STOX � Free text
+
+</Comment>
+</Field>
+
+<Field tagNumber="401" tagName="SideValueInd" dataType="int">
+<Comment>Code to identify which "SideValue" the value refers to. SideValue1 and 
+SideValue2 are used as opposed to Buy or Sell so that the basket can be quoted 
+either way as Buy or Sell.
+</Comment>
+<ValidValue value="1" description="SideValue1"/>
+<ValidValue value="2" description="SideValue1"/>
+</Field>
+
+<Field tagNumber="402" tagName="LiquidityPctLow" dataType="float">
+<Comment>Liquidity indicator or lower limit if TotalNumSecurities > 1. Represented as a percentage.
+</Comment>
+</Field>
+
+<Field tagNumber="403" tagName="LiquidityPctHigh" dataType="float">
+<Comment>LiquidityPctHigh
+</Comment>
+</Field>
+
+<Field tagNumber="404" tagName="LiquidityValue" dataType="Amt">
+<Comment>Value between LiquidityPctLow and LiquidityPctHigh in Currency
+</Comment>
+</Field>
+
+<Field tagNumber="405" tagName="EFPTrackingError" dataType="float">
+<Comment>Eg Used in EFP trades 12% (EFP � Exchange for Physical ). Represented as a percentage.
+</Comment>
+</Field>
+
+<Field tagNumber="406" tagName="FairValue" dataType="Amt">
+<Comment>Used in EFP trades
+</Comment>
+</Field>
+
+<Field tagNumber="407" tagName="OutsideIndexPct" dataType="float">
+<Comment>Used in EFP trades. Represented as a percentage.
+</Comment>
+</Field>
+
+<Field tagNumber="408" tagName="ValueOfFutures" dataType="Amt">
+<Comment>Used in EFP trades
+</Comment>
+</Field>
+
+<Field tagNumber="409" tagName="LiquidityIndType" dataType="int">
+<Comment>Code to identify the type of liquidity indicator.
+</Comment>
+<ValidValue value="1" description="5day moving average"/>
+<ValidValue value="2" description="20 day moving average"/>
+<ValidValue value="3" description="Normal Market Size "/>
+<ValidValue value="4" description="Other"/>
+</Field>
+
+<Field tagNumber="410" tagName="WtAverageLiquidity" dataType="float">
+<Comment>Overall weighted average liquidity expressed as a % of average daily volume.
+ Represented as a percentage.
+</Comment>
+</Field>
+
+<Field tagNumber="411" tagName="ExchangeForPhysical" dataType="Boolean">
+<Comment>Indicates whether or not to exchange for phsyical.
+</Comment>
+<ValidValue value="Y" description="True"/>
+<ValidValue value="N" description="False"/>
+</Field>
+
+<Field tagNumber="412" tagName="OutMainCntryUIndex" dataType="Amt">
+<Comment>Value of stocks in Currency
+</Comment>
+</Field>
+
+<Field tagNumber="413" tagName="CrossPercent" dataType="float">
+<Comment>Percentage of program that crosses in Currency. Represented as a percentage.
+</Comment>
+</Field>
+
+<Field tagNumber="414" tagName="ProgRptReqs" dataType="int">
+<Comment>Code to identify the desired frequency of progress reports.
+</Comment>
+<ValidValue value="1" description="BuySide explicitly requests status using StatusRequest (Default)
+ The sell-side firm can however, send a DONE status List Status Response in an unsolicited 
+ fashion"/>
+<ValidValue value="2" description="SellSide periodically sends status using ListStatus. 
+Period optionally specified in ProgressPeriod"/>
+<ValidValue value="3" description="Real-time execution reports (to be discouraged)"/>
+</Field>
+
+<Field tagNumber="415" tagName="ProgPeriodInterval" dataType="int">
+<Comment>Time in minutes between each ListStatus report sent by SellSide. Zero means don�t
+ send status.
+</Comment>
+</Field>
+
+<Field tagNumber="416" tagName="IncTaxInd" dataType="int">
+<Comment>Code to represent whether value is net (inclusive of tax) or gross.
+</Comment>
+<ValidValue value="1" description="Net"/>
+<ValidValue value="2" description="Gross"/>
+</Field>
+
+<Field tagNumber="417" tagName="NumBidders" dataType="int">
+<Comment>Indicates the total number of bidders on the list
+</Comment>
+</Field>
+
+<Field tagNumber="418" tagName="TradeType" dataType="char">
+<Comment>Code to represent the type of trade
+</Comment>
+<ValidValue value="R" description="Risk Trade"/>
+<ValidValue value="G" description="VWAP Guarantee"/>
+<ValidValue value="A" description="Agency"/>
+<ValidValue value="G" description="Guaranteed Close"/>
+</Field>
+
+<Field tagNumber="419" tagName="BasisPxType" dataType="char">
+<Comment>Code to represent the basis price type.
+</Comment>
+
+<ValidValue value="2" description="Closing Price at morning session"/>
+<ValidValue value="3" description="Closing Price"/>
+<ValidValue value="4" description="Current price "/>
+<ValidValue value="5" description="SQ"/>
+<ValidValue value="6" description="VWAP through a day"/>
+<ValidValue value="7" description="VWAP through a morning session"/>
+<ValidValue value="8" description="VWAP through an afternoon session"/>
+<ValidValue value="9" description="VWAP through a day except YORI"/>
+<ValidValue value="A" description="VWAP through a morning session except YORI"/>
+<ValidValue value="B" description="VWAP through an afternoon session except YORI"/>
+<ValidValue value="C" description="Strike"/>
+<ValidValue value="D" description="Open"/>
+<ValidValue value="Z" description="Others"/>
+</Field>
+
+<Field tagNumber="420" tagName="NoBidComponents" dataType="int">
+<Comment>Indicates the number of list entries.
+</Comment>
+</Field>
+
+<Field tagNumber="421" tagName="Country" dataType="String">
+<Comment>ISO Country Code in field
+</Comment>
+</Field>
+
+<Field tagNumber="422" tagName="TotNoStrikes" dataType="int">
+<Comment>Total number of strike price entries across all messages. Should be the sum of 
+all NoStrikes in each message that has repeating strike price entries related to the same 
+ListID. Used to support fragmentation.
+</Comment>
+</Field>
+
+<Field tagNumber="423" tagName="PriceType" dataType="int">
+<Comment>Code to represent the price type.
+</Comment>
+<ValidValue value="1" description="Percentage"/>
+<ValidValue value="2" description="per share (e.g. cents per share)"/>
+<ValidValue value="3" description="Fixed Amount (absolute value)"/>
+</Field>
+
+<Field tagNumber="424" tagName="DayOrderQty" dataType="Qty">
+<Comment>For GT orders, the OrderQty less all shares (adjusted for stock splits) 
+that traded on previous days. DayOrderQty = OrderQty � (CumQty - DayCumQty)
+</Comment>
+</Field>
+
+<Field tagNumber="425" tagName="DayCumQty" dataType="Qty">
+<Comment>The number of shares on a GT order that have traded today.
+</Comment>
+</Field>
+
+<Field tagNumber="426" tagName="DayAvgPx" dataType="Price">
+<Comment>Used in EFP trades
+</Comment>
+</Field>
+
+<Field tagNumber="427" tagName="GTBookingInst" dataType="int">
+<Comment>Code to identify whether to book out executions on a part-filled GT order
+ on the day of execution or to accumulate.
+</Comment>
+<ValidValue value="0" description="book out all trades on day of execution"/>
+<ValidValue value="1" description="accumulate executions until order is filled or expires "/>
+<ValidValue value="2" description="accumulate until verbally notified otherwise"/>
+</Field>
+
+<Field tagNumber="428" tagName="NoStrikes" dataType="int">
+<Comment>Number of list strike price entries.
+</Comment>
+</Field>
+
+<Field tagNumber="429" tagName="ListStatusType" dataType="int">
+<Comment>Code to represent the price type.
+</Comment>
+<ValidValue value="1" description="Ack"/>
+<ValidValue value="2" description="Response"/>
+<ValidValue value="3" description="Timed"/>
+<ValidValue value="4" description="ExecStarted"/>
+<ValidValue value="5" description="AllDone"/>
+<ValidValue value="6" description="Alert"/>
+</Field>
+
+<Field tagNumber="430" tagName="NetGrossInd" dataType="int">
+<Comment>Code to represent whether value is net (inclusive of tax) or gross.
+</Comment>
+<ValidValue value="1" description="Net"/>
+<ValidValue value="2" description="Gross"/>
+</Field>
+
+<Field tagNumber="431" tagName="ListOrderStatus" dataType="int">
+<Comment>Code to represent the status of a list order.
+</Comment>
+<ValidValue value="1" description="InBiddingProcess"/>
+<ValidValue value="2" description="ReceivedForExecution"/>
+<ValidValue value="3" description="Executing"/>
+<ValidValue value="4" description="Canceling"/>
+<ValidValue value="5" description="Alert"/>
+<ValidValue value="6" description="All Done"/>
+<ValidValue value="7" description="Reject"/>
+</Field>
+
+<Field tagNumber="432" tagName="ExpireDate" dataType="LocalMktDate">
+<Comment>Date of order expiration (last day the order can trade), always expressed in terms of the local market date. The time at which the order expires is determined by the local market�s business practices
+</Comment>
+</Field>
+
+<Field tagNumber="433" tagName="ListExecInstType" dataType="char">
+<Comment>Identifies the type of ListExecInst.
+</Comment>
+<ValidValue value="1" description="Immediate"/>
+<ValidValue value="2" description="Wait for Execute Instruction (e.g. a List Execute message or 
+phone call before proceeding with execution of the list) "/>
+</Field>
+
+<Field tagNumber="434" tagName="CxlRejResponseTo" dataType="char">
+<Comment>Identifies the type of request that a Cancel Reject is in response to.
+</Comment>
+<ValidValue value="1" description="Order Cancel Request"/>
+<ValidValue value="2" description="Order Cancel Request"/>
+</Field>
+
+<Field tagNumber="435" tagName="UnderlyingCouponRate" dataType="float">
+<Comment>Underlying security�s CouponRate.
+See CouponRate field for description
+</Comment>
+</Field>
+
+<Field tagNumber="436" tagName="UnderlyingContractMultiplier" dataType="float">
+<Comment>Underlying security�s ContractMultiplier.
+See ContractMultiplier field for description
+</Comment>
+</Field>
+
+<Field tagNumber="437" tagName="ContraTradeQty" dataType="Qty">
+<Comment>Quantity traded with the ContraBroker.
+</Comment>
+</Field>
+
+<Field tagNumber="438" tagName="ContraTradeTime" dataType="UTCTimestamp">
+<Comment>Identifes the time of the trade with the ContraBroker. (always expressed in UTC 
+(Universal Time Coordinated, also known as "GMT")
+</Comment>
+</Field>
+
+<Field tagNumber="439" tagName="ClearingFirm" dataType="String">
+<Comment>Firm that will clear the trade. Used if different from the executing firm.
+</Comment>
+</Field>
+
+<Field tagNumber="440" tagName="ClearingAccount" dataType="String">
+<Comment>Supplemental accounting information forwared to clearing house/firm.
+</Comment>
+</Field>
+
+<Field tagNumber="441" tagName="LiquidityNumSecurities" dataType="int">
+<Comment>Number of Securites between LiquidityPctLow and LiquidityPctHigh in Currency.
+</Comment>
+</Field>
+
+<Field tagNumber="442" tagName="MultiLegReportingType" dataType="char">
+<Comment>Used to indicate what an Execution Report represents (e.g. used with multi-leg 
+securiteis, such as option strategies, spreads, etc.).
+</Comment>
+<ValidValue value="1" description="Single Security (default if not specified)"/>
+<ValidValue value="2" description="Individual leg of a multi-leg security"/>
+<ValidValue value="3" description="Multi-leg security"/>
+</Field>
+
+<Field tagNumber="443" tagName="StrikeTime" dataType="UTCTimestamp">
+<Comment>The time at which current market prices are used to determine the value of a basket.
+</Comment>
+<ValidValue value="1" description="Immediate"/>
+<ValidValue value="2" description="Wait for Execute Instruction (e.g. a List Execute message or 
+phone call before proceeding with execution of the list) "/>
+</Field>
+
+<Field tagNumber="444" tagName="ListStatusText" dataType="String">
+<Comment>Free format text string related to List Status
+</Comment>
+</Field>
+
+<Field tagNumber="445" tagName="EncodedListStatusTextLen" dataType="int">
+<Comment>Byte length of encoded (non-ASCII characters) EncodedListStatusText field.
+</Comment>
+</Field>
+
+<Field tagNumber="446" tagName="EncodedListStatusText" dataType="data">
+<Comment>Encoded (non-ASCII characters) representation of the ListStatusText field in the 
+encoded format specified via the MessageEncoding field. If used, the ASCII (English) 
+representation should also be specified in the ListStatusText field.
+</Comment>
+</Field>
+
+</FixFields>

@@ -1,0 +1,133 @@
+<FixDataTypes>
+	
+<FixDataType  dataType="int">
+<Comment>Sequence of digits without comas or decimals and optional
+sign character( ASCII characters "-" and "0" - "9". The sign
+character utilizes one byte ( i.e. positive int is "99999" while
+negative int is "-99999").</Comment>
+<CustomComment>This is not necessary at CME</CustomComment>
+</FixDataType>
+
+
+<FixDataType  dataType="float">
+<Comment>Sequence of digits with optional  decimals and 
+sign character( ASCII characters "-" and "0" - "9" and ".". The sign
+character utilizes one byte ( i.e. positive int is "99999" while
+negative int is "-99999").
+</Comment>
+</FixDataType>
+
+<FixDataType  dataType="Qty">
+<Comment>float field  capable of storing 
+either a whole number (no decimal places) of "shares" or a decimal value 
+containing decimal places for non-share quantity asset classes.
+</Comment>
+</FixDataType>
+
+<FixDataType  dataType="Price">
+<Comment>float field  representing a price. Note the number of decimal 
+places may vary.
+</Comment>
+</FixDataType>
+
+<FixDataType  dataType="PriceOffset">
+<Comment>float field  representing a price
+ offset, which can be mathematically added to a "Price". Note the number of
+  decimal places may vary and some fields such as LastForwardPoints may be negative.
+  </Comment>
+</FixDataType>
+
+<FixDataType  dataType="Amt">
+<Comment>float field typically representing a Price times a Qty.
+</Comment>
+</FixDataType>
+
+<FixDataType  dataType="char">
+<Comment>Single character value, can include any alphanumeric character
+or punctuation except the delimiter. All char fields are case sensitive 
+(i.e. m � M).
+</Comment>
+</FixDataType>
+
+<FixDataType  dataType="Boolean">
+<Comment>a char field  containing one of 
+two values. 'Y' = True/Yes 'N' = False/No
+</Comment>
+</FixDataType>
+
+<FixDataType  dataType="String">
+<Comment>Alpha-numeric free format strings, can include any character or 
+punctuation except the delimiter. All char fields are case sensitive
+(i.e. morstatt � Morstatt).
+</Comment>
+</FixDataType>
+
+<FixDataType  dataType="MultipleValueString">
+<Comment> String field  containing one or more space delimited values.
+</Comment>
+</FixDataType>
+
+<FixDataType  dataType="Currency">
+<Comment>String field representing a currency type.
+</Comment>
+</FixDataType>
+
+<FixDataType  dataType="Exchange">
+<Comment>String field representing a market or exchange.
+</Comment>
+</FixDataType>
+
+<FixDataType  dataType="UTCTimestamp">
+<Comment>Time/date combination represented in UTC (Universal Time Coordinated,
+also known as GMT) in either YYYYMMDD-HH:MM:SS (whole seconds) or 
+YYYYMMDD-HH:MM:SS.sss (milliseconds) format, colons, dash, and period required. 
+Valid values: 
+ YYYY = 0000-9999, MM = 01-12, DD = 01-31, HH = 00-23, MM = 00-59, SS = 00-60
+ (60 only if UTC leap second) (without milliseconds).
+ YYYY = 0000-9999, MM = 01-12, DD = 01-31, HH = 00-23, MM = 00-59, SS = 00-60 
+ (60 only if UTC leap second), sss=000-999 (indicating milliseconds).
+ </Comment>
+</FixDataType>
+
+<FixDataType  dataType="UTCTimeOnly">
+<Comment>Time-only represented in UTC (Universal Time Coordinated, also known as GMT)
+ in either HH:MM:SS (whole seconds) or HH:MM:SS.sss (milliseconds) format, colons, and
+ period required. Valid values: 
+ HH = 00-23, MM = 00-60 (60 only if UTC leap second), SS = 00-59. (without milliseconds)
+ HH = 00-23, MM = 00-59, SS = 00-60 (60 only if UTC leap second), sss=000-999 (indicating milliseconds).
+ </Comment>
+</FixDataType>
+
+<FixDataType  dataType="LocalMktDate">
+<Comment>Date of Local Market (vs. UTC) in YYYYMMDD format. Valid values: 
+YYYY = 0000-9999, MM = 01-12, DD = 01-31.
+</Comment>
+</FixDataType>
+
+<FixDataType  dataType="UTCDate">
+<Comment>Date represented in UTC (Universal Time Coordinated, also known as GMT)
+ in YYYYMMDD format. Valid values: YYYY = 0000-9999, MM = 01-12, DD = 01-31.
+</Comment>
+</FixDataType>
+
+<FixDataType  dataType="data">
+<Comment>Raw data with no format or content restrictions. Data fields
+are always immediately preceded by a length field. The length field
+should specify the number of bytes of the value of the data field 
+(up to but not including the terminating SOH). Caution: the value 
+of one of these fields may contain the delimiter (SOH)
+character. Note that the value specified for this field should be
+followed by the delimiter (SOH) character as all fields are terminated 
+with an SOH.</Comment>
+</FixDataType>
+
+<FixDataType  dataType="month-year">
+<Comment>char field representing month of a year in YYYYMM format.
+Valid values: YYYY = 0000-9999, MM = 01-12.</Comment>
+</FixDataType>
+
+<FixDataType  dataType="day-of-month">
+<Comment>int field representing a particular day of a month.
+ Valid values: 1-31.</Comment>
+</FixDataType> -->
+</FixDataTypes>

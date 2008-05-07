@@ -1,0 +1,11 @@
+<FixTools>
+	
+<User id="kreddy" name="Kireeti Reddy" password="kreddy"/>
+<User id="admin" name="Administrator" password="admin"/>
+
+<tif value="DAY" description="Day" fixvalue="1" />
+<tif value="GTC" description="Good Till Cancel" fixvalue="2" />
+
+<ordertype value="LMT" description="Limit" fixvalue="2"/>
+
+</FixTools>

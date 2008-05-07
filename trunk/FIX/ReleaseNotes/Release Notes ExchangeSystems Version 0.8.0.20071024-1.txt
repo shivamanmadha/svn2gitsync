@@ -1,0 +1,14 @@
+New Features:
+-------------
+*
+
+Bugs fixed
+----------
+* Rows are automatically refreshed when you send BUY and SELL orders at the same price.
+* changeStatus() method modified.
+* updating the row, when ACCEPTED response is received.
+
+
+Known Limitations:
+------------------
+* 

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" creationComplete="getFixCodes()"> 
+
+	<mx:Style source="styles.css"/>
+
+	<mx:Script>
+    	<![CDATA[
+       		import flash.net.navigateToURL;
+	        import mx.controls.Alert;
+	        import mx.rpc.events.FaultEvent;
+	        import mx.rpc.events.ResultEvent;
+	        import mx.graphics.ImageSnapshot;
+
+        	import mx.controls.Alert;
+            import mx.rpc.events.FaultEvent;
+            import mx.collections.ArrayCollection;
+            import flash.events.MouseEvent;
+            import mx.rpc.AsyncToken;
+            import mx.data.*;
+            import ExchangeDB.*;
+            
+			[Bindable]
+            private var fixcodeCategory:FixCodeCategory;
+            
+            [Bindable]
+	        public var tableImage:String;
+
+            private function getFixCodes():void {
+            	currentState='';
+                hibernate.fill(myArray,"all.fixcodecategory",[]);                      
+			}
+                     
+            private function handleFault(event:FaultEvent):void {
+            	mx.controls.Alert.show(event.message.toString());                            
+            }
+            
+            private function exportCSV ():void
+			{
+				console.text = DataGridDataExporter.exportCSV (dgrid);
+			}
+			
+			private function generatePDF():void
+	        {
+	            var snapshot:ImageSnapshot = ImageSnapshot.captureImage(dgrid);
+	            tableImage = ImageSnapshot.encodeImageAsBase64(snapshot);
+
+	            service.generatePDF(xmlModel);
+	        }
+	
+	        private function resultHandler(event:ResultEvent):void 
+	        {
+	            var url:String = event.result as String;
+	            navigateToURL(new URLRequest(url), "_blank");
+	        }
+	
+	        private function faultHandler(event:FaultEvent):void 
+	        {
+	            Alert.show(event.fault.toString(), "Error");
+	        }
+         ]]>
+    </mx:Script>
+    
+    <mx:XML id="xmlModel">
+        <CompanyReport>
+            <BalanceSheetImage>{tableImage}</BalanceSheetImage>
+        </CompanyReport>
+    </mx:XML>
+
+	<mx:RemoteObject id="service" destination="PDFService" 
+        fault="faultHandler(event)"
+        result="resultHandler(event)" />
+	
+    <mx:DataService id="hibernate" destination="fixcodeCategory.hibernate" fault="handleFault(event)" autoCommit="true" />
+    <mx:ArrayCollection id="myArray" />
+    <mx:VBox width="100%" height="100%" y="10" x="10">
+	  <mx:ApplicationControlBar id="app" width="100%" borderColor="#408080" fillColors="[#408080, #408080]" fillAlphas="[0.53, 0.53]" autoLayout="true">
+		<mx:Text id="txt" text="Order Management Console" fontSize="26" fontWeight="bold" fontStyle="italic" themeColor="#ff8000" alpha="0.52"/>
+	  </mx:ApplicationControlBar>
+	  <mx:HBox x="10" y="10" width="100%" height="100%" id="hbox1">
+	  <mx:Panel  id="listOrderPanel" width="100%" height="100%" layout="vertical" title="Fix COde List" cornerRadius="8" borderColor="#408080" fontSize="13" >
+
+	    <mx:DataGrid id="dgrid" dataProvider="{myArray}" editable="false" width="100%" height="100%" bottom="0" right="0">
+	      <mx:columns>
+			<mx:DataGridColumn resizable="false" headerText="Category ID" dataField="id"/>      
+			<mx:DataGridColumn resizable="false" headerText="Description" dataField="description"/>
+			<mx:DataGridColumn resizable="false" headerText="Created By" dataField="createdBy"/>
+			<mx:DataGridColumn resizable="false" headerText="Creation Date" dataField="creationDate"/>
+			<mx:DataGridColumn resizable="false" headerText="Last Modified BY" dataField="lastModifiedBy"/>
+			<mx:DataGridColumn resizable="false" headerText="Last Modified Date" dataField="lastModifiedDate"/>
+		  </mx:columns>
+	    </mx:DataGrid>
+	    <mx:HBox x="10" y="10" width="100%" >
+	    	<mx:Button label="Export CSV" click="exportCSV ()"/>
+		    <mx:Button label="Create PDF" click="generatePDF()" />
+		</mx:HBox>
+	    <mx:TextArea id="console" width="100%" height="100%" />
+	  </mx:Panel>
+	</mx:HBox>
+  </mx:VBox> 
+	
+</mx:Application>

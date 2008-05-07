@@ -1,0 +1,22 @@
+<!DOCTYPE hibernate-mapping PUBLIC
+              "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">        <hibernate-mapping>
+           <class name="ExchangeDB.FixCodeCategory" table="fixcodecategory">
+                     <id name="id" column="CATEGORYID">
+                     <generator class="native"/>
+                     </id>
+                     <property name="description"/>
+						
+					 <property name="createdBy"/>
+						
+					 <property name="creationDate"/>
+						
+					 <property name="lastModifiedBy"/>
+						
+					 <property name="lastModifiedDate"/>
+						
+					 
+            </class>
+       <!-- This is a named query that we will use later -->    
+       <query name="all.fixcodecategory">From FixCodeCategory</query>
+</hibernate-mapping> 
