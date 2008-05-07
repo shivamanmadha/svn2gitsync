@@ -1,1 +1,0 @@
-start java com.exsys.orderentry.QuoteWindow -config c:\fixtest\server\config\quotewindow.cfg

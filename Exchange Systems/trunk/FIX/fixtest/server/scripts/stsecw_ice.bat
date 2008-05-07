@@ -1,1 +1,0 @@
-start java com.exsys.orderentry.ICESecuritiesWindow -config c:\fixtest\server\config\secwin-ice.cfg

@@ -1,1 +1,0 @@
-start java com.exsys.orderentry.MatchEngine -config c:\fixtest\server\config\matchengine.cfg
