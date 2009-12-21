@@ -13,11 +13,13 @@ import com.exsys.common.trading.*;
 import com.exsys.fix.tools.*;
 import com.exsys.fix.message.*;
 import com.exsys.common.util.*;
+import com.exsys.orderentry.FixLogWriter;
 import com.exsys.orderentry.TraderWindow;
 
 public class OrderWindow implements ActionListener
 {
   private TradeMessageProcessor mTrdWin = null;
+  
   private String mTargetCompID;
   private String mSenderCompID;
   private String mSenderSubID;
@@ -104,6 +106,21 @@ public class OrderWindow implements ActionListener
     idGen = FixUniqueIdGen.getInstance(idFile);
     isFX = fx;
   }
+  
+  public OrderWindow(String targetCompID, String SenderCompID, String SenderSubID, String UserName, TradeMessageProcessor trdwin,
+          String idFile, String exchange, boolean fx, FixLogWriter writer) throws Exception
+  {
+	super();
+	mTargetCompID = targetCompID;
+	mSenderCompID = SenderCompID;
+	mSenderSubID = SenderSubID;
+	mUserName = UserName;
+	mTrdWin = trdwin;
+	mExchange = exchange;
+	idGen = FixUniqueIdGen.getInstance(idFile);
+	isFX = fx;
+  }
+  
   // ========================================================================
   // ========================================================================
   public void actionPerformed(ActionEvent e)
@@ -527,7 +544,10 @@ public class OrderWindow implements ActionListener
 
     // ICE has some account fields, that may have to be taken care of???
     System.out.println("quantity"+order.getOrderQtyAsString());
-    if(mTrdWin != null) mTrdWin.processOrder(order);
+    if(mTrdWin != null) { 
+    	mTrdWin.processOrder(order);
+    	TraderWindow.logWriter.logInFixMessage(order);
+    }
   }
   // ========================================================================
   // ========================================================================

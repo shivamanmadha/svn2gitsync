@@ -31,9 +31,12 @@ public class TraderWindow
   {
     super(args);
     processConfig();
-    initializeSession(); // initialize jms session -- do this first...
+//    initializeSession(); // initialize jms session -- do this first...
     createWindows();
-    restoreFromFix();
+//    restoreFromFix();
+    
+    logWriter = new FixLogWriter(mSenderCompID);
+    logWriter.setLogDirectory(logFileDirectory);
 
     mTheFrame = new JFrame("Trading Window");
     mTheFrame.addWindowListener(new WindowAdapter() {
@@ -115,6 +118,8 @@ public class TraderWindow
   // ========================================================================
   public void processExecutionReport(FixExecutionReport response)
   {
+	response.setSenderCompID("SAVENTEST");
+	logWriter.logInFixMessage(response);
     System.out.println("processExecutionReport"+response.getExecType());
     boolean validRespType = true;
     boolean targetFound = false;
@@ -1708,7 +1713,11 @@ public class TraderWindow
       mOFMOverrideFlag = ConfigurationService.getValue(OrderEntryConstants.TRADEWINDOW_OFM_OVERRIDE_FLAG);
       System.out.println("OFM Override Flag is " + mOFMOverrideFlag );
       mExchange = ConfigurationService.getValue("Exchange");
-      Logger.debug("Exchange is " + mExchange ); 
+      logFileDirectory = ConfigurationService.getValue(ConfigConstants.FIXCOMMON_LOG_FILE_DIRECTORY);
+      System.out.println("Log File Directory is " + logFileDirectory );
+      Logger.debug("Exchange is " + mExchange );
+      fixVersion = ConfigurationService.getValue(ConfigConstants.FIXCOMMON_FIX_VERSION);
+      System.out.println("FixVersion is " + fixVersion );
       if(mExchange.equals("ICE"))
       {
    		mSenderSubID = ConfigurationService.getValue(OrderEntryConstants.JMSORDERENTRY_SENDER_SUB_ID);
@@ -1854,6 +1863,8 @@ public class TraderWindow
   private String mUniqueIDFile = null;
   private String mOFMOverrideFlag = null;
   private String mExchange = null;
+  private String logFileDirectory = null;
+  public static FixLogWriter logWriter = null;
   private TradingSessionManager mSessionMgr = null;
   private SecuritiesSessionManager mSecSessionMgr = null;
   private SDResponseHandler sdRespHandler = null;
@@ -1873,6 +1884,7 @@ public class TraderWindow
   private String mNewsSubject = null;
   private NewsWindow mNewsWindow = null; 
 
+  public static String fixVersion = null;
   private final static String tagORDER = "Order";
   private final static String tagCXLCR = "Cancel/Replace";
   private final static String tagDETAIL = "Detail";
