@@ -359,7 +359,10 @@ public class CxlCRWindow implements ActionListener
 				cxr.setMaturityDay(mWorkingOrder.getExpDay());
 	}
         
-    if(mTrdWin != null) mTrdWin.processCancelReplace(cxr);
+    if(mTrdWin != null) {
+    	mTrdWin.processCancelReplace(cxr);
+    	TraderWindow.logWriter.logInFixMessage(cxr);
+    }
     mWorkingOrder = null;
     resetOrigFields();
     resetFields();    
@@ -441,7 +444,10 @@ public class CxlCRWindow implements ActionListener
     //cxl.setSubject("TRADE.REQ.CXL");
    
     
-    if(mTrdWin != null) mTrdWin.processCancel(cxl);
+    if(mTrdWin != null) { 
+    	mTrdWin.processCancel(cxl);
+    	TraderWindow.logWriter.logInFixMessage(cxl);
+    }
     mWorkingOrder = null;
     resetOrigFields();
     resetFields();
@@ -484,7 +490,10 @@ public class CxlCRWindow implements ActionListener
 	if(!mExchange.equals("FIX"))
 	stat.setCorrelationClOrdID(mWorkingOrder.getCorrelationClientOrderId());
             
-    if(mTrdWin != null) mTrdWin.processStatusRequest(stat);
+    if(mTrdWin != null) { 
+    	mTrdWin.processStatusRequest(stat);
+ //   	TraderWindow.logWriter.logInFixMessage(stat);
+    }
 
     mWorkingOrder = null;
     resetOrigFields();
