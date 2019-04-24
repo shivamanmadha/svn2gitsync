@@ -1,0 +1,14 @@
+[core]
+	repositoryformatversion = 0
+	filemode = false
+	bare = false
+	logallrefupdates = true
+	symlinks = false
+	ignorecase = true
+[svn-remote "svn"]
+	url = http://subversion.saventech.in/svn/Exchange-Systems
+	fetch = trunk/UI/trunk:refs/remotes/origin/trunk
+	branches = trunk/UI/branches/*:refs/remotes/origin/*
+	tags = trunk/UI/tags/*:refs/remotes/origin/tags/*
+[svn]
+	authorsfile = F:/Exchange/trunk/UI

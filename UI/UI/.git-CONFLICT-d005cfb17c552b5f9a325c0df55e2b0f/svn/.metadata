@@ -1,0 +1,7 @@
+; This file is used internally by git-svn
+; You should not have to edit it
+[svn-remote "svn"]
+	reposRoot = http://subversion.saventech.in/svn/Exchange-Systems
+	uuid = 192ead6a-57a6-4b08-859c-5bcbd67a96b0
+	branches-maxRev = 1664
+	tags-maxRev = 1664
